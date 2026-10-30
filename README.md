@@ -30,7 +30,7 @@ python3 tools/build.py
 | Path | What it is |
 |---|---|
 | `src/page.html` | markup, styles and page script |
-| `assets/` | photos, project clip, icons, favicon |
+| `assets/` | photos, project clip, icons, favicon, `og-image.jpg` (1200×630 social preview) |
 | `source/brand/` | original logo and icon SVGs (gold) |
 | `wrangler.jsonc` | Cloudflare Workers static-assets config |
 
