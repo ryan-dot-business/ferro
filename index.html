@@ -108,22 +108,21 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .pane.active{opacity:1;pointer-events:auto;--dx:0px;transition:opacity .3s var(--ease) .07s,transform .44s var(--ease)}
 .pane.snap{transition:none}
 
-.svc{display:flex;gap:10px;padding:24px 40px 24px 25px}
-.svc a.svc-feature,.svc a.svc-row{display:flex}
-.svc-feature{display:flex;flex-direction:column;gap:10px;width:179px}
+/* Services: three flat tinted tiles; the whole tile is the link */
+.svc{display:flex;gap:10px;padding:24px 24px 24px 25px}
+.svc a{background:var(--tint);transition:background .3s var(--ease)}
+.svc a:hover,.svc a:focus-visible{background:var(--tint-2)}
+.svc-feature{display:flex;flex-direction:column;align-items:center;justify-content:space-between;width:179px;padding:47px 11px 35px;text-align:center}
+.svc-feature img{display:block;width:157px;height:73px;object-fit:cover;object-position:50% 70%;transition:transform .7s var(--ease)}
+.svc-feature:hover img{transform:scale(1.04)}
+.svc-col{display:flex;flex-direction:column;gap:10px;width:213px;height:205px}
+.svc-row{flex:1;display:flex;align-items:center;padding-right:12px;min-height:0}
+.svc-row .ico{width:80px;align-self:stretch;flex:none;display:grid;place-items:center;color:var(--navy-800)}
+.svc-row .ico .mask{transition:transform .5s var(--ease)}
+.svc-row:hover .ico .mask{transform:scale(1.06)}
 .tile{border-radius:10px;background:var(--tint);transition:background .3s var(--ease)}
-.svc-feature .tile{height:169px;display:grid;place-items:center;overflow:hidden}
-.svc-feature .tile img{width:165px;height:77px;object-fit:cover;transition:transform .7s var(--ease)}
 .tile.ico{display:grid;place-items:center;color:var(--navy-800)}
-.tile.ico .mask{width:34px;height:32px;transition:transform .5s var(--ease)}
-.svc-row:hover .tile.ico .mask{transform:scale(1.06)}
-.svc a:hover .tile{background:var(--tint-2)}
-.svc a:hover .tile img{transform:scale(1.04)}
 .svc-label{font-weight:700;font-size:12px;line-height:1.1;letter-spacing:-.02em;color:#000}
-.svc-col{display:flex;flex-direction:column;gap:10px}
-.svc-row{display:flex;align-items:center;gap:10px}
-.svc-row .tile{width:80px;height:80px;flex:none}
-.svc-row .svc-label{transition:transform .35s var(--ease)}
 
 
 .prj{display:flex;gap:32px;width:906px;height:269px;padding:24px 0 0 25px}
@@ -146,6 +145,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .list a:is(:hover,:focus-visible)::after{opacity:1;transform:none}
 .svc-label::after{content:"";display:inline-block;width:11px;height:11px;margin-left:6px;vertical-align:-1px;background:currentColor;-webkit-mask:var(--arrow) no-repeat center/contain;mask:var(--arrow) no-repeat center/contain;opacity:0;transform:translateX(-6px);transition:opacity .2s var(--ease),transform .35s var(--ease)}
 .svc a:is(:hover,:focus-visible) .svc-label::after{opacity:1;transform:none}
+/* keep the centred label centred: the arrow hangs past the line instead of taking space */
+.svc-feature .svc-label::after{margin-right:-17px}
 .featured{width:173px;height:100%;padding-bottom:12px;justify-content:flex-start}
 .featured .all{margin-top:auto;align-self:flex-start}
 .divider{width:1px;height:235px;background:var(--hair)}
@@ -341,12 +342,12 @@ footer a:hover{background:var(--tint)}
       <div class="pane" data-pane="services">
         <div class="svc">
           <a class="svc-feature" href="#core">
-            <div class="tile"><img src="assets/nav-peb.png" width="165" height="77" alt=""></div>
+            <img src="assets/nav-peb.png" width="157" height="73" alt="">
             <span class="svc-label">Pre-Engineered<br>Steel Buildings</span>
           </a>
           <div class="svc-col">
-            <a class="svc-row" href="#specialize"><div class="tile ico"><span class="mask" style="--m:url(assets/icon-integrated.svg)"></span></div><span class="svc-label">Integrated<br>Systems</span></a>
-            <a class="svc-row" href="#strategize"><div class="tile ico"><span class="mask" style="--m:url(assets/icon-precon.svg)"></span></div><span class="svc-label">Pre-Construction<br>Services</span></a>
+            <a class="svc-row" href="#specialize"><span class="ico"><span class="mask" style="--m:url(assets/icon-integrated.svg);width:35px;height:26px"></span></span><span class="svc-label">Integrated<br>Systems</span></a>
+            <a class="svc-row" href="#strategize"><span class="ico"><span class="mask" style="--m:url(assets/icon-precon.svg);width:31px;height:30px"></span></span><span class="svc-label">Pre-Construction<br>Services</span></a>
           </div>
         </div>
       </div>
