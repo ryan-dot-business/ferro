@@ -86,7 +86,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .pane.snap{transition:none}
 
 /* Services: three flat tinted tiles; the whole tile is the link */
-.svc{display:flex;gap:10px;padding:24px 24px 24px 25px}
+.svc{display:flex;gap:10px;padding:14px 24px 24px}
 .svc a{background:var(--tint);transition:background .3s var(--ease)}
 .svc a:hover,.svc a:focus-visible{background:var(--tint-2)}
 .svc-feature{display:flex;flex-direction:column;align-items:center;justify-content:space-between;width:179px;padding:47px 11px 35px;text-align:center}
@@ -102,21 +102,21 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .svc-label{font-weight:700;font-size:12px;line-height:1.1;letter-spacing:-.02em;color:#000}
 
 
-.prj{display:flex;gap:32px;width:906px;height:269px;padding:24px 0 0 25px}
+.prj{display:flex;align-items:flex-start;width:906px;padding:10px 0 24px 24px}
 .prj.co{width:556px}
-.prj.co .featured{width:150px}
-.prj-left{display:flex;gap:7px;height:233px}
-.prj-photo{position:relative;width:348px;height:221px;overflow:hidden;background:#cdd8ea}
+.prj-left{flex:1;display:flex;gap:7px;align-self:stretch;min-width:0}
+.prj-photo{position:relative;width:348px;align-self:stretch;flex:none;overflow:hidden;background:#cdd8ea}
 .prj-photo .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity .5s var(--ease),transform 1.2s var(--ease)}
 .prj-photo .shot.active{opacity:1;transform:none}
 .caret-rail{position:relative;width:12px}
-.caret{position:absolute;left:0;top:0;width:12px;height:12px;transform:translateY(27px);transition:transform .38s var(--ease)}
+.caret{position:absolute;left:0;top:0;width:12px;height:12px;transform:translateY(37px);transition:transform .38s var(--ease)}
 .caret svg{display:block}
-.list{display:flex;flex-direction:column;gap:8px}
-.list h4{margin:0;font-weight:600;font-size:12px;letter-spacing:-.02em;color:var(--muted)}
-.list ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
-.list a{font-weight:700;font-size:14px;letter-spacing:-.02em;color:#000;display:inline-block;transition:color .25s var(--ease),transform .35s var(--ease)}
-.list a::after{content:"";display:inline-block;width:13px;height:13px;margin-left:7px;vertical-align:-1px;background:currentColor;
+/* list rows are full-width hit areas (6px above and below); the hover arrow sits at the row's right edge */
+.list{display:flex;flex-direction:column;gap:4px;padding-top:8px;min-width:0}
+.list h4{margin:0;font-weight:600;font-size:12px;letter-spacing:-.02em;color:rgba(0,0,0,.4)}
+.list ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.list a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 0;font-weight:700;font-size:14px;line-height:17px;letter-spacing:-.02em;color:#000}
+.list a::after{content:"";flex:none;width:14px;height:14px;background:currentColor;
   -webkit-mask:var(--arrow) no-repeat center/contain;mask:var(--arrow) no-repeat center/contain;
   opacity:0;transform:translateX(-6px);transition:opacity .2s var(--ease),transform .35s var(--ease)}
 .list a:is(:hover,:focus-visible)::after{opacity:1;transform:none}
@@ -124,10 +124,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .svc a:is(:hover,:focus-visible) .svc-label::after{opacity:1;transform:none}
 /* keep the centred label centred: the arrow hangs past the line instead of taking space */
 .svc-feature .svc-label::after{margin-right:-17px}
-.featured{width:173px;height:100%;padding-bottom:12px;justify-content:flex-start}
-.featured .all{margin-top:auto;align-self:flex-start}
-.divider{width:1px;height:235px;background:var(--hair)}
-.sectors-list{flex:1}
+.featured{flex:1;padding-right:20px}
+.featured ul::after{content:"";display:block;height:30px}
+.co .featured ul::after{display:none}
+.prj-photo{min-height:221px}
+.divider{width:2px;height:202px;flex:none;align-self:flex-end;background:var(--hair)}
+.sectors-list{width:279px;flex:none;padding:8px 24px 0}
 
 /* ---------- page ---------- */
 main{display:flex;flex-direction:column;gap:20px;padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
