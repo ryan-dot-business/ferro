@@ -2,8 +2,18 @@
 
 A build of the Ferro home page from the Figma file "Ferro", with its nav and motion layer.
 
+## Two skins, two URLs
+
+| URL | Skin |
+|---|---|
+| `/` | **Classic**: white header and menus, inset bands with gaps, rounded sector cards |
+| `/navy/` | **Navy**: navy header and menus with gold accents, full-bleed bands, gold-outlined service buttons, square cards |
+
+Clicking the logo swaps skins in place and moves to the other URL, so review tools like markup.io keep each skin's comments separate. Back/forward also switch. On the claude.ai preview the navy skin is `#navy`.
+
 ## What's in it
 
+- **Contact**: the mail icon opens a contact panel with a click-to-copy email, phone and Contact sales button.
 - **Nav**: one dropdown box that reshapes between Services, Projects and Company and cross-fades its content. It hangs seamlessly from the hovered button, with a shadow on three sides. In Projects and Company, a caret tracks the hovered link and the photo swaps; Cloverdale plays a drone clip. Links show an arrow on hover.
 - **Load**: nav items drop in, the hero photo settles from a slight inset, then the headline, subhead and buttons rise in sequence.
 - **Scroll**: the two image bands parallax through their extra height, and the hero copy sinks and fades as it leaves. The services band's columns rise up left to right, and the sector cards and headings rise in.
@@ -21,7 +31,7 @@ python3 -m http.server
 
 ## Edit and rebuild
 
-`index.html` is generated. Edit `src/page.html`, then run:
+`index.html` and `navy/index.html` are generated. Edit `src/page.html`, then run:
 
 ```sh
 python3 tools/build.py
