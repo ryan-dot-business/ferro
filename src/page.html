@@ -120,10 +120,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .contact.open{opacity:1;visibility:visible;clip-path:inset(0 -24px -24px -24px);transition:opacity .12s var(--ease),clip-path .46s var(--ease),visibility 0s}
 .c-row{display:flex;align-items:center;gap:6px;padding:10px 12px;border-radius:5px;font-weight:400;font-size:14px;line-height:18px;letter-spacing:-.02em;color:var(--menu-ink);transition:background .25s var(--ease)}
 .c-row .ic{flex:none;color:var(--menu-icon)}
-.c-email{background:var(--chip);color:var(--chip-ink);text-align:left}
-.c-email:hover{background:var(--chip-2)}
+/* email reads like the phone row at rest; on hover it becomes a chip, dims, and shows the copy icon */
+.c-email{text-align:left}
+.c-email:is(:hover,:focus-visible){background:var(--chip);color:var(--chip-ink)}
 .c-email .c-text{width:175px}
-.c-email .copy{flex:none;width:12px;height:12px;display:grid;place-items:center}
+.c-email .copy{flex:none;width:12px;height:12px;display:grid;place-items:center;opacity:0;transition:opacity .2s var(--ease)}
+.c-email:is(:hover,:focus-visible) .copy,.c-email.copied .copy{opacity:1}
 .c-email .copy svg{grid-area:1/1;transition:opacity .2s var(--ease),transform .3s var(--ease)}
 .c-email .done{opacity:0;transform:scale(.6)}
 .c-email.copied .done{opacity:1;transform:none}
