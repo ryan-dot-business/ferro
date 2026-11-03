@@ -177,7 +177,7 @@ a.c-row:hover{background:var(--chip)}
 .svc-label{font-weight:700;font-size:12px;line-height:1.1;letter-spacing:-.02em;color:var(--menu-ink)}
 
 
-.prj{display:flex;align-items:flex-start;width:906px;padding:var(--menu-pt) 0 24px 24px}
+.prj{display:flex;align-items:stretch;width:906px;padding:var(--menu-pt) 0 24px 24px}
 .prj.co{width:556px}
 .prj-left{flex:1;display:flex;gap:7px;align-self:stretch;min-width:0}
 .prj-photo{position:relative;width:348px;align-self:stretch;flex:none;overflow:hidden;background:#cdd8ea}
@@ -200,8 +200,8 @@ a.c-row:hover{background:var(--chip)}
 /* keep the centred label centred: the arrow hangs past the line instead of taking space */
 .svc-feature .svc-label::after{margin-right:-17px}
 .featured{flex:1;padding-right:20px}
-.featured ul::after{content:"";display:block;height:30px}
-.co .featured ul::after{display:none}
+.featured .all{margin-top:auto}
+.sectors-list{align-self:flex-start}
 .prj-photo{min-height:221px}
 .divider{width:2px;height:202px;flex:none;align-self:flex-end;background:var(--menu-hair)}
 .sectors-list{width:279px;flex:none;padding:8px 24px 0}
@@ -438,9 +438,10 @@ footer a:hover{background:var(--tint)}
               <li><a href="#sectors">Energy &amp; Utilities</a></li>
               <li><a href="#sectors">Waste &amp; Water</a></li>
               <li><a href="#sectors">Aviation &amp; Transport</a></li>
-              <li><a href="#sectors">Government &amp; Institutional</a></li>
-              <li><a href="#sectors">Agricultural</a></li>
+              <li><a href="#sectors">Public &amp; Recreation</a></li>
+              <li><a href="#sectors">Civic Facilities</a></li>
               <li><a href="#sectors">Commercial</a></li>
+              <li><a href="#sectors">Agricultural</a></li>
               <li><a href="#sectors">Industrial</a></li>
             </ul>
           </div>
@@ -511,7 +512,7 @@ footer a:hover{background:var(--tint)}
       <p class="m-h">FEATURED</p>
       <ul class="m-list"><li><a href="#projects">Cloverdale</a></li><li><a href="#projects">White Sturgeon</a></li><li><a href="#projects">Erco Chemical</a></li><li><a href="#projects">Kal Tire</a></li><li><a href="#projects">N Galiano Fire Hall</a></li><li><a href="#projects">All Projects →</a></li></ul>
       <p class="m-h">SECTORS</p>
-      <ul class="m-list"><li><a href="#sectors">Energy &amp; Utilities</a></li><li><a href="#sectors">Waste &amp; Water</a></li><li><a href="#sectors">Aviation &amp; Transport</a></li><li><a href="#sectors">Government &amp; Institutional</a></li><li><a href="#sectors">Agricultural</a></li><li><a href="#sectors">Commercial</a></li><li><a href="#sectors">Industrial</a></li></ul>
+      <ul class="m-list"><li><a href="#sectors">Energy &amp; Utilities</a></li><li><a href="#sectors">Waste &amp; Water</a></li><li><a href="#sectors">Aviation &amp; Transport</a></li><li><a href="#sectors">Public &amp; Recreation</a></li><li><a href="#sectors">Civic Facilities</a></li><li><a href="#sectors">Commercial</a></li><li><a href="#sectors">Agricultural</a></li><li><a href="#sectors">Industrial</a></li></ul>
     </div></div></div>
   </div>
   <div class="acc" style="--i:2">
@@ -595,10 +596,11 @@ footer a:hover{background:var(--tint)}
       <article class="card" style="--i:0"><h3>Aviation &amp; Transport</h3><p>Hangars, support buildings, and aviation facilities that require large spans and specialized doors.</p></article>
       <article class="card" style="--i:1"><h3>Commercial</h3><p>Functional space, adaptable designs, efficient delivery, and cost-effective quality.</p></article>
       <article class="card" style="--i:2"><h3>Waste &amp; Water</h3><p>Where compliance, corrosion considerations, operational consistency, and safety matter most.</p></article>
-      <article class="card" style="--i:3"><h3>Government &amp; Institutional</h3><p>Public, municipal, recreation, and community facilities where cost control and long-term use are crucial.</p></article>
-      <article class="card" style="--i:4"><h3>Agricultural</h3><p>Durable structures for production, processing, storage, equipment maintenance, and other agricultural applications.</p></article>
-      <article class="card" style="--i:5"><h3>Energy &amp; Utilities</h3><p>Service buildings, transmission support, substations, and other infrastructure that support critical energy systems.</p></article>
-      <article class="card" style="--i:6"><h3>Industrial</h3><p>Warehousing and manufacturing operations with tailored loading, access, and performance features.</p></article>
+      <article class="card" style="--i:3"><h3>Public Spaces &amp; Recreation</h3><p>Rinks, recreation facilities, and community gathering spaces with open layouts and durability for everyday use.</p></article>
+      <article class="card" style="--i:4"><h3>Civic Buildings &amp; Facilities</h3><p>Municipal buildings and public service facilities where reliable performance, cost control, and long-term value are essential.</p></article>
+      <article class="card" style="--i:5"><h3>Agricultural</h3><p>Durable structures for production, processing, storage, equipment maintenance, and other agricultural applications.</p></article>
+      <article class="card" style="--i:6"><h3>Energy &amp; Utilities</h3><p>Service buildings, transmission support, substations, and other infrastructure that support critical energy systems.</p></article>
+      <article class="card" style="--i:7"><h3>Industrial</h3><p>Warehousing and manufacturing operations with tailored loading, access, and performance features.</p></article>
     </div>
     <div class="arrows">
       <button class="round" id="prev" aria-label="Previous sectors"><svg width="9" height="15" viewBox="0 0 9 15" aria-hidden="true"><path d="M7.5 1.5 1.5 7.5l6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
