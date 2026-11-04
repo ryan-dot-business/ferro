@@ -353,7 +353,7 @@ main[data-view="why-ferro"]{display:none}
 .plx{--travel:48px}
 .wf-copy{display:flex;flex-direction:column;gap:12px}
 .wf-hero-img{height:562px}
-.wf-lead-row{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;margin-top:30px}
+.wf-lead-row{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;margin-top:100px}
 .wf-lead-in{font-family:var(--display);font-stretch:118%}
 /* warranty comparison: each column fills to its share of five years */
 .wf-warranty{margin:0;height:336px;display:flex;align-items:center;gap:12px;padding:10px;background:#081b3d}
@@ -394,9 +394,14 @@ main[data-view="why-ferro"]{display:none}
 .wf-rink{height:678px}
 .wf-rink{--travel:72px}
 .wf-rink::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,38,74,0) 45%,#11264a);pointer-events:none}
-.wf-relations{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:60px max(var(--inner),env(safe-area-inset-right,0px)) 50px max(var(--inner),env(safe-area-inset-left,0px))}
-.wf-relations .h-xl{margin-bottom:10px}
-.wf-relations .wf-sub{color:rgba(255,255,255,.7)}
+.wf-relations{--wf-panel:#081b3d;--wf-ink:#fff;--wf-soft:rgba(255,255,255,.7);display:flex;flex-direction:column;align-items:center;gap:100px;padding:60px 0 50px}
+.wf-relations-head{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding-inline:max(var(--inner),env(safe-area-inset-left,0px))}
+.wf-relations-head .h-xl{margin-bottom:10px}
+.wf-relations-head .wf-sub{line-height:1.1;color:rgba(255,255,255,.7)}
+.wf-rel{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:stretch}
+.wf-rel-copy{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:110px 32px 110px 0;min-width:0}
+.wf-rel-media{min-height:398px}
+.wf-rel-tall .wf-rel-media{min-height:446px}
 [data-page="why-ferro"] footer{padding-bottom:40px;border-bottom:11px solid #081b3d}
 .intro:not(.play) .wf-hero-img > .img{clip-path:inset(2.5% 1.5%)}
 
@@ -417,8 +422,12 @@ main[data-view="why-ferro"]{display:none}
   .wf-pair,.wf-navy .wf-panel{margin-top:56px}
   .wf-intro{padding-bottom:40px}
   .wf-process{gap:32px}
-  .wf-pair,.wf-panel,.wf-panel-flip,.wf-lead-row{grid-template-columns:1fr;gap:20px}
-  .wf-lead-row{gap:28px}
+  .wf-pair,.wf-panel,.wf-panel-flip,.wf-lead-row,.wf-rel{grid-template-columns:1fr;gap:20px}
+  .wf-relations{gap:56px;padding-top:48px}
+  .wf-rel-copy{padding:0}
+  .wf-rel-media,.wf-rel-tall .wf-rel-media{min-height:0;aspect-ratio:4/3;order:-1}
+  .wf-relations-head .wf-sub br{display:none}
+  .wf-lead-row{gap:28px;margin-top:40px}
   .wf-warranty{height:240px}
   .wf-w-num b{font-size:52px}
   .wf-pair{gap:40px}
