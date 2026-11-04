@@ -330,13 +330,17 @@ main[data-view="why-ferro"]{display:none}
 [data-page="why-ferro"] main[data-view="why-ferro"]{display:block}
 
 /* ---------- Why Ferro ---------- */
-.wf{padding-inline:0!important;--wf-bg:#11264a;--wf-panel:#081b3d;--wf-ink:#fff;--wf-soft:rgba(255,255,255,.7);--wf-gold:#e5a824;
+/* classic skin: white page, mist panels, navy type */
+.wf{--wf-bg:#fff;--wf-panel:var(--mist);--wf-ink:var(--navy-900);--wf-soft:rgba(8,27,61,.7);--wf-lede:rgba(8,27,61,.6);--wf-faint:rgba(8,27,61,.6);--wf-eyebrow:var(--navy-700)}
+/* navy skin: as designed in Figma */
+[data-skin="navy"] .wf{--wf-bg:#11264a;--wf-panel:#081b3d;--wf-ink:#fff;--wf-soft:rgba(255,255,255,.7);--wf-lede:rgba(255,255,255,.5);--wf-faint:rgba(255,255,255,.6);--wf-eyebrow:#e5a824}
+.wf{padding-inline:0!important;
   background:var(--wf-bg);color:var(--wf-ink);padding-bottom:32px}
 .wf-wrap{width:min(1200px,100% - 2 * max(var(--inner),env(safe-area-inset-left,0px)));margin-inline:auto}
 .wf-intro{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;padding:70px max(16px,env(safe-area-inset-right,0px)) 32px max(16px,env(safe-area-inset-left,0px))}
-.wf-eyebrow{color:var(--wf-gold)}
+.wf-eyebrow{color:var(--wf-eyebrow)}
 .wf-intro .h-xl{margin-bottom:7px}
-.wf-lede{margin:0;max-width:614px;font-size:16px;line-height:1.1;letter-spacing:-.03em;color:rgba(255,255,255,.5);text-wrap:balance}
+.wf-lede{margin:0;max-width:614px;font-size:16px;line-height:1.1;letter-spacing:-.03em;color:var(--wf-lede);text-wrap:balance}
 .wf-media{position:relative;margin:0;overflow:hidden;background:var(--wf-panel)}
 .wf-media > .img{position:absolute;left:0;top:0;width:100%;height:calc(100% + var(--travel));max-width:none;object-fit:cover;will-change:transform}
 .plx{--travel:48px}
@@ -363,7 +367,7 @@ main[data-view="why-ferro"]{display:none}
 .wf-cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,300px));justify-content:center;gap:18px;width:100%}
 .wf-card{display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:279px;padding:24px;background:var(--wf-panel);border-radius:var(--card-radius);font-family:var(--text)}
 .wf-card h3{margin:0;font-weight:500;font-size:24px;line-height:1.2;letter-spacing:-.04em;color:var(--wf-ink)}
-.wf-card p{margin:0;font-size:14px;line-height:1.4;letter-spacing:-.02em;color:rgba(255,255,255,.6)}
+.wf-card p{margin:0;font-size:14px;line-height:1.4;letter-spacing:-.02em;color:var(--wf-faint)}
 .wf-rink{height:678px}
 .wf-rink{--travel:72px}
 .intro:not(.play) .wf-hero-img > .img{clip-path:inset(2.5% 1.5%)}
@@ -591,7 +595,7 @@ main[data-view="why-ferro"]{display:none}
   </header>
 
   <section class="wf-wrap wf-lead">
-    <figure class="wf-media plx wf-hero-img" data-in style="--d:520"><img class="img" src="/assets/wf-hero.jpg" width="2400" height="1124" alt="Two crew members on boom lifts working beneath a steel roof structure" fetchpriority="high"></figure>
+    <figure class="wf-media plx wf-hero-img" data-in style="--d:520"><video class="img" id="wfBanner" src="/assets/wf-banner.mp4" poster="/assets/wf-banner.jpg" muted loop playsinline preload="metadata" aria-label="Ferro crews at work on steel building sites"></video></figure>
     <div class="wf-copy" data-stagger=".wf-h,.wf-p">
       <h2 class="wf-h">Expertise That Stands Up to Scrutiny.</h2>
       <p class="wf-p">Ferro supports remote, highly regulated, and performance-driven projects with extensive engineering expertise and a disciplined approach to documentation, backed by a collaborative approach that keeps projects moving. From early design input to manufacturing and installation support, we deliver steel solutions that stand up to scrutiny.</p>
@@ -657,7 +661,7 @@ main[data-view="why-ferro"]{display:none}
   /* intro */
   const play = () => root.classList.add('play');
   const go = () => requestAnimationFrame(() => requestAnimationFrame(play));
-  const heroImg = root.getAttribute('data-page') === 'why-ferro' ? document.querySelector('.wf-hero-img img') : document.getElementById('heroImg');
+  const heroImg = root.getAttribute('data-page') === 'why-ferro' ? document.querySelector('.wf-hero-img .img') : document.getElementById('heroImg');
   const ready = Promise.all([document.fonts ? document.fonts.ready : 0, heroImg && heroImg.decode ? heroImg.decode().catch(() => {}) : 0]);
   Promise.race([ready, new Promise(r => setTimeout(r, 1100))]).then(go);
   setTimeout(play, 1800);
@@ -841,7 +845,7 @@ main[data-view="why-ferro"]{display:none}
     if (page === pageNow()) return;
     closeAll(); cClose(); root.classList.remove('menu-open');
     if (page === 'home') root.removeAttribute('data-page'); else root.setAttribute('data-page', page);
-    scrollTo(0, 0); req();
+    scrollTo(0, 0); req(); syncBanner();
   }
   const parseHash = () => {
     const h = location.hash.slice(1);
@@ -866,6 +870,18 @@ main[data-view="why-ferro"]{display:none}
     addEventListener('hashchange', () => { const v = parseHash(); if (!v) return; applySkin(v.skin, v.page === pageNow()); showPage(v.page); });
   }
   syncLinks();
+
+  /* Why Ferro banner film: plays while its page is showing and the banner is on screen */
+  const banner = document.getElementById('wfBanner');
+  let bannerVisible = true;
+  function syncBanner(){
+    if (!banner) return;
+    if (pageNow() === 'why-ferro' && bannerVisible && !reduce) banner.play().catch(() => {}); else banner.pause();
+  }
+  if (banner){
+    new IntersectionObserver(es => { bannerVisible = es[0].isIntersecting; syncBanner(); }).observe(banner);
+    syncBanner();
+  }
 
   /* featured caret + photo swap (Projects and Company panes) */
   const shots = [...document.querySelectorAll('[data-pane="projects"] .shot')];
