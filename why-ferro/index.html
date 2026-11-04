@@ -337,50 +337,55 @@ main[data-view="why-ferro"]{display:none}
 [data-page="why-ferro"] main[data-view="why-ferro"]{display:block}
 
 /* ---------- Why Ferro ---------- */
-.wf{--wf-bg:#11264a;--wf-panel:#081b3d;--wf-ink:#fff;--wf-soft:rgba(255,255,255,.7);--wf-lede:rgba(255,255,255,.5);--wf-faint:rgba(255,255,255,.6);--wf-eyebrow:#e5a824}
-.wf{padding-inline:0!important;
-  background:var(--wf-bg);color:var(--wf-ink);padding-bottom:32px}
+/* two bands: navy (lead, banner, compliance + quality, planning) then light (process, technology), then the rink */
+.wf{padding-inline:0!important;background:#11264a;color:#fff}
+.wf-navy{--wf-panel:#081b3d;--wf-ink:#fff;--wf-soft:rgba(255,255,255,.7);
+  display:flex;flex-direction:column;align-items:center;padding-bottom:100px}
+.wf-light{--wf-panel:var(--mist);--wf-ink:var(--navy-900);--wf-soft:rgba(8,27,61,.7);
+  background:#fff;color:var(--wf-ink);display:flex;flex-direction:column;align-items:center;gap:100px;padding:100px 0}
 .wf-wrap{width:min(1200px,100% - 2 * max(var(--inner),env(safe-area-inset-left,0px)));margin-inline:auto}
 .wf-intro{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;padding:70px max(16px,env(safe-area-inset-right,0px)) 80px max(16px,env(safe-area-inset-left,0px))}
-.wf-eyebrow{color:var(--wf-eyebrow)}
+.wf-eyebrow{color:#e5a824}
 .wf-intro .h-xl{margin-bottom:7px}
-.wf-lede{margin:0;max-width:614px;font-size:16px;line-height:1.1;letter-spacing:-.03em;color:var(--wf-lede);text-wrap:balance}
-.wf-media{position:relative;margin:0;overflow:hidden;background:var(--wf-panel)}
+.wf-lede{margin:0;max-width:614px;font-size:16px;line-height:1.1;letter-spacing:-.03em;color:rgba(255,255,255,.5);text-wrap:balance}
+.wf-media{position:relative;margin:0;overflow:hidden;background:var(--wf-panel);isolation:isolate}
 .wf-media > .img{position:absolute;left:0;top:0;width:100%;height:calc(100% + var(--travel));max-width:none;object-fit:cover;will-change:transform}
 .plx{--travel:48px}
-.wf-lead{display:flex;flex-direction:column;gap:24px}
-.wf-hero-img{height:562px}
-.wf-media{isolation:isolate}
-.wf-hero-img > .img{transition:clip-path 1.6s var(--ease) .05s}
 .wf-copy{display:flex;flex-direction:column;gap:12px}
+.wf-hero-img{height:562px;margin-top:24px}
+.wf-hero-img > .img{transition:clip-path 1.6s var(--ease) .05s}
 .wf-h{margin:0;font-weight:700;font-size:24px;line-height:1.1;letter-spacing:-.03em;color:var(--wf-ink);text-wrap:balance}
+.wf-light .wf-h{font-weight:600}
 .wf-p{margin:0;font-family:var(--text);font-size:16px;line-height:1.4;letter-spacing:-.03em;color:var(--wf-soft);text-wrap:pretty}
 .wf-p strong{font-weight:700;color:var(--wf-ink)}
-.wf-body{display:flex;flex-direction:column;align-items:center;gap:104px;padding:120px 0 50px}
-.wf-pair{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.wf-pair{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:100px}
 .wf-col{display:flex;flex-direction:column;gap:20px;min-width:0}
 .wf-col .wf-media{height:377px}
 .wf-panel{display:grid;grid-template-columns:1fr 1fr;gap:50px;background:var(--wf-panel);overflow:hidden;isolation:isolate}
-.wf-panel-flip{gap:40px}
+.wf-navy .wf-panel{margin-top:100px}
 .wf-panel-media{min-height:416px}
 .wf-panel-copy{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:110px 32px 110px 0;min-width:0}
-.wf-panel-flip .wf-panel-copy{padding:110px 0 110px 50px}
+.wf-panel-flip{gap:80px}
+.wf-panel-flip .wf-panel-copy{padding:110px 0 110px 75px}
 .wf-panel-flip .wf-panel-media{min-height:456px}
+.wf-panel-flip .wf-panel-media::after{content:"";position:absolute;inset:0;background:rgba(17,38,74,.1);pointer-events:none}
 .wf-panel-flip .wf-p + .wf-p{margin-top:10px}
-.wf-process{display:flex;flex-direction:column;align-items:center;gap:80px;padding:0 var(--inner) 32px;width:100%;box-sizing:border-box}
-.wf-process-head{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.wf-process{display:flex;flex-direction:column;align-items:center;gap:80px;width:100%}
+.wf-process-head{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding-inline:var(--inner)}
+.wf-process-head .h-xl{color:var(--navy-900);margin-bottom:10px}
 .wf-sub{margin:0;font-size:16px;line-height:1.1;letter-spacing:-.03em;color:var(--wf-soft)}
-.wf-cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,300px));justify-content:center;gap:18px;width:100%}
-.wf-card{display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:279px;padding:24px;background:var(--wf-panel);font-family:var(--text)}
-.wf-card h3{margin:0;font-weight:500;font-size:24px;line-height:1.2;letter-spacing:-.04em;color:var(--wf-ink)}
-.wf-card p{margin:0;font-size:14px;line-height:1.4;letter-spacing:-.02em;color:var(--wf-faint)}
-.wf-rink{height:678px;margin-top:80px}
+.wf-cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px}
+.wf-card{display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:279px;padding:24px;background:var(--wf-panel)}
+.wf-card h3{margin:0;font-family:var(--display);font-weight:600;font-size:24px;line-height:1.2;letter-spacing:-.04em;color:var(--wf-ink)}
+.wf-card p{margin:0;font-family:var(--text);font-size:14px;line-height:1.4;letter-spacing:-.02em;color:rgba(8,27,61,.6)}
+.wf-rink{height:678px}
 .wf-rink{--travel:72px}
+[data-page="why-ferro"] footer{padding-bottom:40px;border-bottom:11px solid #081b3d}
 .intro:not(.play) .wf-hero-img > .img{clip-path:inset(2.5% 1.5%)}
 
 /* ---------- tablet ---------- */
 @media (max-width:1100px){
-  .wf-cards{grid-template-columns:repeat(2,minmax(0,300px))}
+  .wf-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
   .build{grid-template-columns:repeat(2,1fr);height:auto}
   .col{min-height:320px}
 }
@@ -390,9 +395,10 @@ main[data-view="why-ferro"]{display:none}
   .band{--travel:44px}
   .wf-intro{padding-top:48px}
   .wf-hero-img{height:auto;aspect-ratio:4/3}
-  .wf-body{gap:56px;padding-top:56px}
+  .wf-navy{padding-bottom:56px}
+  .wf-light{gap:56px;padding:56px 0}
+  .wf-pair,.wf-navy .wf-panel{margin-top:56px}
   .wf-intro{padding-bottom:40px}
-  .wf-rink{margin-top:40px}
   .wf-process{gap:32px}
   .wf-pair,.wf-panel,.wf-panel-flip{grid-template-columns:1fr;gap:20px}
   .wf-pair{gap:40px}
@@ -400,8 +406,9 @@ main[data-view="why-ferro"]{display:none}
   .wf-panel,.wf-panel-flip{gap:0}
   .wf-panel-media,.wf-panel-flip .wf-panel-media{min-height:0;aspect-ratio:4/3}
   .wf-panel-copy,.wf-panel-flip .wf-panel-copy{padding:28px 20px 32px}
+  .wf-panel-flip{gap:0}
   .wf-panel-flip .wf-panel-media{order:-1}
-  .wf-cards{grid-template-columns:1fr;width:100%}
+  .wf-cards{grid-template-columns:1fr}
   .wf-card{min-height:0}
   .wf-rink{height:auto;aspect-ratio:4/3}
   .plx{--travel:32px}
@@ -603,15 +610,14 @@ main[data-view="why-ferro"]{display:none}
     <p class="wf-lede" data-in style="--d:460">We’re dedicated to understanding the technical requirements and project realities behind complex steel building projects better than anyone.</p>
   </header>
 
-  <section class="wf-wrap wf-lead">
-    <figure class="wf-media plx wf-hero-img" data-in style="--d:520"><video class="img" id="wfBanner" src="/assets/wf-banner.mp4" poster="/assets/wf-banner.jpg" muted loop playsinline preload="metadata" aria-label="Ferro crews at work on steel building sites"></video></figure>
-    <div class="wf-copy" data-stagger=".wf-h,.wf-p">
+  <!-- navy: lead, banner, compliance + quality, planning -->
+  <div class="wf-navy">
+    <div class="wf-wrap wf-copy" data-stagger=".wf-h,.wf-p">
       <h2 class="wf-h">Expertise That Stands Up to Scrutiny.</h2>
       <p class="wf-p">Ferro supports remote, highly regulated, and performance-driven projects with extensive engineering expertise and a disciplined approach to documentation, backed by a collaborative approach that keeps projects moving. From early design input to manufacturing and installation support, we deliver steel solutions that stand up to scrutiny.</p>
     </div>
-  </section>
+    <figure class="wf-wrap wf-media plx wf-hero-img" data-in style="--d:520"><video class="img" id="wfBanner" src="/assets/wf-banner.mp4" poster="/assets/wf-banner.jpg" muted loop playsinline preload="metadata" aria-label="Ferro crews at work on steel building sites"></video></figure>
 
-  <div class="wf-body">
     <section class="wf-wrap wf-pair" aria-label="Compliance and quality" data-stagger=".wf-col" data-step="120">
       <div class="wf-col">
         <figure class="wf-media plx"><img class="img" src="/assets/wf-compliance.jpg" width="1160" height="754" alt="A Ferro crew lead in a hi-vis vest walking a client through a finished ice rink" loading="lazy" decoding="async"></figure>
@@ -630,14 +636,17 @@ main[data-view="why-ferro"]{display:none}
         <p class="wf-p">Safe sites and environmental responsibilities are rooted in clear expectations, strong communication, and consistent documentation for every team involved in the project. We use structured processes and smart digital tools to help track requirements and maintain visibility from the early planning stages through to the final close-out. That means fewer assumptions and clearer, readily available information whenever teams need it.</p>
       </div>
     </section>
+  </div>
 
+  <!-- light: process and technology -->
+  <div class="wf-light">
     <section class="wf-process" aria-labelledby="wf-process" data-stagger=".eyebrow,.h-xl,.wf-sub,.wf-card" data-step="70">
       <div class="wf-process-head">
         <p class="eyebrow wf-eyebrow">Proven Process</p>
         <h2 class="h-xl" id="wf-process">How We Get It Right From the Beginning</h2>
         <p class="wf-sub">Ferro steel buildings are built for accountability,</p>
       </div>
-      <ol class="wf-cards">
+      <ol class="wf-wrap wf-cards">
         <li class="wf-card"><h3>Going in</h3><p>We ask the right questions from the start. By understanding your building’s purpose, site conditions, and performance requirements, we identify opportunities and flag potential issues early—setting a clear direction for the project.</p></li>
         <li class="wf-card"><h3>Pre-Planning</h3><p>We work through the details before fabrication begins. Our team reviews drawings, coordinates with project partners, and resolves code, scope, and construction challenges to reduce surprises and keep work moving.</p></li>
         <li class="wf-card"><h3>Management</h3><p>We keep people informed and the project on track. Clear updates, regular reviews, and proactive coordination help clients, suppliers, consultants, and installation teams address small issues before they become costly delays.</p></li>
