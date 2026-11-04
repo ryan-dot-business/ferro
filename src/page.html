@@ -6,7 +6,13 @@
 <script>
 (function(){var r=document.documentElement;r.classList.add('intro');
 /* skins and pages: real URLs when built for a host (window.FERRO_PAGES); #navy, #why-ferro, #navy-why-ferro on the claude.ai preview */
-if(!window.FERRO_PAGES){var h=location.hash.slice(1);if(h==='navy'||h==='navy-why-ferro')r.setAttribute('data-skin','navy');if(/why-ferro$/.test(h))r.setAttribute('data-page','why-ferro');}})();
+if(!window.FERRO_PAGES){var h=location.hash.slice(1);if(h==='navy'||h==='navy-why-ferro')r.setAttribute('data-skin','navy');if(/why-ferro$/.test(h))r.setAttribute('data-page','why-ferro');}
+/* arriving through a page transition: skip the load intro so the incoming snapshot is the finished page,
+   and if we came from the Company menu photo, let the hero banner take its place */
+addEventListener('pagereveal',function(e){if(!e.viewTransition)return;r.classList.add('play','vt-arrive');
+var m=null;try{m=sessionStorage.getItem('ferro-morph');sessionStorage.removeItem('ferro-morph');}catch(_){}
+var h=m&&document.querySelector('.wf-hero-img');if(h)h.style.viewTransitionName='wf-hero';
+e.viewTransition.finished.finally(function(){r.classList.remove('vt-arrive');if(h)h.style.viewTransitionName='';});});})();
 </script>
 <style>
 /* Layout: Figma "Ferro Home" — sticky white bar, two full-bleed image bands, four-column services band, sector carousel.
@@ -298,6 +304,19 @@ footer a:hover{background:var(--tint)}
 .armed .build .col.c0 .media > .img{transform:scale(1.12);transition:transform 1.8s var(--ease) .1s}
 .armed .build.in .col.c0 .media > .img{transform:none}
 .band .copy{will-change:transform,opacity}
+
+/* ---------- page transitions (View Transitions API; browsers without it just load the page) ---------- */
+@view-transition{navigation:auto}
+.nav{view-transition-name:site-nav}
+::view-transition-old(root){animation:vt-out .24s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:vt-in .48s cubic-bezier(.22,1,.36,1) .08s both}
+@keyframes vt-out{to{opacity:0;transform:translateY(-8px)}}
+@keyframes vt-in{from{opacity:0;transform:translateY(16px)}}
+::view-transition-group(site-nav){animation:none}
+::view-transition-group(wf-hero){animation-duration:.62s;animation-timing-function:cubic-bezier(.65,0,.2,1)}
+::view-transition-old(wf-hero),::view-transition-new(wf-hero){width:100%;height:100%;object-fit:cover;animation-duration:.62s}
+.vt-arrive [data-in],.vt-arrive .wf-hero-img > .img{transition:none!important}
+@media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
 
 /* ---------- views: the preview holds both pages and shows one ---------- */
 main[data-view="why-ferro"]{display:none}
@@ -840,12 +859,33 @@ main[data-view="why-ferro"]{display:none}
     if (current) setTimeout(() => sizeMenu(panes[current], true), 0);
     syncLinks();
   }
+  let morphFrom = null;   // the Company menu photo, when Why Ferro was picked from there
   function showPage(page){
     if (page === pageNow()) return;
-    closeAll(); cClose(); root.classList.remove('menu-open');
-    if (page === 'home') root.removeAttribute('data-page'); else root.setAttribute('data-page', page);
-    scrollTo(0, 0); req(); syncBanner();
+    const hero = document.querySelector('.wf-hero-img');
+    const swap = () => {
+      closeAll(); cClose(); root.classList.remove('menu-open');
+      if (page === 'home') root.removeAttribute('data-page'); else root.setAttribute('data-page', page);
+      scrollTo(0, 0); req(); syncBanner();
+      if (morphFrom && page === 'why-ferro' && hero){ morphFrom.style.viewTransitionName = ''; hero.style.viewTransitionName = 'wf-hero'; }
+    };
+    if (document.startViewTransition && !reduce){
+      if (morphFrom && page === 'why-ferro') morphFrom.style.viewTransitionName = 'wf-hero';
+      const t = document.startViewTransition(swap);
+      t.finished.finally(() => { if (hero) hero.style.viewTransitionName = ''; resetMorph(); morphFrom = null; });
+    } else { swap(); morphFrom = null; }
   }
+  /* Why Ferro from the Company menu: its photo grows into the page's hero banner */
+  const coLink = document.querySelector('[data-pane="company"] a[data-page="why-ferro"]');
+  if (coLink) coLink.addEventListener('click', () => {
+    const photo = document.querySelector('[data-pane="company"] .shot.active');
+    if (!photo || reduce) return;
+    photo.parentElement.style.background = 'transparent';   // no grey hole left behind in the menu while the photo travels
+    if (PAGES){ photo.style.viewTransitionName = 'wf-hero'; try { sessionStorage.setItem('ferro-morph', '1'); } catch (_) {} }
+    else morphFrom = photo;
+  });
+  const resetMorph = () => document.querySelectorAll('[data-pane="company"] .shot').forEach(p => { p.style.viewTransitionName = ''; p.parentElement.style.background = ''; });
+  addEventListener('pageshow', resetMorph);
   const parseHash = () => {
     const h = location.hash.slice(1);
     const m = /^(navy|classic)?-?(why-ferro)?$/.exec(h);
