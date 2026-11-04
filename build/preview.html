@@ -317,23 +317,36 @@ main[data-view="why-ferro"]{display:none}
 .wf-navy{--wf-panel:#081b3d;--wf-ink:#fff;--wf-soft:rgba(255,255,255,.7);
   display:flex;flex-direction:column;align-items:center;padding-bottom:100px}
 .wf-light{--wf-panel:var(--mist);--wf-ink:var(--navy-900);--wf-soft:rgba(8,27,61,.7);
-  background:#fff;color:var(--wf-ink);display:flex;flex-direction:column;align-items:center;gap:100px;padding:100px 0}
+  background:#fff;color:var(--wf-ink);display:flex;flex-direction:column;align-items:center;gap:50px;padding:100px 0}
 .wf-wrap{width:min(1200px,100% - 2 * max(var(--inner),env(safe-area-inset-left,0px)));margin-inline:auto}
 .wf-intro{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;padding:70px max(16px,env(safe-area-inset-right,0px)) 80px max(16px,env(safe-area-inset-left,0px))}
 .wf-eyebrow{color:#e5a824}
 .wf-intro .h-xl{margin-bottom:7px}
-.wf-lede{margin:0;max-width:614px;font-size:16px;line-height:1.1;letter-spacing:-.03em;color:rgba(255,255,255,.5);text-wrap:balance}
+.wf-lede{margin:0;max-width:614px;font-size:16px;line-height:1.4;letter-spacing:-.03em;color:rgba(255,255,255,.7);text-wrap:balance}
 .wf-media{position:relative;margin:0;overflow:hidden;background:var(--wf-panel);isolation:isolate}
 .wf-media > .img{position:absolute;left:0;top:0;width:100%;height:calc(100% + var(--travel));max-width:none;object-fit:cover;will-change:transform}
 .plx{--travel:48px}
 .wf-copy{display:flex;flex-direction:column;gap:12px}
-.wf-hero-img{height:562px;margin-top:24px}
+.wf-hero-img{height:562px}
+.wf-lead-row{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;margin-top:30px}
+.wf-lead-in{font-family:var(--display);font-stretch:118%}
+/* warranty comparison: each column fills to its share of five years */
+.wf-warranty{margin:0;height:336px;display:flex;align-items:center;gap:12px;padding:10px;background:#081b3d}
+.wf-w{position:relative;flex:1;align-self:stretch;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding-block:20px;background:#11264a;overflow:hidden;isolation:isolate}
+.wf-fill{position:absolute;inset:0;z-index:-1;background:#073685;transform-origin:50% 100%;transform:scaleY(var(--fill));transition:transform 1.2s cubic-bezier(.65,0,.2,1) .25s}
+.armed .wf-lead-row:not(.in) .wf-fill{transform:scaleY(0)}
+.wf-w-ferro .wf-fill{transition-delay:.1s}
+.wf-w-num{margin:0;display:flex;align-items:baseline;gap:4px;font-family:var(--text);font-size:20px;letter-spacing:-.03em;line-height:1}
+.wf-w-num b{font-family:var(--display);font-stretch:118%;font-weight:700;font-size:64px;letter-spacing:-.03em;line-height:.8}
+.wf-w-label{margin:0;font-family:var(--text);font-size:16px;line-height:1.1;letter-spacing:-.03em;color:rgba(255,255,255,.5)}
+.wf-vs{font-weight:700;font-size:16px;letter-spacing:-.03em}
 .wf-hero-img > .img{transition:clip-path 1.6s var(--ease) .05s}
 .wf-h{margin:0;font-weight:700;font-size:24px;line-height:1.1;letter-spacing:-.03em;color:var(--wf-ink);text-wrap:balance}
 .wf-light .wf-h{font-weight:600}
-.wf-p{margin:0;font-family:var(--text);font-size:16px;line-height:1.4;letter-spacing:-.03em;color:var(--wf-soft);text-wrap:pretty}
+.wf-p{margin:0;font-family:var(--text);font-size:16px;line-height:1.4;letter-spacing:-.01em;color:var(--wf-soft);text-wrap:pretty}
 .wf-p strong{font-weight:700;color:var(--wf-ink)}
 .wf-pair{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:100px}
+.wf-pair .wf-col{gap:30px}
 .wf-col{display:flex;flex-direction:column;gap:20px;min-width:0}
 .wf-col .wf-media{height:377px}
 .wf-panel{display:grid;grid-template-columns:1fr 1fr;gap:50px;background:var(--wf-panel);overflow:hidden;isolation:isolate}
@@ -355,6 +368,10 @@ main[data-view="why-ferro"]{display:none}
 .wf-card p{margin:0;font-family:var(--text);font-size:14px;line-height:1.4;letter-spacing:-.02em;color:rgba(8,27,61,.6)}
 .wf-rink{height:678px}
 .wf-rink{--travel:72px}
+.wf-rink::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,38,74,0) 45%,#11264a);pointer-events:none}
+.wf-relations{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:60px max(var(--inner),env(safe-area-inset-right,0px)) 50px max(var(--inner),env(safe-area-inset-left,0px))}
+.wf-relations .h-xl{margin-bottom:10px}
+.wf-relations .wf-sub{color:rgba(255,255,255,.7)}
 [data-page="why-ferro"] footer{padding-bottom:40px;border-bottom:11px solid #081b3d}
 .intro:not(.play) .wf-hero-img > .img{clip-path:inset(2.5% 1.5%)}
 
@@ -375,7 +392,10 @@ main[data-view="why-ferro"]{display:none}
   .wf-pair,.wf-navy .wf-panel{margin-top:56px}
   .wf-intro{padding-bottom:40px}
   .wf-process{gap:32px}
-  .wf-pair,.wf-panel,.wf-panel-flip{grid-template-columns:1fr;gap:20px}
+  .wf-pair,.wf-panel,.wf-panel-flip,.wf-lead-row{grid-template-columns:1fr;gap:20px}
+  .wf-lead-row{gap:28px}
+  .wf-warranty{height:240px}
+  .wf-w-num b{font-size:52px}
   .wf-pair{gap:40px}
   .wf-col .wf-media{height:auto;aspect-ratio:3/2}
   .wf-panel,.wf-panel-flip{gap:0}
@@ -667,26 +687,34 @@ main[data-view="why-ferro"]{display:none}
 <main class="wf" data-view="why-ferro" aria-labelledby="wf-title">
   <header class="wf-intro">
     <p class="eyebrow wf-eyebrow" data-in style="--d:300">Why Ferro?</p>
-    <h1 class="h-xl" id="wf-title" data-in style="--d:380">To Bring Certainty to Complexity</h1>
+    <h1 class="h-xl" id="wf-title" data-in style="--d:380">Built for Complexity,<br>Engineered for Compliance.</h1>
     <p class="wf-lede" data-in style="--d:460">We’re dedicated to understanding the technical requirements and project realities behind complex steel building projects better than anyone.</p>
   </header>
 
   <!-- navy: lead, banner, compliance + quality, planning -->
   <div class="wf-navy">
-    <div class="wf-wrap wf-copy" data-stagger=".wf-h,.wf-p">
+    <figure class="wf-wrap wf-media plx wf-hero-img" data-in style="--d:520"><video class="img" id="wfBanner" src="assets/wf-banner.mp4" poster="assets/wf-banner.jpg" muted loop playsinline preload="metadata" aria-label="Ferro crews at work on steel building sites"></video></figure>
+
+    <section class="wf-wrap wf-lead-row" aria-label="Expertise and warranty" data-stagger=".wf-h,.wf-p,.wf-warranty" data-step="90">
+  <div class="wf-copy">
       <h2 class="wf-h">Expertise That Stands Up to Scrutiny.</h2>
       <p class="wf-p">Ferro supports remote, highly regulated, and performance-driven projects with extensive engineering expertise and a disciplined approach to documentation, backed by a collaborative approach that keeps projects moving. From early design input to manufacturing and installation support, we deliver steel solutions that stand up to scrutiny.</p>
     </div>
-    <figure class="wf-wrap wf-media plx wf-hero-img" data-in style="--d:520"><video class="img" id="wfBanner" src="assets/wf-banner.mp4" poster="assets/wf-banner.jpg" muted loop playsinline preload="metadata" aria-label="Ferro crews at work on steel building sites"></video></figure>
+      <figure class="wf-warranty" aria-label="Ferro's workmanship warranty is five years; the industry standard is one year">
+        <div class="wf-w wf-w-ferro" style="--fill:1"><span class="wf-fill"></span><p class="wf-w-num"><b>5</b> year</p><p class="wf-w-label">Ferro warranty</p></div>
+        <span class="wf-vs" aria-hidden="true">vs</span>
+        <div class="wf-w" style="--fill:.2087"><span class="wf-fill"></span><p class="wf-w-num"><b>1</b> year</p><p class="wf-w-label">Industry Standard</p></div>
+      </figure>
+    </section>
 
     <section class="wf-wrap wf-pair" aria-label="Compliance and quality" data-stagger=".wf-col" data-step="120">
       <div class="wf-col">
         <figure class="wf-media plx"><img class="img" src="assets/wf-compliance.jpg" width="1160" height="754" alt="A Ferro crew lead in a hi-vis vest walking a client through a finished ice rink" loading="lazy" decoding="async"></figure>
-        <p class="wf-p"><strong>Advanced compliance.</strong> Highly regulated projects come with layers of requirements and reviews. We bring a practical understanding of applicable codes, standards, inspection processes, and approval expectations to each project, helping teams work within the framework instead of fighting against it.</p>
+        <p class="wf-p"><strong class="wf-lead-in">Advanced compliance.</strong> Highly regulated projects come with layers of requirements and reviews. We bring a practical understanding of applicable codes, standards, inspection processes, and approval expectations to each project, helping teams work within the framework instead of fighting against it.</p>
       </div>
       <div class="wf-col">
         <figure class="wf-media plx"><img class="img" src="assets/wf-quality.jpg" width="1160" height="754" alt="Aerial view of a finished steel building beside a road and landscaped walkway" loading="lazy" decoding="async"></figure>
-        <p class="wf-p"><strong>Quality assurance.</strong> Quality assurance is built into every stage of our projects, not added in at the end. With dedicated QA/QC practices and intelligent tools like Visibuild, we keep inspection records, testing plans, quality records, and other documentation organized and easier to manage throughout every phase.</p>
+        <p class="wf-p"><strong class="wf-lead-in">Bring Certainty to Complexity.</strong> Quality assurance is built into every stage of our projects, not added in at the end. With dedicated QA/QC practices and intelligent tools like Visibuild, we keep inspection records, testing plans, quality records, and other documentation organized and easier to manage throughout every phase.</p>
       </div>
     </section>
 
@@ -726,6 +754,12 @@ main[data-view="why-ferro"]{display:none}
   </div>
 
   <figure class="wf-rink wf-media plx"><img class="img" src="assets/wf-rink.jpg" width="2400" height="1162" alt="Inside the Cloverdale Sport &amp; Ice Complex: a bright ice rink under a long-span steel roof" loading="lazy" decoding="async"></figure>
+
+  <section class="wf-relations" aria-labelledby="wf-relations" data-stagger=".eyebrow,.h-xl,.wf-sub" data-step="70">
+    <p class="eyebrow wf-eyebrow">Relationships</p>
+    <h2 class="h-xl" id="wf-relations">How We Get It Right From the Beginning</h2>
+    <p class="wf-sub">Ferro steel buildings are built for accountability,</p>
+  </section>
 </main>
 
 <footer>
