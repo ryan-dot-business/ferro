@@ -2,16 +2,14 @@
 
 A build of the Ferro home page from the Figma file "Ferro", with its nav and motion layer.
 
-## Two skins, two URLs
+## Pages
 
-| URL | Page | Skin |
-|---|---|---|
-| `/` | Home | **Classic**: white header and menus, inset bands with gaps, rounded cards |
-| `/why-ferro/` | Why Ferro | Classic |
-| `/navy/` | Home | **Navy**: navy header and menus with gold accents, full-bleed bands, gold-outlined service buttons, square cards |
-| `/navy/why-ferro/` | Why Ferro | Navy |
+| URL | Page |
+|---|---|
+| `/` | Home |
+| `/why-ferro/` | Why Ferro |
 
-Clicking the logo swaps skins in place and moves to the other URL, so review tools like markup.io keep each skin's comments separate. Back/forward also switch. Elsewhere the logo links home in the current skin, and links between pages stay in the current skin. On the claude.ai preview these are `#classic`, `#navy`, `#why-ferro` and `#navy-why-ferro`.
+One theme: navy header and menus with gold accents, full-bleed bands. The earlier white theme was retired; its `/navy/...` URLs redirect to the pages above. On the claude.ai preview the pages are `#home` and `#why-ferro`.
 
 ## What's in it
 
@@ -33,7 +31,7 @@ python3 -m http.server
 
 ## Edit and rebuild
 
-The four pages and `build/preview.html` are generated. Edit `src/page.html` (home plus everything shared) or `src/why-ferro.html`, then run:
+The pages and `build/preview.html` are generated. Edit `src/page.html` (home plus everything shared) or `src/why-ferro.html`, then run:
 
 ```sh
 python3 tools/build.py

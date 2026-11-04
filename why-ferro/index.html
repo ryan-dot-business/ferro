@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Ferro brings certainty to complex steel building projects: compliance know-how, built-in quality assurance, responsible planning and a proven process.">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#11264a">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://ferro.rd-bannon.workers.dev/why-ferro/">
 <meta property="og:type" content="website">
@@ -17,7 +17,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="The Ferro F mark over a blue-toned steel building frame">
 <meta name="twitter:card" content="summary_large_image">
-<script>window.FERRO_PAGES = {"page": "why-ferro", "urls": {"classic": {"home": "/", "why-ferro": "/why-ferro/"}, "navy": {"home": "/navy/", "why-ferro": "/navy/why-ferro/"}}};</script>
+<script>window.FERRO_PAGES = {"page": "why-ferro", "urls": {"home": "/", "why-ferro": "/why-ferro/"}};</script>
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0;font:14px/1.4 system-ui,sans-serif}
@@ -30,8 +30,8 @@ img{max-width:100%}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Figtree:wght@500;600&family=Inter:wght@400;500&display=swap">
 <script>
 (function(){var r=document.documentElement;r.classList.add('intro');
-/* skins and pages: real URLs when built for a host (window.FERRO_PAGES); #navy, #why-ferro, #navy-why-ferro on the claude.ai preview */
-if(!window.FERRO_PAGES){var h=location.hash.slice(1);if(h==='navy'||h==='navy-why-ferro')r.setAttribute('data-skin','navy');if(/why-ferro$/.test(h))r.setAttribute('data-page','why-ferro');}
+/* pages: real URLs when built for a host (window.FERRO_PAGES); #why-ferro on the claude.ai preview */
+if(!window.FERRO_PAGES&&location.hash==='#why-ferro')r.setAttribute('data-page','why-ferro');
 /* arriving through a page transition: skip the load intro so the incoming snapshot is the finished page,
    and if we came from the Company menu photo, let the hero banner take its place */
 addEventListener('pagereveal',function(e){if(!e.viewTransition)return;r.classList.add('play','vt-arrive');
@@ -65,27 +65,15 @@ e.viewTransition.finished.finally(function(){r.classList.remove('vt-arrive');if(
   --gutter:24px;
   --nav-x:36px;
 
-  /* skin tokens: classic (white header) */
-  --nav-bg:#fff; --nav-ink:var(--navy-800); --nav-pill:rgba(0,0,0,.03); --brand-icon:var(--navy-800);
-  --menu-bg:#fff; --menu-ink:#000; --menu-label:rgba(0,0,0,.4); --menu-hair:rgba(68,68,68,.1);
-  --menu-tile:rgba(0,0,0,.03); --menu-tile-2:rgba(0,0,0,.06); --menu-icon:var(--navy-800); --caret:#c4c8cf;
-  --menu-pt:10px; --svc-pt:14px;
-  --chip:rgba(0,0,0,.04); --chip-2:rgba(0,0,0,.07); --chip-ink:rgba(0,0,0,.5); --cta-bg:var(--navy-800); --cta-ink:#fff;
-  --page-gutter:30px; --band-gap:20px; --inner:30px; --card-radius:20px;
-  --c0-eyebrow:#fff; --col-eyebrow:#fff; --col-btn:#fff;
-}
-/* navy skin: navy header and menus with gold accents, full-bleed bands */
-[data-skin="navy"]{
+  /* header, menus and layout (the navy theme; the white one was retired) */
   --nav-bg:#11264a; --nav-ink:#fff; --nav-pill:#243c64; --brand-icon:#e5a824;
   --menu-bg:#11264a; --menu-ink:#fff; --menu-label:#e5a824; --menu-hair:rgba(255,255,255,.3);
   --menu-tile:rgba(255,255,255,.06); --menu-tile-2:rgba(255,255,255,.11); --menu-icon:#e5a824; --caret:#e5a824;
   --menu-pt:16px; --svc-pt:20px;
   --chip:rgba(255,255,255,.1); --chip-2:rgba(255,255,255,.16); --chip-ink:rgba(255,255,255,.5); --cta-bg:#fff; --cta-ink:var(--navy-800);
-  --page-gutter:0px; --band-gap:0px; --card-radius:0px;
+  --page-gutter:0px; --band-gap:0px; --inner:30px; --card-radius:0px;
   --c0-eyebrow:#081b3d; --col-eyebrow:rgba(255,255,255,.6); --col-btn:#e5a824;
 }
-/* while switching skins, colours and spacing ease across instead of snapping */
-.skin-anim,.skin-anim *,.skin-anim *::before,.skin-anim *::after{transition-property:background-color,color,border-color,box-shadow,border-radius,padding,gap!important;transition-duration:.6s!important;transition-timing-function:var(--ease)!important;transition-delay:0s!important}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--navy-800);font-family:var(--display);font-stretch:118%;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
@@ -349,10 +337,7 @@ main[data-view="why-ferro"]{display:none}
 [data-page="why-ferro"] main[data-view="why-ferro"]{display:block}
 
 /* ---------- Why Ferro ---------- */
-/* classic skin: white page, mist panels, navy type */
-.wf{--wf-bg:#fff;--wf-panel:var(--mist);--wf-ink:var(--navy-900);--wf-soft:rgba(8,27,61,.7);--wf-lede:rgba(8,27,61,.6);--wf-faint:rgba(8,27,61,.6);--wf-eyebrow:var(--navy-700)}
-/* navy skin: as designed in Figma */
-[data-skin="navy"] .wf{--wf-bg:#11264a;--wf-panel:#081b3d;--wf-ink:#fff;--wf-soft:rgba(255,255,255,.7);--wf-lede:rgba(255,255,255,.5);--wf-faint:rgba(255,255,255,.6);--wf-eyebrow:#e5a824}
+.wf{--wf-bg:#11264a;--wf-panel:#081b3d;--wf-ink:#fff;--wf-soft:rgba(255,255,255,.7);--wf-lede:rgba(255,255,255,.5);--wf-faint:rgba(255,255,255,.6);--wf-eyebrow:#e5a824}
 .wf{padding-inline:0!important;
   background:var(--wf-bg);color:var(--wf-ink);padding-bottom:32px}
 .wf-wrap{width:min(1200px,100% - 2 * max(var(--inner),env(safe-area-inset-left,0px)));margin-inline:auto}
@@ -402,8 +387,7 @@ main[data-view="why-ferro"]{display:none}
 }
 /* ---------- mobile ---------- */
 @media (max-width:820px){
-  :root{--gutter:16px;--nav-x:16px;--page-gutter:16px;--band-gap:12px;--inner:16px}
-  [data-skin="navy"]{--page-gutter:0px;--band-gap:0px}
+  :root{--gutter:16px;--nav-x:16px;--inner:16px}
   .band{--travel:44px}
   .wf-intro{padding-top:48px}
   .wf-hero-img{height:auto;aspect-ratio:4/3}
@@ -475,7 +459,7 @@ main[data-view="why-ferro"]{display:none}
 </head>
 <body>
 <header class="nav" id="nav">
-  <a class="logo" href="/" aria-label="Ferro home (switches colour theme)" title="Switch theme" data-in style="--d:0"><span class="mask" style="--m:url(/assets/mark.svg)"></span></a>
+  <a class="logo" href="/" aria-label="Ferro home" data-in style="--d:0"><span class="mask" style="--m:url(/assets/mark.svg)"></span></a>
 
   <nav class="links" aria-label="Primary" id="links">
     <span class="pill" id="pill" aria-hidden="true"></span>
@@ -848,25 +832,14 @@ main[data-view="why-ferro"]{display:none}
     try { navigator.clipboard.writeText(text).then(done, fallback); } catch (_) { fallback(); }
   });
 
-  /* skins + pages. Built for a host, each skin/page pair has a real URL (window.FERRO_PAGES);
-     on the claude.ai preview they are #classic, #navy, #why-ferro and #navy-why-ferro. */
+  /* pages. Built for a host each page has a real URL (window.FERRO_PAGES); on the claude.ai preview they are #home and #why-ferro */
   const PAGES = window.FERRO_PAGES || null;
-  const skinNow = () => root.getAttribute('data-skin') === 'navy' ? 'navy' : 'classic';
   const pageNow = () => root.getAttribute('data-page') || 'home';
-  const hrefFor = (page, skin) => PAGES ? PAGES.urls[skin][page]
-    : '#' + (page === 'home' ? skin : (skin === 'navy' ? 'navy-' : '') + page);
+  const hrefFor = page => PAGES ? PAGES.urls[page] : '#' + page;
   const syncLinks = () => {
-    document.querySelectorAll('[data-page]').forEach(a => { if (a.tagName === 'A') a.href = hrefFor(a.dataset.page, skinNow()); });
-    const logo = document.querySelector('.logo'); logo.href = hrefFor('home', skinNow());
+    document.querySelectorAll('a[data-page]').forEach(a => { a.href = hrefFor(a.dataset.page); });
+    document.querySelector('.logo').href = hrefFor('home');
   };
-  let skinTimer;
-  function applySkin(skin, animate){
-    if (skin === skinNow()) return;
-    if (animate && !reduce){ root.classList.add('skin-anim'); clearTimeout(skinTimer); skinTimer = setTimeout(() => root.classList.remove('skin-anim'), 700); }
-    if (skin === 'navy') root.setAttribute('data-skin', 'navy'); else root.removeAttribute('data-skin');
-    if (current) setTimeout(() => sizeMenu(panes[current], true), 0);
-    syncLinks();
-  }
   let morphFrom = null;   // the Company menu photo, when Why Ferro was picked from there
   function showPage(page){
     if (page === pageNow()) return;
@@ -894,28 +867,14 @@ main[data-view="why-ferro"]{display:none}
   });
   const resetMorph = () => document.querySelectorAll('[data-pane="company"] .shot').forEach(p => { p.style.viewTransitionName = ''; p.parentElement.style.background = ''; });
   addEventListener('pageshow', resetMorph);
-  const parseHash = () => {
-    const h = location.hash.slice(1);
-    const m = /^(navy|classic)?-?(why-ferro)?$/.exec(h);
-    return h && m ? { skin: m[1] === 'navy' ? 'navy' : 'classic', page: m[2] || 'home' } : null;
-  };
   document.querySelector('.logo').addEventListener('click', e => {
     if (pageNow() !== 'home') return;            // elsewhere the logo is a link home
-    e.preventDefault();
-    const next = skinNow() === 'navy' ? 'classic' : 'navy';
-    applySkin(next, true);
-    if (PAGES) history.pushState({}, '', hrefFor('home', next)); else location.hash = next;
+    e.preventDefault(); scrollTo({top: 0, behavior: reduce ? 'auto' : 'smooth'});
   });
-  if (PAGES){
-    addEventListener('popstate', () => {
-      const s = location.pathname.startsWith('/navy/') ? 'navy' : 'classic';
-      const pg = /why-ferro\/?$/.test(location.pathname) ? 'why-ferro' : 'home';
-      if (pg !== PAGES.page){ location.reload(); return; }
-      applySkin(s, true);
-    });
-  } else {
-    addEventListener('hashchange', () => { const v = parseHash(); if (!v) return; applySkin(v.skin, v.page === pageNow()); showPage(v.page); });
-  }
+  if (!PAGES) addEventListener('hashchange', () => {
+    const h = location.hash.slice(1);
+    if (h === 'home' || h === 'why-ferro') showPage(h);
+  });
   syncLinks();
 
   /* Why Ferro banner film: plays while its page is showing and the banner is on screen */
