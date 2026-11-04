@@ -10,14 +10,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ferro Building Systems">
 <meta property="og:title" content="Ferro — Steel Building Systems">
-<meta property="og:description" content="Custom pre-engineered steel buildings, backed by a five-year workmanship warranty.">
+<meta property="og:description" content="Ferro Building Systems designs and builds custom pre-engineered steel buildings, backed by a five-year workmanship warranty.">
 <meta property="og:url" content="https://ferro.rd-bannon.workers.dev/navy/">
 <meta property="og:image" content="https://ferro.rd-bannon.workers.dev/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="The Ferro F mark over a blue-toned steel building frame">
 <meta name="twitter:card" content="summary_large_image">
-<script>window.FERRO_ROUTES = {"classic": "/", "navy": "/navy/"};</script>
+<script>window.FERRO_PAGES = {"page": "home", "urls": {"classic": {"home": "/", "why-ferro": "/why-ferro/"}, "navy": {"home": "/navy/", "why-ferro": "/navy/why-ferro/"}}};</script>
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0;font:14px/1.4 system-ui,sans-serif}
@@ -30,8 +30,8 @@ img{max-width:100%}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Figtree:wght@500;600&family=Inter:wght@400;500&display=swap">
 <script>
 (function(){var r=document.documentElement;r.classList.add('intro');
-/* skins: "/" and "/navy/" when built for a host, "#navy" on the claude.ai preview */
-if(!window.FERRO_ROUTES&&location.hash==='#navy')r.setAttribute('data-skin','navy');})();
+/* skins and pages: real URLs when built for a host (window.FERRO_PAGES); #navy, #why-ferro, #navy-why-ferro on the claude.ai preview */
+if(!window.FERRO_PAGES){var h=location.hash.slice(1);if(h==='navy'||h==='navy-why-ferro')r.setAttribute('data-skin','navy');if(/why-ferro$/.test(h))r.setAttribute('data-page','why-ferro');}})();
 </script>
 <style>
 /* Layout: Figma "Ferro Home" — sticky white bar, two full-bleed image bands, four-column services band, sector carousel.
@@ -324,8 +324,53 @@ footer a:hover{background:var(--tint)}
 .armed .build.in .col.c0 .media > .img{transform:none}
 .band .copy{will-change:transform,opacity}
 
+/* ---------- views: the preview holds both pages and shows one ---------- */
+main[data-view="why-ferro"]{display:none}
+[data-page="why-ferro"] main[data-view="home"]{display:none}
+[data-page="why-ferro"] main[data-view="why-ferro"]{display:block}
+
+/* ---------- Why Ferro ---------- */
+.wf{padding-inline:0!important;--wf-bg:#11264a;--wf-panel:#081b3d;--wf-ink:#fff;--wf-soft:rgba(255,255,255,.7);--wf-gold:#e5a824;
+  background:var(--wf-bg);color:var(--wf-ink);padding-bottom:32px}
+.wf-wrap{width:min(1200px,100% - 2 * max(var(--inner),env(safe-area-inset-left,0px)));margin-inline:auto}
+.wf-intro{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;padding:70px max(16px,env(safe-area-inset-right,0px)) 32px max(16px,env(safe-area-inset-left,0px))}
+.wf-eyebrow{color:var(--wf-gold)}
+.wf-intro .h-xl{margin-bottom:7px}
+.wf-lede{margin:0;max-width:614px;font-size:16px;line-height:1.1;letter-spacing:-.03em;color:rgba(255,255,255,.5);text-wrap:balance}
+.wf-media{position:relative;margin:0;overflow:hidden;background:var(--wf-panel)}
+.wf-media > .img{position:absolute;left:0;top:0;width:100%;height:calc(100% + var(--travel));max-width:none;object-fit:cover;will-change:transform}
+.plx{--travel:48px}
+.wf-lead{display:flex;flex-direction:column;gap:24px}
+.wf-hero-img{height:562px}
+.wf-hero-img > .img{transition:clip-path 1.6s var(--ease) .05s}
+.wf-copy{display:flex;flex-direction:column;gap:12px}
+.wf-h{margin:0;font-weight:700;font-size:24px;line-height:1.1;letter-spacing:-.03em;color:var(--wf-ink);text-wrap:balance}
+.wf-p{margin:0;font-family:var(--text);font-size:16px;line-height:1.4;letter-spacing:-.03em;color:var(--wf-soft);text-wrap:pretty}
+.wf-p strong{font-weight:700;color:var(--wf-ink)}
+.wf-body{display:flex;flex-direction:column;align-items:center;gap:104px;padding:40px 0 50px}
+.wf-pair{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.wf-col{display:flex;flex-direction:column;gap:20px;min-width:0}
+.wf-col .wf-media{height:377px}
+.wf-panel{display:grid;grid-template-columns:1fr 1fr;gap:40px;background:var(--wf-panel)}
+.wf-panel-media{min-height:416px}
+.wf-panel-copy{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:110px 32px 110px 0;min-width:0}
+.wf-panel-flip .wf-panel-copy{padding:110px 0 110px 32px}
+.wf-panel-flip .wf-panel-media{min-height:456px}
+.wf-panel-flip .wf-p + .wf-p{margin-top:10px}
+.wf-process{display:flex;flex-direction:column;align-items:center;gap:35px;padding:0 var(--inner) 32px;width:100%;box-sizing:border-box}
+.wf-process-head{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.wf-sub{margin:0;font-size:16px;line-height:1.1;letter-spacing:-.03em;color:var(--wf-soft)}
+.wf-cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,300px));justify-content:center;gap:18px;width:100%}
+.wf-card{display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:279px;padding:24px;background:var(--wf-panel);border-radius:var(--card-radius);font-family:var(--text)}
+.wf-card h3{margin:0;font-weight:500;font-size:24px;line-height:1.2;letter-spacing:-.04em;color:var(--wf-ink)}
+.wf-card p{margin:0;font-size:14px;line-height:1.4;letter-spacing:-.02em;color:rgba(255,255,255,.6)}
+.wf-rink{height:678px}
+.wf-rink{--travel:72px}
+.intro:not(.play) .wf-hero-img > .img{clip-path:inset(2.5% 1.5%)}
+
 /* ---------- tablet ---------- */
 @media (max-width:1100px){
+  .wf-cards{grid-template-columns:repeat(2,minmax(0,300px))}
   .build{grid-template-columns:repeat(2,1fr);height:auto}
   .col{min-height:320px}
 }
@@ -334,6 +379,20 @@ footer a:hover{background:var(--tint)}
   :root{--gutter:16px;--nav-x:16px;--page-gutter:16px;--band-gap:12px;--inner:16px}
   [data-skin="navy"]{--page-gutter:0px;--band-gap:0px}
   .band{--travel:44px}
+  .wf-intro{padding-top:48px}
+  .wf-hero-img{height:auto;aspect-ratio:4/3}
+  .wf-body{gap:56px;padding-top:32px}
+  .wf-pair,.wf-panel{grid-template-columns:1fr;gap:20px}
+  .wf-pair{gap:40px}
+  .wf-col .wf-media{height:auto;aspect-ratio:3/2}
+  .wf-panel{gap:0}
+  .wf-panel-media,.wf-panel-flip .wf-panel-media{min-height:0;aspect-ratio:4/3}
+  .wf-panel-copy,.wf-panel-flip .wf-panel-copy{padding:28px 20px 32px}
+  .wf-panel-flip .wf-panel-media{order:-1}
+  .wf-cards{grid-template-columns:1fr;width:100%}
+  .wf-card{min-height:0}
+  .wf-rink{height:auto;aspect-ratio:4/3}
+  .plx{--travel:32px}
   /* on phones, drop the photo below the copy and let the flat sky fill above it */
   .hero .media > .img{top:150px;height:calc(100% - 150px + var(--travel))}
   .nav{grid-template-columns:1fr auto;height:60px}
@@ -386,7 +445,7 @@ footer a:hover{background:var(--tint)}
 </head>
 <body>
 <header class="nav" id="nav">
-  <a class="logo" href="#top" aria-label="Ferro home (switches colour theme)" title="Switch theme" data-in style="--d:0"><span class="mask" style="--m:url(/assets/mark.svg)"></span></a>
+  <a class="logo" href="/navy/" aria-label="Ferro home (switches colour theme)" title="Switch theme" data-in style="--d:0"><span class="mask" style="--m:url(/assets/mark.svg)"></span></a>
 
   <nav class="links" aria-label="Primary" id="links">
     <span class="pill" id="pill" aria-hidden="true"></span>
@@ -459,7 +518,7 @@ footer a:hover{background:var(--tint)}
             <div class="list featured">
               <h4>ABOUT US</h4>
               <ul data-picks>
-                <li><a href="#why-ferro">Why Ferro</a></li>
+                <li><a data-page="why-ferro" href="/navy/why-ferro/">Why Ferro</a></li>
                 <li><a href="#company">Company</a></li>
                 <li><a href="#careers">Careers</a></li>
               </ul>
@@ -519,12 +578,12 @@ footer a:hover{background:var(--tint)}
     <button class="acc-btn" aria-expanded="false">Company <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
     <div class="acc-body"><div class="acc-inner"><div>
       <p class="m-h">ABOUT US</p>
-      <ul class="m-list"><li><a href="#why-ferro">Why Ferro</a></li><li><a href="#company">Company</a></li><li><a href="#careers">Careers</a></li></ul>
+      <ul class="m-list"><li><a data-page="why-ferro" href="/navy/why-ferro/">Why Ferro</a></li><li><a href="#company">Company</a></li><li><a href="#careers">Careers</a></li></ul>
     </div></div></div>
   </div>
 </div>
 
-<main id="top">
+<main id="top" data-view="home">
   <section class="band hero on-dark" aria-labelledby="h-hero">
     <div class="media"><img class="img" id="heroImg" src="/assets/hero-1464.jpg" srcset="/assets/hero-1200.jpg 1200w, /assets/hero-1464.jpg 1464w" sizes="100vw" alt="Aerial view of a large steel building under construction, with a tower crane and mountains beyond" fetchpriority="high"></div>
     <div class="copy">
@@ -535,7 +594,7 @@ footer a:hover{background:var(--tint)}
       </div>
       <div class="ctas" data-in style="--d:560">
         <a class="btn btn-solid" href="#film"><svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M2 1.5 12.5 8 2 14.5Z" fill="currentColor"/></svg>Watch Film</a>
-        <a class="btn btn-ghost" href="#warranty">Learn More</a>
+        <a class="btn btn-ghost" data-page="why-ferro" href="/navy/why-ferro/">Learn More</a>
       </div>
     </div>
   </section>
@@ -623,8 +682,8 @@ footer a:hover{background:var(--tint)}
   /* intro */
   const play = () => root.classList.add('play');
   const go = () => requestAnimationFrame(() => requestAnimationFrame(play));
-  const heroImg = document.getElementById('heroImg');
-  const ready = Promise.all([document.fonts ? document.fonts.ready : 0, heroImg.decode ? heroImg.decode().catch(() => {}) : 0]);
+  const heroImg = root.getAttribute('data-page') === 'why-ferro' ? document.querySelector('.wf-hero-img img') : document.getElementById('heroImg');
+  const ready = Promise.all([document.fonts ? document.fonts.ready : 0, heroImg && heroImg.decode ? heroImg.decode().catch(() => {}) : 0]);
   Promise.race([ready, new Promise(r => setTimeout(r, 1100))]).then(go);
   setTimeout(play, 1800);
 
@@ -646,11 +705,19 @@ footer a:hover{background:var(--tint)}
   const bands = [...document.querySelectorAll('.band')].map(b => ({
     b, img: b.querySelector('.media > .img'), copy: b.querySelector('.copy'), hero: b.classList.contains('hero'), on: false
   }));
+  const plx = [...document.querySelectorAll('.plx')].map(b => ({ b, img: b.querySelector('.img'), on: false }));
   const clamp = v => Math.max(0, Math.min(1, v));
   let ticking = false;
   function frame(){
     ticking = false;
     const vh = innerHeight, navH = navEl.offsetHeight;
+    for (const o of plx){
+      if (!o.on) continue;
+      const r = o.b.getBoundingClientRect();
+      const travel = parseFloat(getComputedStyle(o.b).getPropertyValue('--travel')) || 0;
+      const p = clamp((vh - r.top) / (vh + r.height));
+      o.img.style.transform = `translate3d(0,${(-p * travel).toFixed(2)}px,0)`;
+    }
     for (const o of bands){
       if (!o.on) continue;
       const r = o.b.getBoundingClientRect();
@@ -669,8 +736,9 @@ footer a:hover{background:var(--tint)}
   }
   const req = () => { if (!ticking){ ticking = true; requestAnimationFrame(frame); } };
   if (!reduce){
-    const pio = new IntersectionObserver(es => { es.forEach(e => { bands.find(o => o.b === e.target).on = e.isIntersecting; }); req(); });
-    bands.forEach(o => pio.observe(o.b));
+    const all = bands.concat(plx);
+    const pio = new IntersectionObserver(es => { es.forEach(e => { all.find(o => o.b === e.target).on = e.isIntersecting; }); req(); });
+    all.forEach(o => pio.observe(o.b));
     addEventListener('scroll', req, {passive:true});
     addEventListener('resize', req);
   }
@@ -775,25 +843,54 @@ footer a:hover{background:var(--tint)}
     try { navigator.clipboard.writeText(text).then(done, fallback); } catch (_) { fallback(); }
   });
 
-  /* skins: the logo flips between classic and navy; each has its own URL */
-  const routes = window.FERRO_ROUTES || null;
+  /* skins + pages. Built for a host, each skin/page pair has a real URL (window.FERRO_PAGES);
+     on the claude.ai preview they are #classic, #navy, #why-ferro and #navy-why-ferro. */
+  const PAGES = window.FERRO_PAGES || null;
+  const skinNow = () => root.getAttribute('data-skin') === 'navy' ? 'navy' : 'classic';
+  const pageNow = () => root.getAttribute('data-page') || 'home';
+  const hrefFor = (page, skin) => PAGES ? PAGES.urls[skin][page]
+    : '#' + (page === 'home' ? skin : (skin === 'navy' ? 'navy-' : '') + page);
+  const syncLinks = () => {
+    document.querySelectorAll('[data-page]').forEach(a => { if (a.tagName === 'A') a.href = hrefFor(a.dataset.page, skinNow()); });
+    const logo = document.querySelector('.logo'); logo.href = hrefFor('home', skinNow());
+  };
   let skinTimer;
   function applySkin(skin, animate){
+    if (skin === skinNow()) return;
     if (animate && !reduce){ root.classList.add('skin-anim'); clearTimeout(skinTimer); skinTimer = setTimeout(() => root.classList.remove('skin-anim'), 700); }
     if (skin === 'navy') root.setAttribute('data-skin', 'navy'); else root.removeAttribute('data-skin');
     if (current) setTimeout(() => sizeMenu(panes[current], true), 0);
+    syncLinks();
   }
-  const skinFromUrl = () => routes ? (location.pathname === routes.navy || location.pathname + '/' === routes.navy ? 'navy' : 'classic')
-                                   : (location.hash === '#navy' ? 'navy' : location.hash === '#classic' ? 'classic' : null);
+  function showPage(page){
+    if (page === pageNow()) return;
+    closeAll(); cClose(); root.classList.remove('menu-open');
+    if (page === 'home') root.removeAttribute('data-page'); else root.setAttribute('data-page', page);
+    scrollTo(0, 0); req();
+  }
+  const parseHash = () => {
+    const h = location.hash.slice(1);
+    const m = /^(navy|classic)?-?(why-ferro)?$/.exec(h);
+    return h && m ? { skin: m[1] === 'navy' ? 'navy' : 'classic', page: m[2] || 'home' } : null;
+  };
   document.querySelector('.logo').addEventListener('click', e => {
+    if (pageNow() !== 'home') return;            // elsewhere the logo is a link home
     e.preventDefault();
-    const next = root.getAttribute('data-skin') === 'navy' ? 'classic' : 'navy';
+    const next = skinNow() === 'navy' ? 'classic' : 'navy';
     applySkin(next, true);
-    if (routes) history.pushState({skin: next}, '', routes[next]);
-    else location.hash = next;
+    if (PAGES) history.pushState({}, '', hrefFor('home', next)); else location.hash = next;
   });
-  addEventListener('popstate', () => { const s = skinFromUrl(); if (s) applySkin(s, true); });
-  addEventListener('hashchange', () => { if (!routes){ const s = skinFromUrl(); if (s) applySkin(s, true); } });
+  if (PAGES){
+    addEventListener('popstate', () => {
+      const s = location.pathname.startsWith('/navy/') ? 'navy' : 'classic';
+      const pg = /why-ferro\/?$/.test(location.pathname) ? 'why-ferro' : 'home';
+      if (pg !== PAGES.page){ location.reload(); return; }
+      applySkin(s, true);
+    });
+  } else {
+    addEventListener('hashchange', () => { const v = parseHash(); if (!v) return; applySkin(v.skin, v.page === pageNow()); showPage(v.page); });
+  }
+  syncLinks();
 
   /* featured caret + photo swap (Projects and Company panes) */
   const shots = [...document.querySelectorAll('[data-pane="projects"] .shot')];
@@ -828,6 +925,7 @@ footer a:hover{background:var(--tint)}
 
   /* sectors carousel */
   const track = document.getElementById('track');
+  if (track){
   const prev = document.getElementById('prev'), next = document.getElementById('next');
   const step = () => { const c = track.querySelector('.card'); return (c.offsetWidth + 18) * 2; };
   const sync = () => {
@@ -837,6 +935,7 @@ footer a:hover{background:var(--tint)}
   prev.addEventListener('click', () => track.scrollBy({left:-step(), behavior: reduce ? 'auto' : 'smooth'}));
   next.addEventListener('click', () => track.scrollBy({left: step(), behavior: reduce ? 'auto' : 'smooth'}));
   track.addEventListener('scroll', sync, {passive:true}); addEventListener('resize', sync); sync();
+  }
 })();
 </script>
 </body>
