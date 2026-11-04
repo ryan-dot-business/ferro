@@ -377,7 +377,14 @@ main[data-view="why-ferro"]{display:none}
 .wf-rel-copy{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:110px 32px 110px 0;min-width:0}
 .wf-rel-media{min-height:398px}
 .wf-rel-tall .wf-rel-media{min-height:446px}
-[data-page="why-ferro"] footer{padding-bottom:40px;border-bottom:11px solid #081b3d}
+/* review notes from the design file, pinned to the photos they're about */
+.wf-note{position:absolute;left:50%;top:50%;z-index:2;transform:translate(-50%,-50%);width:min(304px,calc(100% - 32px));padding:10px;border-radius:10px;
+  background:#fffdc6;border:1px solid rgba(0,0,0,.1);box-shadow:0 4px 12px rgba(0,0,0,.55);color:#000;font-family:var(--text);display:flex;flex-direction:column;gap:4px}
+.wf-note p{margin:0;font-size:12px;line-height:1.25}
+.wf-note .wf-note-h{display:flex;align-items:center;gap:6px;font-family:var(--display);font-stretch:118%;font-weight:700;font-size:14px;text-transform:uppercase}
+[data-page="why-ferro"] footer{padding-bottom:40px;background:#11264a;border-bottom:11px solid #e5a824}
+[data-page="why-ferro"] footer :is(a,span){color:rgba(255,255,255,.7)}
+[data-page="why-ferro"] footer a:hover{background:rgba(255,255,255,.08);color:#fff}
 .intro:not(.play) .wf-hero-img > .img{clip-path:inset(2.5% 1.5%)}
 
 /* ---------- tablet ---------- */
@@ -758,11 +765,11 @@ main[data-view="why-ferro"]{display:none}
         <p class="wf-p">We choose technology with a clear purpose: to improve how we plan, manage, and deliver your project. From safety documentation and quality tracking to real-time reporting, our tools help us manage complex requirements and keep everyone informed.</p>
         <p class="wf-p">For clients and partners, that means clear project updates, easy access to essential documents, and better visibility into progress. For our team, it means less time on administration and more time solving problems before they affect the build.</p>
       </div>
-      <figure class="wf-panel-media wf-media plx"><img class="img" src="assets/wf-tech.jpg" width="1110" height="912" alt="A blue and silver Gescan building with a red entry canopy" loading="lazy" decoding="async"></figure>
+      <figure class="wf-panel-media wf-media plx"><img class="img" src="assets/wf-tech.jpg" width="1110" height="912" alt="A blue and silver Gescan building with a red entry canopy" loading="lazy" decoding="async"><aside class="wf-note" aria-label="Image suggestion"><p class="wf-note-h"><svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M5.6 1.2c.2-.5.6-.7 1.1-.7h2.6c.5 0 .9.2 1.1.7l.5 1h2.6c1 0 1.8.8 1.8 1.8v7.3c0 1-.8 1.8-1.8 1.8H2.5c-1 0-1.8-.8-1.8-1.8V4c0-1 .8-1.8 1.8-1.8h2.6Z" fill="currentColor"/><circle cx="8" cy="7.4" r="2.6" fill="#fffdc6"/></svg>Suggestion</p><p>A person on site with an iPad or some representation of project management process</p></aside></figure>
     </section>
   </div>
 
-  <figure class="wf-rink wf-media plx"><img class="img" src="assets/wf-rink.jpg" width="2400" height="1162" alt="Inside the Cloverdale Sport &amp; Ice Complex: a bright ice rink under a long-span steel roof" loading="lazy" decoding="async"></figure>
+  <figure class="wf-rink wf-media plx"><img class="img" src="assets/wf-partners-wide.jpg" width="2400" height="1163" alt="Ferro staff and project partners in hard hats and hi-vis vests in a finished concourse" loading="lazy" decoding="async"></figure>
 
   <section class="wf-relations" aria-labelledby="wf-relations">
     <div class="wf-relations-head" data-stagger=".eyebrow,.h-xl,.wf-sub" data-step="70">
@@ -786,7 +793,7 @@ main[data-view="why-ferro"]{display:none}
         <h3 class="wf-h" id="wf-mfg">Powerful network.<br>Right results.</h3>
         <p class="wf-p">Every project has different demands. Our dealer agreements with multiple Canadian and American manufacturers give us the flexibility to select the right partner for your building. We match manufacturing capabilities to your design, technical standards, and performance requirements—including the specialized demands of highly regulated projects. That means your building is backed by a manufacturer equipped to meet its requirements from the start.</p>
       </div>
-      <figure class="wf-rel-media wf-media plx"><img class="img" src="assets/wf-partners.jpg" width="1200" height="581" alt="Ferro staff and project partners in hard hats and hi-vis vests in a finished concourse" loading="lazy" decoding="async"></figure>
+      <figure class="wf-rel-media wf-media plx"><img class="img" src="assets/wf-site.jpg" width="1128" height="832" alt="Overhead view of steel framing and roof decking going in on a building site" loading="lazy" decoding="async"><aside class="wf-note" aria-label="Image suggestion"><p class="wf-note-h"><svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M5.6 1.2c.2-.5.6-.7 1.1-.7h2.6c.5 0 .9.2 1.1.7l.5 1h2.6c1 0 1.8.8 1.8 1.8v7.3c0 1-.8 1.8-1.8 1.8H2.5c-1 0-1.8-.8-1.8-1.8V4c0-1 .8-1.8 1.8-1.8h2.6Z" fill="currentColor"/><circle cx="8" cy="7.4" r="2.6" fill="#fffdc6"/></svg>Suggestion</p><p>A picture that feels more like it’s the mfg side, so it delivers the partnership message</p></aside></figure>
     </article>
   </section>
 </main>

@@ -402,7 +402,14 @@ main[data-view="why-ferro"]{display:none}
 .wf-rel-copy{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:110px 32px 110px 0;min-width:0}
 .wf-rel-media{min-height:398px}
 .wf-rel-tall .wf-rel-media{min-height:446px}
-[data-page="why-ferro"] footer{padding-bottom:40px;border-bottom:11px solid #081b3d}
+/* review notes from the design file, pinned to the photos they're about */
+.wf-note{position:absolute;left:50%;top:50%;z-index:2;transform:translate(-50%,-50%);width:min(304px,calc(100% - 32px));padding:10px;border-radius:10px;
+  background:#fffdc6;border:1px solid rgba(0,0,0,.1);box-shadow:0 4px 12px rgba(0,0,0,.55);color:#000;font-family:var(--text);display:flex;flex-direction:column;gap:4px}
+.wf-note p{margin:0;font-size:12px;line-height:1.25}
+.wf-note .wf-note-h{display:flex;align-items:center;gap:6px;font-family:var(--display);font-stretch:118%;font-weight:700;font-size:14px;text-transform:uppercase}
+[data-page="why-ferro"] footer{padding-bottom:40px;background:#11264a;border-bottom:11px solid #e5a824}
+[data-page="why-ferro"] footer :is(a,span){color:rgba(255,255,255,.7)}
+[data-page="why-ferro"] footer a:hover{background:rgba(255,255,255,.08);color:#fff}
 .intro:not(.play) .wf-hero-img > .img{clip-path:inset(2.5% 1.5%)}
 
 /* ---------- tablet ---------- */
