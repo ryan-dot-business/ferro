@@ -101,7 +101,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   padding-left:max(var(--nav-x),env(safe-area-inset-left,0px));padding-right:max(var(--nav-x),env(safe-area-inset-right,0px));
   transition:box-shadow .4s var(--ease)}
 .nav.scrolled{box-shadow:0 1px 0 var(--hair)}
-.logo{justify-self:start;display:block;width:32px;height:30px}
+.logo{justify-self:start;display:block;width:150px;height:31px;margin-left:-2px}
+.logo img{display:block;width:146px;height:31px;max-width:none}
 .mask{display:block;background:currentColor;-webkit-mask:var(--m) no-repeat center/contain;mask:var(--m) no-repeat center/contain}
 .logo .mask{width:100%;height:100%;color:var(--brand-icon)}
 .links{position:relative;display:flex;gap:12px}
@@ -513,7 +514,7 @@ main[data-view="why-ferro"]{display:none}
 </head>
 <body>
 <header class="nav" id="nav">
-  <a class="logo" href="/" aria-label="Ferro home" data-in style="--d:0"><span class="mask" style="--m:url(/assets/mark.svg)"></span></a>
+  <a class="logo" href="/" aria-label="Ferro home" data-in style="--d:0"><img src="/assets/logo-lockup.svg" width="146" height="31" alt=""></a>
 
   <nav class="links" aria-label="Primary" id="links">
     <span class="pill" id="pill" aria-hidden="true"></span>
@@ -600,7 +601,7 @@ main[data-view="why-ferro"]{display:none}
   <div class="nav-end" data-in style="--d:200">
     <div class="contact-wrap" id="contactWrap">
       <button class="icon-btn" id="contactBtn" aria-expanded="false" aria-controls="contactMenu" aria-label="Contact Ferro">
-        <span class="mask" style="--m:url(/assets/mail.svg);width:18px;height:13px;color:var(--brand-icon)"></span>
+        <span class="mask" style="--m:url(/assets/mail.svg);width:24px;height:17px;color:var(--brand-icon)"></span>
       </button>
       <div class="contact" id="contactMenu" role="region" aria-label="Contact">
         <button class="c-row c-email" id="copyEmail" type="button" title="Copy email address">
