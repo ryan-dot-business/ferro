@@ -235,6 +235,9 @@ main{display:flex;flex-direction:column;gap:var(--band-gap);padding-left:max(var
 .col.c2{background:var(--navy-800)}
 .col.c3{background:var(--navy-900)}
 .col .btn{align-self:flex-start;border-color:var(--col-btn)}
+.btn-arrow{width:37px;padding:0;justify-content:center}
+.btn-arrow svg{transition:transform .35s var(--ease)}
+.btn-arrow:hover svg{transform:translateX(2px)}
 .col .eyebrow{color:var(--col-eyebrow)}
 .col.c0 .eyebrow{color:var(--c0-eyebrow)}
 /* hover: the hovered column's photo slides over the column to its left; its description unfolds above the button */
@@ -680,10 +683,10 @@ main[data-view="why-ferro"]{display:none}
     </div>
   </section>
 
-  <section class="build on-dark" id="build" aria-label="How we build better" data-stagger=".col-head,.col-foot" data-step="70" data-base="380">
+  <section class="build on-dark" id="build" aria-label="Services" data-stagger=".col-head,.col-foot" data-step="70" data-base="380">
     <div style="--c:0" class="col c0">
       <div class="media"><img class="img" src="/assets/better-together.jpg" alt="Ironworker on a lift fastening a steel beam" loading="lazy" decoding="async"></div>
-      <div class="col-head"><p class="eyebrow">Better Together</p><h2 class="h-lg">How we<br>build better.</h2></div>
+      <div class="col-head"><p class="eyebrow">Services</p><h2 class="h-lg">Build your<br>confidence<br>with steel.</h2></div>
       <div class="ph" aria-hidden="true"><img src="/assets/svc-core.jpg" alt="" loading="lazy" decoding="async"></div>
     </div>
     <div style="--c:1" class="col c1" id="core" tabindex="-1">
@@ -691,25 +694,25 @@ main[data-view="why-ferro"]{display:none}
       <div class="col-head"><p class="eyebrow">Core</p><h3 class="h-lg">Pre-Engineered<br>Steel Buildings</h3></div>
       <div class="col-foot">
         <div class="desc"><p>We provide end-to-end design and manufacturing support for steel buildings. Whether it’s for energy, water treatment, commercial, institutional, agricultural, or light industrial applications, every structure is built around the precise demands of the site and the systems it needs to support.</p></div>
-        <a class="btn btn-ghost btn-sm" href="#core">Learn More</a>
-      </div>
-      <div class="ph" aria-hidden="true"><img src="/assets/svc-integrated.jpg" alt="" loading="lazy" decoding="async"></div>
-    </div>
-    <div style="--c:2" class="col c2" id="specialize" tabindex="-1">
-      <div class="m-ph"><img src="/assets/svc-integrated.jpg" alt="Blue steel building with a cantilevered canopy" loading="lazy" decoding="async"></div>
-      <div class="col-head"><p class="eyebrow">Customize</p><h3 class="h-lg">Integrated<br>Systems</h3></div>
-      <div class="col-foot">
-        <div class="desc"><p>From frame systems and wall panels to roof panels, we supply the components and expertise to ensure every building performs reliably and supports strong performance for everyone using it. Every system is carefully selected and coordinated to support everything from large crane loads and specialized openings to unique foundation requirements.</p></div>
-        <a class="btn btn-ghost btn-sm" href="#specialize">Learn More</a>
+        <a class="btn btn-ghost btn-sm btn-arrow" href="#core" aria-label="Learn more about Pre-Engineered Steel Buildings"><svg width="15" height="12" viewBox="0 0 15 12" aria-hidden="true"><path d="M1 6h12M8.5 1.5 13 6l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <div class="ph" aria-hidden="true"><img src="/assets/svc-precon.jpg" alt="" loading="lazy" decoding="async"></div>
     </div>
-    <div style="--c:3" class="col c3" id="strategize" tabindex="-1">
+    <div style="--c:2" class="col c2" id="strategize" tabindex="-1">
       <div class="m-ph"><img src="/assets/svc-precon.jpg" alt="Timber entry canopy on a green and blue steel building" loading="lazy" decoding="async"></div>
       <div class="col-head"><p class="eyebrow">Strategize</p><h3 class="h-lg">Pre-Construction<br>Services</h3></div>
       <div class="col-foot">
         <div class="desc"><p>Early collaboration leads to better outcomes. Our pre-construction team supports owners, architects, engineers, and contractors with budgeting, value engineering, constructability reviews, code compliance, and planning that helps reduce risk before construction begins.</p></div>
-        <a class="btn btn-ghost btn-sm" href="#strategize">Learn More</a>
+        <a class="btn btn-ghost btn-sm btn-arrow" href="#strategize" aria-label="Learn more about Pre-Construction Services"><svg width="15" height="12" viewBox="0 0 15 12" aria-hidden="true"><path d="M1 6h12M8.5 1.5 13 6l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="ph" aria-hidden="true"><img src="/assets/svc-integrated.jpg" alt="" loading="lazy" decoding="async"></div>
+    </div>
+    <div style="--c:3" class="col c3" id="specialize" tabindex="-1">
+      <div class="m-ph"><img src="/assets/svc-integrated.jpg" alt="Blue steel building with a cantilevered canopy" loading="lazy" decoding="async"></div>
+      <div class="col-head"><p class="eyebrow">Customize</p><h3 class="h-lg">Integrated<br>Systems</h3></div>
+      <div class="col-foot">
+        <div class="desc"><p>From frame systems and wall panels to roof panels, we supply the components and expertise to ensure every building performs reliably and supports strong performance for everyone using it. Every system is carefully selected and coordinated to support everything from large crane loads and specialized openings to unique foundation requirements.</p></div>
+        <a class="btn btn-ghost btn-sm btn-arrow" href="#specialize" aria-label="Learn more about Integrated Systems"><svg width="15" height="12" viewBox="0 0 15 12" aria-hidden="true"><path d="M1 6h12M8.5 1.5 13 6l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </section>

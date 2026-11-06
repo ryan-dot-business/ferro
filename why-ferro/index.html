@@ -235,6 +235,9 @@ main{display:flex;flex-direction:column;gap:var(--band-gap);padding-left:max(var
 .col.c2{background:var(--navy-800)}
 .col.c3{background:var(--navy-900)}
 .col .btn{align-self:flex-start;border-color:var(--col-btn)}
+.btn-arrow{width:37px;padding:0;justify-content:center}
+.btn-arrow svg{transition:transform .35s var(--ease)}
+.btn-arrow:hover svg{transform:translateX(2px)}
 .col .eyebrow{color:var(--col-eyebrow)}
 .col.c0 .eyebrow{color:var(--c0-eyebrow)}
 /* hover: the hovered column's photo slides over the column to its left; its description unfolds above the button */
