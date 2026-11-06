@@ -245,19 +245,31 @@ main{display:flex;flex-direction:column;gap:var(--band-gap);padding-left:max(var
 .sectors{padding-block:90px 32px;padding-inline:calc(var(--inner) - var(--page-gutter));display:flex;flex-direction:column;gap:50px;min-width:0}
 .sectors-head{padding:0 24px;color:var(--navy-900);display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
 .sectors-head .h-xl{text-wrap:balance}
-.track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:0;
-  margin-right:calc(-1 * var(--inner));padding-right:var(--inner);
-  scrollbar-width:none;overscroll-behavior-x:contain}
-.track::-webkit-scrollbar{display:none}
-.card{flex:none;width:300px;height:279px;scroll-snap-align:start;background:var(--mist);border-radius:var(--card-radius);padding:24px;display:flex;flex-direction:column;justify-content:space-between;
-  font-family:var(--text);color:var(--navy-900);transition:background .35s var(--ease)}
-.card:hover{background:#dfe7f6}
-.card h3{margin:0;font-weight:500;font-size:24px;line-height:1.2;letter-spacing:-.04em}
-.card p{margin:0;font-size:16px;line-height:1.2;letter-spacing:-.04em;color:rgba(8,27,61,.6);text-wrap:balance}
-.arrows{display:flex;justify-content:flex-end;gap:24px}
-.round{display:grid;place-items:center;width:39px;height:39px;border-radius:20px;background:var(--mist);color:var(--navy-900);transition:background .3s var(--ease),opacity .3s var(--ease)}
-.round:hover{background:#d7e1f3}
-.round:disabled{opacity:.4;cursor:default;background:var(--mist)}
+.sectors .eyebrow{color:#e5a824}
+/* sectors carousel: centred slide at full size, neighbours scaled down and peeking; captions crossfade */
+.sec-car{--w:min(647px,100vw - 2 * var(--inner) - 64px);--h:calc(var(--w) * 402 / 647);--small:.9227;--gap:18px;display:flex;flex-direction:column;align-items:center;gap:16px;
+  margin-inline:calc(-1 * (var(--inner) - var(--page-gutter)))}
+.sec-stage{position:relative;width:100%;height:var(--h);overflow:hidden;touch-action:pan-y;cursor:grab;outline-offset:4px}
+.sec-stage:active{cursor:grabbing}
+.sec-slide{position:absolute;left:50%;top:0;width:var(--w);height:var(--h);margin:0 0 0 calc(var(--w) / -2);overflow:hidden;background:#dedede;
+  transform:translateX(var(--x,0px)) scale(var(--s,1));transition:transform .7s cubic-bezier(.65,0,.2,1),opacity .5s var(--ease);will-change:transform;user-select:none}
+.sec-slide img{width:100%;height:100%;object-fit:cover;display:block;max-width:none;pointer-events:none}
+.sec-slide.is-ph::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.4)}
+.sec-slide:not(.on){cursor:pointer}
+.sec-slide.jump{transition:none}
+.sec-note{z-index:1}
+.sec-caps{display:grid;width:var(--w);max-width:100%}
+.sec-cap{grid-area:1/1;display:flex;flex-direction:column;gap:4px;padding-inline:24px;font-family:var(--text);color:var(--navy-900);opacity:0;transform:translateY(6px);transition:opacity .25s var(--ease),transform .4s var(--ease);pointer-events:none}
+.sec-cap.on{opacity:1;transform:none;transition:opacity .5s var(--ease) .2s,transform .7s var(--ease) .2s;pointer-events:auto}
+.sec-cap h3{margin:0;font-weight:500;font-size:24px;line-height:1.2;letter-spacing:-.04em}
+.sec-cap p{margin:0;font-size:16px;line-height:1.25;letter-spacing:-.04em;color:rgba(8,27,61,.6);text-wrap:pretty}
+.sec-ctrl{display:flex;align-items:center;gap:15px}
+.sec-btn{display:grid;place-items:center;width:35px;height:30px;border-radius:5px;background:var(--mist);color:var(--navy-900);transition:background .25s var(--ease)}
+.sec-btn:hover{background:#d7e1f3}
+.sec-dots{display:flex;align-items:center;gap:3px}
+.sec-dot{width:6px;height:6px;background:rgba(0,0,0,.1);transition:width .45s var(--ease),background .3s var(--ease)}
+.sec-dot:hover{background:rgba(0,0,0,.25)}
+.sec-dot.on{width:20px;background:var(--navy-900)}
 
 .footnote{display:flex;gap:3px;max-width:calc(395px + var(--inner) - var(--page-gutter));padding-inline:calc(var(--inner) - var(--page-gutter));font-size:9px;line-height:1.1;letter-spacing:-.03em;color:rgba(0,0,0,.7);margin:0;padding-bottom:20px}
 .footnote:target{color:var(--navy-700)}
@@ -280,8 +292,6 @@ footer a:hover{background:var(--tint)}
 .armed .in .rv,.armed .rv.in{opacity:1;transform:none}
 /* once revealed, drop the stagger delay so hover dimming responds immediately */
 .armed .settled .rv{transition:opacity .2s var(--ease),transform .2s var(--ease)}
-.armed .card.rv{transform:translateY(40px) scale(.98)}
-.armed .in .card.rv{transform:none}
 /* services band: columns wipe up from the bottom edge, left to right, then their copy rises */
 .armed .build{background:transparent}
 .armed .build .col{clip-path:inset(100% 0 0 0);transition:clip-path 1.1s var(--ease-io) calc(var(--c) * 90ms)}
@@ -440,8 +450,8 @@ main[data-view="why-ferro"]{display:none}
   .h-lg{font-size:26px}
   .sectors-head{padding:0 4px}
   .sectors{padding-block:56px 24px;gap:28px}
-  .card{width:min(78vw,300px);height:250px}
-  .arrows{display:none}
+  .sec-car{--w:calc(100vw - 2 * var(--inner) - 40px);--gap:10px}
+  .sec-cap{padding-inline:4px}
   .footnote{max-width:none}
   footer{padding-top:56px;gap:4px}
 }
@@ -677,25 +687,38 @@ main[data-view="why-ferro"]{display:none}
     </div>
   </section>
 
-  <section class="sectors" id="sectors" aria-labelledby="h-sec" data-stagger=".eyebrow,.h-xl,.sub,.card,.arrows" data-step="60">
-    <div class="sectors-head reveal">
-      <p class="eyebrow">Sectors</p>
-      <h2 class="h-xl" id="h-sec">Strength Across the Board</h2>
-      <p class="sub">Ferro steel buildings are built for accountability,</p>
+  <section class="sectors" id="sectors" aria-labelledby="h-sec" aria-roledescription="carousel" data-stagger=".eyebrow,.h-xl,.sub,.sec-stage,.sec-caps,.sec-ctrl" data-step="60">
+    <div class="sectors-head">
+      <p class="eyebrow">Expertise</p>
+      <h2 class="h-xl" id="h-sec">Strength Across all Sectors</h2>
+      <p class="sub">Solutions built around your needs.</p>
     </div>
-    <div class="track" id="track" tabindex="0" aria-label="Sectors">
-      <article class="card" style="--i:0"><h3>Aviation &amp; Transport</h3><p>Hangars, support buildings, and aviation facilities that require large spans and specialized doors.</p></article>
-      <article class="card" style="--i:1"><h3>Commercial</h3><p>Functional space, adaptable designs, efficient delivery, and cost-effective quality.</p></article>
-      <article class="card" style="--i:2"><h3>Waste &amp; Water</h3><p>Where compliance, corrosion considerations, operational consistency, and safety matter most.</p></article>
-      <article class="card" style="--i:3"><h3>Public Spaces &amp; Recreation</h3><p>Rinks, recreation facilities, and community gathering spaces with open layouts and durability for everyday use.</p></article>
-      <article class="card" style="--i:4"><h3>Civic Buildings &amp; Facilities</h3><p>Municipal buildings and public service facilities where reliable performance, cost control, and long-term value are essential.</p></article>
-      <article class="card" style="--i:5"><h3>Agricultural</h3><p>Durable structures for production, processing, storage, equipment maintenance, and other agricultural applications.</p></article>
-      <article class="card" style="--i:6"><h3>Energy &amp; Utilities</h3><p>Service buildings, transmission support, substations, and other infrastructure that support critical energy systems.</p></article>
-      <article class="card" style="--i:7"><h3>Industrial</h3><p>Warehousing and manufacturing operations with tailored loading, access, and performance features.</p></article>
-    </div>
-    <div class="arrows">
-      <button class="round" id="prev" aria-label="Previous sectors"><svg width="9" height="15" viewBox="0 0 9 15" aria-hidden="true"><path d="M7.5 1.5 1.5 7.5l6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button class="round" id="next" aria-label="Next sectors"><svg width="9" height="15" viewBox="0 0 9 15" aria-hidden="true"><path d="m1.5 1.5 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div class="sec-car" id="secCar">
+      <div class="sec-stage" id="secStage" tabindex="0" aria-label="Sectors, use the arrow keys to browse">
+        <figure class="sec-slide" data-i="0" aria-roledescription="slide" aria-label="1 of 8: Aviation &amp; Transport"><img src="assets/sec-aviation.jpg" alt="A business jet parked inside a steel-framed hangar" loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="sec-slide is-ph" data-i="1" aria-roledescription="slide" aria-label="2 of 8: Commercial"><img src="assets/wf-tech.jpg" alt="A blue and silver commercial building with a red entry canopy" loading="lazy" decoding="async" draggable="false"><aside class="wf-note sec-note" aria-label="Placeholder image"><p class="wf-note-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span><span class="mask wf-note-site" role="img" aria-label="Site." style="--m:url(assets/site.svg);width:37px;height:14px"></span><span class="wf-note-tag">Placeholder</span></p><p>FINALS TO BE PROVIDED BY FERRO</p></aside></figure>
+        <figure class="sec-slide is-ph" data-i="2" aria-roledescription="slide" aria-label="3 of 8: Waste &amp; Water"><img src="assets/prj-erco-chemical.jpg" alt="A four-bay service building at sunset" loading="lazy" decoding="async" draggable="false"><aside class="wf-note sec-note" aria-label="Placeholder image"><p class="wf-note-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span><span class="mask wf-note-site" role="img" aria-label="Site." style="--m:url(assets/site.svg);width:37px;height:14px"></span><span class="wf-note-tag">Placeholder</span></p><p>FINALS TO BE PROVIDED BY FERRO</p></aside></figure>
+        <figure class="sec-slide is-ph" data-i="3" aria-roledescription="slide" aria-label="4 of 8: Public Spaces &amp; Recreation"><img src="assets/wf-rink.jpg" alt="A bright ice rink under a long-span steel roof" loading="lazy" decoding="async" draggable="false"><aside class="wf-note sec-note" aria-label="Placeholder image"><p class="wf-note-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span><span class="mask wf-note-site" role="img" aria-label="Site." style="--m:url(assets/site.svg);width:37px;height:14px"></span><span class="wf-note-tag">Placeholder</span></p><p>FINALS TO BE PROVIDED BY FERRO</p></aside></figure>
+        <figure class="sec-slide is-ph" data-i="4" aria-roledescription="slide" aria-label="5 of 8: Civic Buildings &amp; Facilities"><img src="assets/prj-north-galiano.jpg" alt="A two-storey fire hall with bay doors" loading="lazy" decoding="async" draggable="false"><aside class="wf-note sec-note" aria-label="Placeholder image"><p class="wf-note-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span><span class="mask wf-note-site" role="img" aria-label="Site." style="--m:url(assets/site.svg);width:37px;height:14px"></span><span class="wf-note-tag">Placeholder</span></p><p>FINALS TO BE PROVIDED BY FERRO</p></aside></figure>
+        <figure class="sec-slide is-ph" data-i="5" aria-roledescription="slide" aria-label="6 of 8: Agricultural"><img src="assets/standards-1200.jpg" alt="A steel building going up in a forest clearing" loading="lazy" decoding="async" draggable="false"><aside class="wf-note sec-note" aria-label="Placeholder image"><p class="wf-note-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span><span class="mask wf-note-site" role="img" aria-label="Site." style="--m:url(assets/site.svg);width:37px;height:14px"></span><span class="wf-note-tag">Placeholder</span></p><p>FINALS TO BE PROVIDED BY FERRO</p></aside></figure>
+        <figure class="sec-slide is-ph" data-i="6" aria-roledescription="slide" aria-label="7 of 8: Energy &amp; Utilities"><img src="assets/svc-core.jpg" alt="A steel building frame at sunset" loading="lazy" decoding="async" draggable="false"><aside class="wf-note sec-note" aria-label="Placeholder image"><p class="wf-note-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span><span class="mask wf-note-site" role="img" aria-label="Site." style="--m:url(assets/site.svg);width:37px;height:14px"></span><span class="wf-note-tag">Placeholder</span></p><p>FINALS TO BE PROVIDED BY FERRO</p></aside></figure>
+        <figure class="sec-slide is-ph" data-i="7" aria-roledescription="slide" aria-label="8 of 8: Industrial"><img src="assets/svc-integrated.jpg" alt="A blue steel industrial building with a cantilevered canopy" loading="lazy" decoding="async" draggable="false"><aside class="wf-note sec-note" aria-label="Placeholder image"><p class="wf-note-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span><span class="mask wf-note-site" role="img" aria-label="Site." style="--m:url(assets/site.svg);width:37px;height:14px"></span><span class="wf-note-tag">Placeholder</span></p><p>FINALS TO BE PROVIDED BY FERRO</p></aside></figure>
+      </div>
+      <div class="sec-caps" aria-live="polite">
+        <div class="sec-cap" data-i="0"><h3>Aviation &amp; Transport</h3><p>Hangars, support buildings, and aviation facilities that require large spans and specialized doors.</p></div>
+        <div class="sec-cap" data-i="1"><h3>Commercial</h3><p>Functional space, adaptable designs, efficient delivery, and cost-effective quality.</p></div>
+        <div class="sec-cap" data-i="2"><h3>Waste &amp; Water</h3><p>Where compliance, corrosion considerations, operational consistency, and safety matter most.</p></div>
+        <div class="sec-cap" data-i="3"><h3>Public Spaces &amp; Recreation</h3><p>Rinks, recreation facilities, and community gathering spaces with open layouts and durability for everyday use.</p></div>
+        <div class="sec-cap" data-i="4"><h3>Civic Buildings &amp; Facilities</h3><p>Municipal buildings and public service facilities where reliable performance, cost control, and long-term value are essential.</p></div>
+        <div class="sec-cap" data-i="5"><h3>Agricultural</h3><p>Durable structures for production, processing, storage, equipment maintenance, and other agricultural applications.</p></div>
+        <div class="sec-cap" data-i="6"><h3>Energy &amp; Utilities</h3><p>Service buildings, transmission support, substations, and other infrastructure that support critical energy systems.</p></div>
+        <div class="sec-cap" data-i="7"><h3>Industrial</h3><p>Warehousing and manufacturing operations with tailored loading, access, and performance features.</p></div>
+      </div>
+      <div class="sec-ctrl">
+        <button class="sec-btn" id="secPrev" aria-label="Previous sector"><svg width="8" height="13" viewBox="0 0 8 13" aria-hidden="true"><path d="M6.5 1.5 1.5 6.5l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="sec-dots"><button class="sec-dot" data-i="0" aria-label="Show Aviation &amp; Transport"></button><button class="sec-dot" data-i="1" aria-label="Show Commercial"></button><button class="sec-dot" data-i="2" aria-label="Show Waste &amp; Water"></button><button class="sec-dot" data-i="3" aria-label="Show Public Spaces &amp; Recreation"></button><button class="sec-dot" data-i="4" aria-label="Show Civic Buildings &amp; Facilities"></button><button class="sec-dot" data-i="5" aria-label="Show Agricultural"></button><button class="sec-dot" data-i="6" aria-label="Show Energy &amp; Utilities"></button><button class="sec-dot" data-i="7" aria-label="Show Industrial"></button></div>
+        <button class="sec-btn" id="secNext" aria-label="Next sector"><svg width="8" height="13" viewBox="0 0 8 13" aria-hidden="true"><path d="m1.5 1.5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
     </div>
   </section>
 
@@ -1061,18 +1084,46 @@ main[data-view="why-ferro"]{display:none}
   document.querySelectorAll('#sheet a').forEach(a => a.addEventListener('click', () => { root.classList.remove('menu-open'); burger.setAttribute('aria-expanded','false'); }));
   document.querySelectorAll('.acc-btn').forEach(b => b.addEventListener('click', () => b.setAttribute('aria-expanded', String(b.getAttribute('aria-expanded') !== 'true'))));
 
-  /* sectors carousel */
-  const track = document.getElementById('track');
-  if (track){
-  const prev = document.getElementById('prev'), next = document.getElementById('next');
-  const step = () => { const c = track.querySelector('.card'); return (c.offsetWidth + 18) * 2; };
-  const sync = () => {
-    prev.disabled = track.scrollLeft <= 2;
-    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
-  };
-  prev.addEventListener('click', () => track.scrollBy({left:-step(), behavior: reduce ? 'auto' : 'smooth'}));
-  next.addEventListener('click', () => track.scrollBy({left: step(), behavior: reduce ? 'auto' : 'smooth'}));
-  track.addEventListener('scroll', sync, {passive:true}); addEventListener('resize', sync); sync();
+  /* sectors carousel: looping, centred, neighbours peek; drag, keys, arrows and dots */
+  const car = document.getElementById('secCar');
+  if (car){
+    const stage = document.getElementById('secStage');
+    const slides = [...car.querySelectorAll('.sec-slide')], caps = [...car.querySelectorAll('.sec-cap')], dots = [...car.querySelectorAll('.sec-dot')];
+    const n = slides.length; let active = 0, prevOff = slides.map((_, i) => i);
+    const offset = i => { let o = ((i - active) % n + n) % n; if (o > n / 2) o -= n; return o; };
+    function layout(drag = 0){
+      const cs = getComputedStyle(car), w = slides[0].offsetWidth, gap = parseFloat(cs.getPropertyValue('--gap')) || 18, small = parseFloat(cs.getPropertyValue('--small')) || .92;
+      const ws = w * small, near = (w + ws) / 2 + gap, step = ws + gap;
+      slides.forEach((el, i) => {
+        const o = offset(i), x = o === 0 ? 0 : Math.sign(o) * (near + (Math.abs(o) - 1) * step);
+        el.classList.toggle('jump', Math.abs(o - prevOff[i]) > 1);   // wrapping round the back: no visible sweep
+        el.style.setProperty('--x', (x + drag).toFixed(1) + 'px');
+        el.style.setProperty('--s', o === 0 ? 1 : small);
+        el.classList.toggle('on', o === 0);
+        el.setAttribute('aria-hidden', String(o !== 0));
+        prevOff[i] = o;
+      });
+      caps.forEach((c, i) => c.classList.toggle('on', i === active));
+      dots.forEach((d, i) => { d.classList.toggle('on', i === active); d.setAttribute('aria-current', String(i === active)); });
+    }
+    const go = i => { active = (i % n + n) % n; layout(); };
+    document.getElementById('secPrev').addEventListener('click', () => go(active - 1));
+    document.getElementById('secNext').addEventListener('click', () => go(active + 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+    stage.addEventListener('keydown', e => { if (e.key === 'ArrowLeft'){ e.preventDefault(); go(active - 1); } if (e.key === 'ArrowRight'){ e.preventDefault(); go(active + 1); } });
+    // drag / swipe
+    let sx = null, dx = 0, moved = false;
+    stage.addEventListener('pointerdown', e => { sx = e.clientX; dx = 0; moved = false; stage.setPointerCapture(e.pointerId); slides.forEach(s => s.style.transitionDuration = '0s'); });
+    stage.addEventListener('pointermove', e => { if (sx === null) return; dx = e.clientX - sx; if (Math.abs(dx) > 4) moved = true; layout(dx); });
+    const end = () => {
+      if (sx === null) return; sx = null; slides.forEach(s => s.style.transitionDuration = '');
+      const w = slides[0].offsetWidth;
+      if (Math.abs(dx) > w * .15) go(active + (dx < 0 ? 1 : -1)); else layout();
+    };
+    stage.addEventListener('pointerup', end); stage.addEventListener('pointercancel', end);
+    stage.addEventListener('click', e => { if (moved) return; const s = e.target.closest('.sec-slide'); if (s && !s.classList.contains('on')) go(+s.dataset.i); });
+    addEventListener('resize', () => layout());
+    layout();
   }
 })();
 </script>
