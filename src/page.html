@@ -277,9 +277,10 @@ main{display:flex;flex-direction:column;gap:var(--band-gap);padding-left:max(var
 
 .footnote{display:flex;gap:3px;max-width:calc(395px + var(--inner) - var(--page-gutter));padding-inline:calc(var(--inner) - var(--page-gutter));font-size:9px;line-height:1.1;letter-spacing:-.03em;color:rgba(0,0,0,.7);margin:0;padding-bottom:20px}
 .footnote:target{color:var(--navy-700)}
-footer{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;padding:95px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
-footer a,footer span{padding:8px 15px;border-radius:5px;font-weight:700;font-size:14px;line-height:18px;color:var(--navy-800);transition:background .25s var(--ease)}
-footer a:hover{background:var(--tint)}
+footer{display:flex;flex-direction:column;align-items:center;gap:12px;background:#081b3d;border-bottom:11px solid #e5a824;padding:40px max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px))}
+.foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+footer a,footer span{padding:8px 15px;border-radius:5px;font-weight:700;font-size:14px;line-height:18px;color:rgba(255,255,255,.7);transition:background .25s var(--ease),color .25s var(--ease)}
+footer a:hover{background:rgba(255,255,255,.08);color:#fff}
 
 /* ---------- intro (load) ---------- */
 [data-in]{transition:opacity .9s var(--ease) calc(var(--d,0) * 1ms),transform 1.1s var(--ease) calc(var(--d,0) * 1ms),filter .9s var(--ease) calc(var(--d,0) * 1ms)}
@@ -398,9 +399,6 @@ main[data-view="why-ferro"]{display:none}
 .wf-note .wf-note-h{display:flex;align-items:center;gap:4px;font-family:var(--text);font-weight:700;font-size:14px;text-transform:uppercase}
 .wf-note-tag{padding-top:2px;color:rgba(0,0,0,.5)}
 .wf-note p:last-child{font-size:13px}
-[data-page="why-ferro"] footer{padding-bottom:40px;background:#11264a;border-bottom:11px solid #e5a824}
-[data-page="why-ferro"] footer :is(a,span){color:rgba(255,255,255,.7)}
-[data-page="why-ferro"] footer a:hover{background:rgba(255,255,255,.08);color:#fff}
 .intro:not(.play) .wf-hero-img > .img{clip-path:inset(2.5% 1.5%)}
 
 /* ---------- tablet ---------- */
@@ -457,7 +455,7 @@ main[data-view="why-ferro"]{display:none}
   .sec-car{--w:calc(100vw - 2 * var(--inner) - 40px);--gap:10px}
   .sec-cap{padding-inline:4px}
   .footnote{max-width:none}
-  footer{padding-top:56px;gap:4px}
+  footer{padding-block:32px;gap:4px}
 }
 /* mobile sheet */
 .sheet{position:fixed;left:0;right:0;top:calc(60px + env(safe-area-inset-top,0px));bottom:0;z-index:45;background:var(--menu-bg);overflow-y:auto;
@@ -634,9 +632,9 @@ main[data-view="why-ferro"]{display:none}
     <div class="media"><img class="img" id="heroImg" src="assets/hero-1464.jpg" srcset="assets/hero-1200.jpg 1200w, assets/hero-1464.jpg 1464w" sizes="100vw" alt="Aerial view of a large steel building under construction, with a tower crane and mountains beyond" fetchpriority="high"></div>
     <div class="copy">
       <div class="copy-text">
-        <p class="eyebrow" data-in style="--d:300">Custom Pre-Engineered Steel Buildings</p>
-        <h1 class="h-xl" id="h-hero" data-in style="--d:380">5 years ahead of the competition.<sup><a href="#fn1" aria-label="Footnote 1">1</a></sup></h1>
-        <p class="sub" data-in style="--d:460">We guarantee our work in a way the rest of the industry can’t afford to.</p>
+        <p class="eyebrow" data-in style="--d:300">Elevated Standards</p>
+        <h1 class="h-xl" id="h-hero" data-in style="--d:380">Expect more from prefab buildings.</h1>
+        <p class="sub" data-in style="--d:460">We’re always redefining what’s possible.</p>
       </div>
       <div class="ctas" data-in style="--d:560">
         <a class="btn btn-solid" href="#film"><svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M2 1.5 12.5 8 2 14.5Z" fill="currentColor"/></svg>Watch Film</a>
@@ -730,7 +728,8 @@ main[data-view="why-ferro"]{display:none}
 </main>
 
 <footer>
-  <a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#cookies">Cookies</a><span>© 2026 Ferro Building Systems Ltd.</span>
+  <nav class="foot-links" aria-label="Legal"><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#cookies">Cookies</a></nav>
+  <span class="foot-copy">© 2026 Ferro Building Systems Ltd.</span>
 </footer>
 
 <script>
