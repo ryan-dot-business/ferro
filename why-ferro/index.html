@@ -456,6 +456,10 @@ main[data-view="why-ferro"]{display:none}
 .wf-note p:last-child{font-size:13px}
 .intro:not(.play) .wf-hero-img > .img{clip-path:inset(2.5% 1.5%)}
 
+/* contained sections: services and Elevated Standards sit in the 1200px column, 50px apart, under a full-bleed hero */
+main > .contained{width:min(1200px,100% - 2 * var(--inner));margin-inline:auto;margin-top:50px}
+main > .contained + .sectors{padding-top:50px}
+
 /* ---------- tablet ---------- */
 @media (max-width:1100px){
   .wf-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -507,6 +511,8 @@ main[data-view="why-ferro"]{display:none}
   .h-lg{font-size:26px}
   .sectors-head{padding:0 4px}
   .sectors{padding-block:56px 24px;gap:28px}
+  main > .contained{margin-top:16px}
+  main > .contained + .sectors{padding-top:40px}
   .sec-a{--w:calc(100vw - 2 * var(--inner) - 40px);--gap:10px}
   .sec-a .sec-cap{padding-inline:4px}
   .sec-b .sec-round{display:none}

@@ -456,6 +456,10 @@ main[data-view="why-ferro"]{display:none}
 .wf-note p:last-child{font-size:13px}
 .intro:not(.play) .wf-hero-img > .img{clip-path:inset(2.5% 1.5%)}
 
+/* contained sections: services and Elevated Standards sit in the 1200px column, 50px apart, under a full-bleed hero */
+main > .contained{width:min(1200px,100% - 2 * var(--inner));margin-inline:auto;margin-top:50px}
+main > .contained + .sectors{padding-top:50px}
+
 /* ---------- tablet ---------- */
 @media (max-width:1100px){
   .wf-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -507,6 +511,8 @@ main[data-view="why-ferro"]{display:none}
   .h-lg{font-size:26px}
   .sectors-head{padding:0 4px}
   .sectors{padding-block:56px 24px;gap:28px}
+  main > .contained{margin-top:16px}
+  main > .contained + .sectors{padding-top:40px}
   .sec-a{--w:calc(100vw - 2 * var(--inner) - 40px);--gap:10px}
   .sec-a .sec-cap{padding-inline:4px}
   .sec-b .sec-round{display:none}
@@ -703,19 +709,7 @@ main[data-view="why-ferro"]{display:none}
     </div>
   </section>
 
-  <section class="band standards on-dark" aria-labelledby="h-std">
-    <div class="media"><img class="img" src="/assets/standards-2000.jpg" srcset="/assets/standards-1200.jpg 1200w, /assets/standards-2000.jpg 2000w" sizes="100vw" alt="Aerial view of a Ferro steel building under construction in a forest clearing" loading="lazy" decoding="async"></div>
-    <div class="copy" data-stagger=".eyebrow,.h-xl,.sub,.ctas">
-      <div class="copy-text">
-        <p class="eyebrow">Elevated Standards</p>
-        <h2 class="h-xl" id="h-std">Expect more from prefab buildings.</h2>
-        <p class="sub">We’re always redefining what’s possible.</p>
-      </div>
-      <div class="ctas"><a class="btn btn-ghost" href="#standards">Learn More</a></div>
-    </div>
-  </section>
-
-  <section class="build on-dark" id="build" aria-label="Services" data-stagger=".col-head,.col-foot" data-step="70" data-base="380">
+  <section class="build on-dark contained" id="build" aria-label="Services" data-stagger=".col-head,.col-foot" data-step="70" data-base="380">
     <div style="--c:0" class="col c0">
       <div class="media"><img class="img" src="/assets/better-together.jpg" alt="Ironworker on a lift fastening a steel beam" loading="lazy" decoding="async"></div>
       <div class="col-head"><p class="eyebrow">Services</p><h2 class="h-lg">Build your<br>confidence<br>with steel.</h2></div>
@@ -746,6 +740,18 @@ main[data-view="why-ferro"]{display:none}
         <div class="desc"><p>From frame systems and wall panels to roof panels, we supply the components and expertise to ensure every building performs reliably and supports strong performance for everyone using it. Every system is carefully selected and coordinated to support everything from large crane loads and specialized openings to unique foundation requirements.</p></div>
         <a class="btn btn-ghost btn-sm btn-arrow" href="#specialize" aria-label="Learn more about Integrated Systems"><svg width="15" height="12" viewBox="0 0 15 12" aria-hidden="true"><path d="M1 6h12M8.5 1.5 13 6l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
+    </div>
+  </section>
+
+  <section class="band standards on-dark contained" aria-labelledby="h-std">
+    <div class="media"><img class="img" src="/assets/standards-2000.jpg" srcset="/assets/standards-1200.jpg 1200w, /assets/standards-2000.jpg 2000w" sizes="100vw" alt="Aerial view of a Ferro steel building under construction in a forest clearing" loading="lazy" decoding="async"></div>
+    <div class="copy" data-stagger=".eyebrow,.h-xl,.sub,.ctas">
+      <div class="copy-text">
+        <p class="eyebrow">Customized Pre-Engineered Steel Buildings</p>
+        <h2 class="h-xl" id="h-std">Expect more from prefab buildings.</h2>
+        <p class="sub">We’re always redefining what’s possible.</p>
+      </div>
+      <div class="ctas"><a class="btn btn-ghost" href="#standards">Learn More</a></div>
     </div>
   </section>
 
