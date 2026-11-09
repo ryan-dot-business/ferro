@@ -431,6 +431,8 @@ main[data-view="why-ferro"]{display:none}
 .wf-note p:last-child{font-size:13px}
 .intro:not(.play) .wf-hero-img > .img{clip-path:inset(2.5% 1.5%)}
 
+/* hero grows with tall windows (70% of the viewport) but never drops below the designed 690px */
+.band.hero{height:max(690px,70svh)}
 /* contained sections: services and Elevated Standards sit in the 1200px column, 50px apart, under a full-bleed hero */
 main > .contained{width:min(1200px,100% - 2 * var(--inner));margin-inline:auto;margin-top:50px}
 main > .contained + .sectors{padding-top:50px}
@@ -477,6 +479,7 @@ main > .contained + .sectors{padding-top:50px}
   .links,.menu{display:none}
   .burger{display:grid}
   .band{height:auto;min-height:540px;padding:56px 20px 0}
+  .band.hero{height:auto;min-height:max(540px,70svh)}
   .h-xl{font-size:clamp(24px,7vw,32px)}
   .sub{font-size:15px;max-width:30ch}
   .build{grid-template-columns:1fr}
