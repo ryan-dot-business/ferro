@@ -96,10 +96,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
    clip-path cuts the shadow off the top edge and doubles as the drop-down reveal */
 .menu{position:absolute;top:34px;left:50%;width:0;height:0;background:var(--menu-bg);overflow:hidden;
   box-shadow:0 4px 12px rgba(0,0,0,.25);
-  opacity:0;visibility:hidden;transform:translateX(-50%);
+  opacity:0;visibility:hidden;transform:translateX(calc(-50% + var(--mx,0px)));
   clip-path:inset(0 -24px 100% -24px);
-  transition:opacity .2s var(--ease),clip-path .42s var(--ease),width .44s var(--ease),height .44s var(--ease),visibility 0s linear .42s}
-.menu.open{opacity:1;visibility:visible;clip-path:inset(0 -24px -24px -24px);transition:opacity .12s var(--ease),clip-path .46s var(--ease),width .44s var(--ease),height .44s var(--ease),visibility 0s}
+  transition:opacity .2s var(--ease),clip-path .42s var(--ease),width .44s var(--ease),height .44s var(--ease),transform .44s var(--ease),visibility 0s linear .42s}
+.menu.open{opacity:1;visibility:visible;clip-path:inset(0 -24px -24px -24px);transition:opacity .12s var(--ease),clip-path .46s var(--ease),width .44s var(--ease),height .44s var(--ease),transform .44s var(--ease),visibility 0s}
 .pane{position:absolute;top:0;left:50%;width:max-content;opacity:0;pointer-events:none;
   transform:translateX(calc(-50% + var(--dx,0px)));
   transition:opacity .14s var(--ease),transform .32s var(--ease)}
@@ -169,8 +169,8 @@ a.c-row:hover{background:var(--chip)}
 /* keep the centred label centred: the arrow hangs past the line instead of taking space */
 .svc-feature .svc-label::after{margin-right:-17px}
 /* company menu: about links | rule | contact details */
-.co{display:flex;gap:14px;padding:var(--menu-pt) 25px 24px}
-.co-about{width:125px;flex:none}
+.co{display:flex;gap:40px;padding:var(--menu-pt) 25px 24px}
+.co-about{width:130px;flex:none}
 .co-about ul{gap:0}
 .co-rule{flex:none;width:2px;height:202px;margin-top:8px;background:rgba(255,255,255,.3)}
 .co-contact{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding-top:8px}
@@ -616,7 +616,7 @@ main > .contained + .sectors{padding-top:50px}
           </div>
         </div>
       </div>
-      <div class="pane" data-pane="company">
+      <div class="pane" data-pane="company" data-anchor>
         <div class="co">
           <div class="list co-about">
             <h4>ABOUT US</h4>
@@ -1009,7 +1009,16 @@ main > .contained + .sectors{padding-top:50px}
     pill.classList.add('on');
   }
   function sizeMenu(p, now){
-    const set = () => { menu.style.width = p.offsetWidth + 'px'; menu.style.height = p.offsetHeight + 'px'; };
+    /* panes marked data-anchor slide the box so their first column sits under their own trigger's label (kept on screen) */
+    let mx = 0;
+    if ('anchor' in p.dataset){
+      const t = triggers.find(x => x.dataset.menu === p.dataset.pane), w = p.offsetWidth, lw = links.clientWidth;
+      const inset = parseFloat(getComputedStyle(p.firstElementChild).paddingLeft) || 0;
+      mx = t.offsetLeft + (parseFloat(getComputedStyle(t).paddingLeft) || 0) - inset - (lw - w) / 2;
+      const right = links.getBoundingClientRect().left + (lw + w) / 2 + mx, room = document.documentElement.clientWidth - 16;
+      if (right > room) mx -= right - room;
+    }
+    const set = () => { menu.style.width = p.offsetWidth + 'px'; menu.style.height = p.offsetHeight + 'px'; menu.style.setProperty('--mx', mx + 'px'); };
     now ? instant(menu, set) : set();
   }
   function open(t){
