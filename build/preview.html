@@ -148,7 +148,6 @@ a.c-row:hover{background:var(--chip)}
 
 
 .prj{display:flex;align-items:stretch;width:906px;padding:var(--menu-pt) 0 24px 24px}
-.prj.co{width:556px}
 .prj-left{flex:1;display:flex;gap:7px;align-self:stretch;min-width:0}
 .prj-photo{position:relative;width:348px;align-self:stretch;flex:none;overflow:hidden;background:#cdd8ea}
 .prj-photo .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity .5s var(--ease),transform 1.2s var(--ease)}
@@ -169,6 +168,23 @@ a.c-row:hover{background:var(--chip)}
 .svc a:is(:hover,:focus-visible) .svc-label::after{opacity:1;transform:none}
 /* keep the centred label centred: the arrow hangs past the line instead of taking space */
 .svc-feature .svc-label::after{margin-right:-17px}
+/* company menu: about links | rule | contact details */
+.co{display:flex;gap:14px;padding:var(--menu-pt) 25px 24px}
+.co-about{width:125px;flex:none}
+.co-about ul{gap:0}
+.co-rule{flex:none;width:2px;height:202px;margin-top:8px;background:rgba(255,255,255,.3)}
+.co-contact{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding-top:8px}
+.co-contact h4{margin:0;padding-inline:13px;font-weight:600;font-size:12px;letter-spacing:-.02em;color:var(--menu-label)}
+.co-row{display:flex;align-items:center;gap:10px;padding:7px 12px;margin-top:-4px;border-radius:5px;font-weight:700;font-size:14px;line-height:17px;letter-spacing:-.02em;color:var(--menu-ink);text-align:left;transition:background .25s var(--ease)}
+.co-contact h4 + .co-row{margin-top:0}
+.co-row.c-email:is(:hover,:focus-visible){color:var(--menu-ink)}
+.co-row.c-email .c-text{width:auto}
+.co-addr{padding-block:5px}
+.co-go:is(:hover,:focus-visible){background:var(--chip)}
+.co-go::after{content:"";flex:none;width:12px;height:12px;background:currentColor;-webkit-mask:var(--arrow) no-repeat center/contain;mask:var(--arrow) no-repeat center/contain;
+  opacity:0;transform:translateX(-6px);transition:opacity .2s var(--ease),transform .35s var(--ease)}
+.co-go:is(:hover,:focus-visible)::after{opacity:1;transform:none}
+.co-cta{padding:8px 12px 0}
 .featured{flex:1;padding-right:20px}
 .featured .all{margin-top:auto}
 .sectors-list{align-self:flex-start}
@@ -601,22 +617,26 @@ main > .contained + .sectors{padding-top:50px}
         </div>
       </div>
       <div class="pane" data-pane="company">
-        <div class="prj co" data-feature>
-          <div class="prj-left">
-            <div class="prj-photo" data-photos>
-              <img class="shot active" src="assets/co-why-ferro.jpg" alt="Ferro Building Systems logo over a blue-toned steel deck ceiling" decoding="async">
-              <img class="shot" src="assets/co-company.jpg" alt="The Ferro team standing together in a studio portrait" decoding="async">
-              <img class="shot" src="assets/co-careers.jpg" alt="A Ferro site lead in a red vest briefing his crew" decoding="async">
-            </div>
-            <div class="caret-rail"><span class="caret" data-caret><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 10 1.4v9.2Z" fill="currentColor"/></svg></span></div>
-            <div class="list featured">
-              <h4>ABOUT US</h4>
-              <ul data-picks>
-                <li><a data-page="why-ferro" href="#why-ferro">Why Ferro</a></li>
-                <li><a href="#company">Company</a></li>
-                <li><a href="#careers">Careers</a></li>
-              </ul>
-            </div>
+        <div class="co">
+          <div class="list co-about">
+            <h4>ABOUT US</h4>
+            <ul>
+              <li><a data-page="why-ferro" href="#why-ferro">Why Ferro</a></li>
+              <li><a href="#company">Company</a></li>
+              <li><a href="#careers">Careers</a></li>
+              <li><a href="#insights">Insights</a></li>
+            </ul>
+          </div>
+          <span class="co-rule" aria-hidden="true"></span>
+          <div class="co-contact">
+            <h4>CONTACT</h4>
+            <button class="co-row c-email" type="button" data-copy="info@ferrobuildings.com" title="Copy email address"><span class="c-text">info@ferrobuildings.com</span><span class="copy" aria-hidden="true">
+            <svg class="todo" width="12" height="12" viewBox="0 0 12 12"><path d="M4 1.6c0-.3.3-.6.6-.6h5.8c.3 0 .6.3.6.6v5.8c0 .3-.3.6-.6.6H4.6c-.3 0-.6-.3-.6-.6Z" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 9.6v.8c0 .3-.3.6-.6.6H1.6c-.3 0-.6-.3-.6-.6V4.6c0-.3.3-.6.6-.6h.8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            <svg class="done" width="12" height="12" viewBox="0 0 12 12"><path d="m2 6.4 2.6 2.6L10 3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span></button>
+            <a class="co-row co-go" href="tel:+16045303224">604-530-3224</a>
+            <a class="co-row co-go co-addr" href="https://www.google.com/maps/search/?api=1&amp;query=19292+60+Ave+%23301+Surrey+BC+V3S+3M2" target="_blank" rel="noopener">19292 60 Ave #301,<br>Surrey, BC V3S 3M2</a>
+            <div class="co-cta"><a class="c-btn" href="#contact">Contact sales</a></div>
           </div>
         </div>
       </div>
@@ -629,7 +649,7 @@ main > .contained + .sectors{padding-top:50px}
         <span class="mask" style="--m:url(assets/mail.svg);width:24px;height:17px;color:var(--brand-icon)"></span>
       </button>
       <div class="contact" id="contactMenu" role="region" aria-label="Contact">
-        <button class="c-row c-email" id="copyEmail" type="button" title="Copy email address">
+        <button class="c-row c-email" id="copyEmail" type="button" data-copy="info@ferrobuildings.com" title="Copy email address">
           <span class="ic mask" style="--m:url(assets/mail.svg);width:18px;height:13px"></span>
           <span class="c-text">info@ferrobuildings.com</span>
           <span class="copy" aria-hidden="true">
@@ -672,7 +692,7 @@ main > .contained + .sectors{padding-top:50px}
     <button class="acc-btn" aria-expanded="false">Company <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
     <div class="acc-body"><div class="acc-inner"><div>
       <p class="m-h">ABOUT US</p>
-      <ul class="m-list"><li><a data-page="why-ferro" href="#why-ferro">Why Ferro</a></li><li><a href="#company">Company</a></li><li><a href="#careers">Careers</a></li></ul>
+      <ul class="m-list"><li><a data-page="why-ferro" href="#why-ferro">Why Ferro</a></li><li><a href="#company">Company</a></li><li><a href="#careers">Careers</a></li><li><a href="#insights">Insights</a></li></ul>
     </div></div></div>
   </div>
 </div>
@@ -1058,13 +1078,12 @@ main > .contained + .sectors{padding-top:50px}
   document.addEventListener('pointerdown', e => { if (!cWrap.contains(e.target)) cClose(); });
   addEventListener('keydown', e => { if (e.key === 'Escape' && cMenu.classList.contains('open')){ cClose(); cBtn.focus({preventScroll:true}); } });
   links.addEventListener('mouseenter', cClose);
-  const copyBtn = document.getElementById('copyEmail');
-  copyBtn.addEventListener('click', () => {
-    const text = 'info@ferrobuildings.com';
-    const done = () => { copyBtn.classList.add('copied'); copyBtn.title = 'Copied'; setTimeout(() => { copyBtn.classList.remove('copied'); copyBtn.title = 'Copy email address'; }, 1600); };
-    const fallback = () => { const r = document.createRange(); r.selectNodeContents(copyBtn.querySelector('.c-text')); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); };
-    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (_) { fallback(); }
-  });
+  /* copy-to-clipboard rows (contact dropdown, Company menu) */
+  document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', () => {
+    const done = () => { btn.classList.add('copied'); btn.title = 'Copied'; setTimeout(() => { btn.classList.remove('copied'); btn.title = 'Copy email address'; }, 1600); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(btn.querySelector('.c-text')); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); };
+    try { navigator.clipboard.writeText(btn.dataset.copy).then(done, fallback); } catch (_) { fallback(); }
+  }));
 
   /* pages. Built for a host each page has a real URL (window.FERRO_PAGES); on the claude.ai preview they are #home and #why-ferro */
   const PAGES = window.FERRO_PAGES || null;
