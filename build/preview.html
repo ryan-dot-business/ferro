@@ -250,30 +250,60 @@ main{display:flex;flex-direction:column;gap:var(--band-gap);padding-left:max(var
 .sectors-head{padding:0 24px;color:var(--navy-900);display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
 .sectors-head .h-xl{text-wrap:balance}
 .sectors .eyebrow{color:#e5a824}
+/* two sector layouts under review; the Expertise eyebrow switches between them */
+.sectors{gap:30px}
+.sec-switch{font:inherit;font-weight:700;font-size:14px;letter-spacing:.02em;text-transform:uppercase;color:#e5a824;cursor:pointer;border-radius:3px}
+.sec-switch:hover{text-decoration:underline;text-underline-offset:3px}
+#sectors:not([data-layout="b"]) .sec-b,#sectors[data-layout="b"] .sec-a{display:none}
 /* sectors carousel: centred slide at full size, neighbours scaled down and peeking; captions crossfade */
-.sec-car{--w:min(647px,100vw - 2 * var(--inner) - 64px);--h:calc(var(--w) * 402 / 647);--small:.9227;--gap:18px;display:flex;flex-direction:column;align-items:center;gap:16px;
+.sec-a{--w:min(647px,100vw - 2 * var(--inner) - 64px);--h:calc(var(--w) * 402 / 647);--small:.9227;--gap:18px;display:flex;flex-direction:column;align-items:center;gap:16px;
   margin-inline:calc(-1 * (var(--inner) - var(--page-gutter)))}
-.sec-stage{position:relative;width:100%;height:var(--h);overflow:hidden;touch-action:pan-y;cursor:grab;outline-offset:4px}
-.sec-stage:active{cursor:grabbing}
-.sec-slide{position:absolute;left:50%;top:0;width:var(--w);height:var(--h);margin:0 0 0 calc(var(--w) / -2);overflow:hidden;background:#dedede;
+.sec-a .sec-stage{position:relative;width:100%;height:var(--h);overflow:hidden;touch-action:pan-y;cursor:grab;outline-offset:4px}
+.sec-a .sec-stage:active{cursor:grabbing}
+.sec-a .sec-slide{position:absolute;left:50%;top:0;width:var(--w);height:var(--h);margin:0 0 0 calc(var(--w) / -2);overflow:hidden;background:#dedede;
   transform:translateX(var(--x,0px)) scale(var(--s,1));transition:transform .7s cubic-bezier(.65,0,.2,1),opacity .5s var(--ease);will-change:transform;user-select:none}
-.sec-slide img{width:100%;height:100%;object-fit:cover;display:block;max-width:none;pointer-events:none}
-.sec-slide.is-ph::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.4)}
-.sec-slide:not(.on){cursor:pointer}
-.sec-slide.jump{transition:none}
-.sec-note{z-index:1}
-.sec-caps{display:grid;width:var(--w);max-width:100%}
-.sec-cap{grid-area:1/1;display:flex;flex-direction:column;gap:4px;padding-inline:24px;font-family:var(--text);color:var(--navy-900);opacity:0;transform:translateY(6px);transition:opacity .25s var(--ease),transform .4s var(--ease);pointer-events:none}
-.sec-cap.on{opacity:1;transform:none;transition:opacity .5s var(--ease) .2s,transform .7s var(--ease) .2s;pointer-events:auto}
-.sec-cap h3{margin:0;font-weight:500;font-size:24px;line-height:1.2;letter-spacing:-.04em}
-.sec-cap p{margin:0;font-size:16px;line-height:1.25;letter-spacing:-.04em;color:rgba(8,27,61,.6);text-wrap:pretty}
-.sec-ctrl{display:flex;align-items:center;gap:15px}
-.sec-btn{display:grid;place-items:center;width:35px;height:30px;border-radius:5px;background:var(--mist);color:var(--navy-900);transition:background .25s var(--ease)}
-.sec-btn:hover{background:#d7e1f3}
-.sec-dots{display:flex;align-items:center;gap:3px}
-.sec-dot{width:6px;height:6px;background:rgba(0,0,0,.1);transition:width .45s var(--ease),background .3s var(--ease)}
-.sec-dot:hover{background:rgba(0,0,0,.25)}
-.sec-dot.on{width:20px;background:var(--navy-900)}
+.sec-a .sec-slide img{width:100%;height:100%;object-fit:cover;display:block;max-width:none;pointer-events:none}
+.sec-a .sec-slide.is-ph::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.4)}
+.sec-a .sec-slide:not(.on){cursor:pointer}
+.sec-a .sec-slide.jump{transition:none}
+.sec-a .sec-note{z-index:1}
+.sec-a .sec-caps{display:grid;width:var(--w);max-width:100%}
+.sec-a .sec-cap{grid-area:1/1;display:flex;flex-direction:column;gap:4px;padding-inline:24px;font-family:var(--text);color:var(--navy-900);opacity:0;transform:translateY(6px);transition:opacity .25s var(--ease),transform .4s var(--ease);pointer-events:none}
+.sec-a .sec-cap.on{opacity:1;transform:none;transition:opacity .5s var(--ease) .2s,transform .7s var(--ease) .2s;pointer-events:auto}
+.sec-a .sec-cap h3{margin:0;font-weight:500;font-size:24px;line-height:1.2;letter-spacing:-.04em}
+.sec-a .sec-cap p{margin:0;font-size:16px;line-height:1.25;letter-spacing:-.04em;color:rgba(8,27,61,.6);text-wrap:pretty}
+.sec-a .sec-ctrl{display:flex;align-items:center;gap:15px}
+.sec-a .sec-btn{display:grid;place-items:center;width:35px;height:30px;border-radius:5px;background:var(--mist);color:var(--navy-900);transition:background .25s var(--ease)}
+.sec-a .sec-btn:hover{background:#d7e1f3}
+.sec-a .sec-dots{display:flex;align-items:center;gap:3px}
+.sec-a .sec-dot{width:6px;height:6px;background:rgba(0,0,0,.1);transition:width .45s var(--ease),background .3s var(--ease)}
+.sec-a .sec-dot:hover{background:rgba(0,0,0,.25)}
+.sec-a .sec-dot.on{width:20px;background:var(--navy-900)}
+/* sectors: three cards per page; arrows page through, dots show the page */
+.sec-b{display:flex;flex-direction:column;align-items:center;gap:16px}
+.sec-b .sec-row{display:flex;align-items:center;justify-content:center;gap:16px;width:100%}
+.sec-b .sec-view{width:min(960px,100%);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;outline-offset:4px}
+.sec-b .sec-view::-webkit-scrollbar{display:none}
+.sec-b .sec-track{display:flex;gap:30px;width:max-content}
+.sec-b .sec-card{flex:0 0 300px;scroll-snap-align:start;display:flex;flex-direction:column;gap:24px;padding-bottom:24px;background:var(--mist);border-radius:20px;overflow:hidden;font-family:var(--text);color:var(--navy-900)}
+.sec-b .sec-img{position:relative;aspect-ratio:647/402;overflow:hidden;background:#243c64}
+.sec-b .sec-img img{width:100%;height:100%;object-fit:cover;display:block;max-width:none;transition:transform .8s var(--ease)}
+.sec-b .sec-card:hover .sec-img img{transform:scale(1.04)}
+.sec-b .sec-img.is-ph::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.6)}
+.sec-b .sec-ph{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#fff;font-family:var(--text);font-size:12px;text-align:center}
+.sec-b .sec-ph-h{display:flex;align-items:center;gap:4px;font-weight:700;font-size:14px;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.sec-b .sec-ph-h .mask{color:#fff}
+.sec-b .sec-txt{padding-inline:30px;line-height:1.4}
+.sec-b .sec-txt h3{margin:0;font-weight:500;font-size:16px;letter-spacing:-.04em}
+.sec-b .sec-txt p{margin:0;font-size:14px;letter-spacing:-.04em;color:rgba(8,27,61,.6);text-wrap:balance}
+.sec-b .sec-round{flex:none;display:grid;place-items:center;width:55px;height:55px;border-radius:50%;background:var(--mist);color:var(--navy-900);transition:background .25s var(--ease),opacity .3s var(--ease),transform .3s var(--ease)}
+.sec-b .sec-round:hover{background:#d7e1f3}
+.sec-b .sec-round:active{transform:scale(.95)}
+.sec-b .sec-round[disabled]{opacity:0;pointer-events:none}
+.sec-b .sec-dots{display:flex;align-items:center;gap:3px;min-height:35px}
+.sec-b .sec-dot{width:6px;height:6px;background:rgba(0,0,0,.1);transition:width .45s var(--ease),background .3s var(--ease)}
+.sec-b .sec-dot:hover{background:rgba(0,0,0,.25)}
+.sec-b .sec-dot.on{width:20px;background:var(--navy-900)}
 
 .footnote{display:flex;gap:3px;max-width:calc(395px + var(--inner) - var(--page-gutter));padding-inline:calc(var(--inner) - var(--page-gutter));font-size:9px;line-height:1.1;letter-spacing:-.03em;color:rgba(0,0,0,.7);margin:0;padding-bottom:20px}
 .footnote:target{color:var(--navy-700)}
@@ -452,8 +482,12 @@ main[data-view="why-ferro"]{display:none}
   .h-lg{font-size:26px}
   .sectors-head{padding:0 4px}
   .sectors{padding-block:56px 24px;gap:28px}
-  .sec-car{--w:calc(100vw - 2 * var(--inner) - 40px);--gap:10px}
-  .sec-cap{padding-inline:4px}
+  .sec-a{--w:calc(100vw - 2 * var(--inner) - 40px);--gap:10px}
+  .sec-a .sec-cap{padding-inline:4px}
+  .sec-b .sec-round{display:none}
+  .sec-b .sec-view{width:auto;align-self:stretch;margin-inline:calc(-1 * var(--inner));scroll-padding-inline:var(--inner)}
+  .sec-b .sec-track{gap:16px;padding-inline:var(--inner)}
+  .sec-b .sec-card{flex-basis:min(78vw,300px)}
   .footnote{max-width:none}
   footer{padding-block:32px;gap:4px}
 }
@@ -689,13 +723,13 @@ main[data-view="why-ferro"]{display:none}
     </div>
   </section>
 
-  <section class="sectors" id="sectors" aria-labelledby="h-sec" aria-roledescription="carousel" data-stagger=".eyebrow,.h-xl,.sub,.sec-stage,.sec-caps,.sec-ctrl" data-step="60">
+  <section class="sectors" id="sectors" aria-labelledby="h-sec" aria-roledescription="carousel" data-stagger=".eyebrow,.h-xl,.sub,.sec-a .sec-stage,.sec-a .sec-caps,.sec-a .sec-ctrl,.sec-b .sec-row,.sec-b .sec-dots" data-step="60">
     <div class="sectors-head">
-      <p class="eyebrow">Expertise</p>
+      <button class="eyebrow sec-switch" id="secSwitch" type="button" title="Switch sector layout (review only)" aria-label="Expertise: switch between the two sector layouts">Expertise</button>
       <h2 class="h-xl" id="h-sec">Strength Across all Sectors</h2>
       <p class="sub">Solutions built around your needs.</p>
     </div>
-    <div class="sec-car" id="secCar">
+    <div class="sec-car sec-a" id="secCar">
       <div class="sec-stage" id="secStage" tabindex="0" aria-label="Sectors, use the arrow keys to browse">
         <figure class="sec-slide" data-i="0" aria-roledescription="slide" aria-label="1 of 8: Aviation &amp; Transport"><img src="assets/sec-aviation.jpg" alt="A business jet parked inside a steel-framed hangar" loading="lazy" decoding="async" draggable="false"></figure>
         <figure class="sec-slide is-ph" data-i="1" aria-roledescription="slide" aria-label="2 of 8: Commercial"><img src="assets/wf-tech.jpg" alt="A blue and silver commercial building with a red entry canopy" loading="lazy" decoding="async" draggable="false"><aside class="wf-note sec-note" aria-label="Placeholder image"><p class="wf-note-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span><span class="mask wf-note-site" role="img" aria-label="Site." style="--m:url(assets/site.svg);width:37px;height:14px"></span><span class="wf-note-tag">Placeholder</span></p><p>FINALS TO BE PROVIDED BY FERRO</p></aside></figure>
@@ -721,6 +755,25 @@ main[data-view="why-ferro"]{display:none}
         <div class="sec-dots"><button class="sec-dot" data-i="0" aria-label="Show Aviation &amp; Transport"></button><button class="sec-dot" data-i="1" aria-label="Show Commercial"></button><button class="sec-dot" data-i="2" aria-label="Show Waste &amp; Water"></button><button class="sec-dot" data-i="3" aria-label="Show Public Spaces &amp; Recreation"></button><button class="sec-dot" data-i="4" aria-label="Show Civic Buildings &amp; Facilities"></button><button class="sec-dot" data-i="5" aria-label="Show Agricultural"></button><button class="sec-dot" data-i="6" aria-label="Show Energy &amp; Utilities"></button><button class="sec-dot" data-i="7" aria-label="Show Industrial"></button></div>
         <button class="sec-btn" id="secNext" aria-label="Next sector"><svg width="8" height="13" viewBox="0 0 8 13" aria-hidden="true"><path d="m1.5 1.5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
+    </div>
+    <div class="sec-car sec-b" id="secCarB">
+      <div class="sec-row">
+        <button class="sec-round" id="secBPrev" aria-label="Previous sectors"><svg width="11" height="19" viewBox="0 0 11 19" aria-hidden="true"><path d="M9 1.5 1.5 9.5l7.5 8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="sec-view" id="secBView" tabindex="0" aria-label="Sectors">
+          <div class="sec-track" id="secBTrack">
+        <article class="sec-card" aria-label="Government &amp; Institutional"><div class="sec-img is-ph"><img src="assets/prj-north-galiano.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, finals to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span>Placeholder</span><span>FINALS TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><h3>Government &amp; Institutional</h3><p>Public, municipal, recreation, and community facilities where cost control and long-term use are crucial.</p></div></article>
+        <article class="sec-card" aria-label="Energy &amp; Utilities"><div class="sec-img is-ph"><img src="assets/svc-core.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, finals to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span>Placeholder</span><span>FINALS TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><h3>Energy &amp; Utilities</h3><p>Service buildings, transmission support, substations, and other infrastructure that support critical energy systems.</p></div></article>
+        <article class="sec-card" aria-label="Aviation &amp; Transport"><div class="sec-img"><img src="assets/sec-aviation.jpg" alt="" loading="lazy" decoding="async"></div><div class="sec-txt"><h3>Aviation &amp; Transport</h3><p>Hangars, support buildings, and aviation facilities that require large spans and specialized doors.</p></div></article>
+        <article class="sec-card" aria-label="Industrial"><div class="sec-img is-ph"><img src="assets/svc-integrated.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, finals to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span>Placeholder</span><span>FINALS TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><h3>Industrial</h3><p>Warehousing and manufacturing operations with tailored loading, access, and performance features.</p></div></article>
+        <article class="sec-card" aria-label="Agricultural"><div class="sec-img is-ph"><img src="assets/standards-1200.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, finals to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span>Placeholder</span><span>FINALS TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><h3>Agricultural</h3><p>Durable structures for production, processing, storage, equipment maintenance, and other agricultural applications.</p></div></article>
+        <article class="sec-card" aria-label="Civic Buildings &amp; Facilities"><div class="sec-img is-ph is-empty"><span class="sec-ph" aria-label="Placeholder image, finals to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span>Placeholder</span><span>FINALS TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><h3>Civic Buildings &amp; Facilities</h3><p>Municipal buildings and public service facilities where reliable performance, cost control, and long-term value are essential.</p></div></article>
+        <article class="sec-card" aria-label="Public Spaces &amp; Recreation"><div class="sec-img is-ph is-empty"><span class="sec-ph" aria-label="Placeholder image, finals to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span>Placeholder</span><span>FINALS TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><h3>Public Spaces &amp; Recreation</h3><p>Rinks, recreation facilities, and community gathering spaces with open layouts and durability for everyday use.</p></div></article>
+        <article class="sec-card" aria-label="Commercial"><div class="sec-img is-ph is-empty"><span class="sec-ph" aria-label="Placeholder image, finals to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span>Placeholder</span><span>FINALS TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><h3>Commercial</h3><p>Functional space, adaptable designs, efficient delivery, and cost-effective quality.</p></div></article>
+          </div>
+        </div>
+        <button class="sec-round" id="secBNext" aria-label="More sectors"><svg width="11" height="19" viewBox="0 0 11 19" aria-hidden="true"><path d="m2 1.5 7.5 8L2 17.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <div class="sec-dots" id="secBDots"></div>
     </div>
   </section>
 
@@ -1127,6 +1180,48 @@ main[data-view="why-ferro"]{display:none}
     stage.addEventListener('click', e => { if (moved) return; const s = e.target.closest('.sec-slide'); if (s && !s.classList.contains('on')) go(+s.dataset.i); });
     addEventListener('resize', () => layout());
     layout();
+    car._relayout = () => layout();
+  }
+  /* sectors B: an Apple-style shelf. Native horizontal scroll with snap (trackpad, touch, keys);
+     arrows scroll by a page, dots follow the scroll position */
+  const carB = document.getElementById('secCarB');
+  if (carB){
+    const view = document.getElementById('secBView'), cards = [...document.getElementById('secBTrack').children];
+    const prevB = document.getElementById('secBPrev'), nextB = document.getElementById('secBNext'), dotsEl = document.getElementById('secBDots');
+    let pages = 1;
+    const step = () => cards[0].offsetWidth + (parseFloat(getComputedStyle(cards[0].parentElement).columnGap) || 30);
+    const perPage = () => Math.max(1, Math.floor((view.clientWidth + step() - cards[0].offsetWidth + 1) / step()) || 1);
+    function sync(){
+      const max = view.scrollWidth - view.clientWidth;
+      prevB.disabled = view.scrollLeft <= 2; nextB.disabled = view.scrollLeft >= max - 2;
+      const p = max <= 2 ? 0 : Math.round((view.scrollLeft / max) * (pages - 1));
+      [...dotsEl.children].forEach((d, i) => { d.classList.toggle('on', i === p); d.setAttribute('aria-current', String(i === p)); });
+    }
+    function measure(){
+      pages = Math.max(1, Math.ceil(cards.length / perPage()));
+      dotsEl.innerHTML = '';
+      for (let i = 0; i < pages; i++){
+        const d = document.createElement('button'); d.className = 'sec-dot'; d.setAttribute('aria-label', `Sectors page ${i + 1} of ${pages}`);
+        d.addEventListener('click', () => view.scrollTo({left: Math.min(i * perPage() * step(), view.scrollWidth - view.clientWidth), behavior: reduce ? 'auto' : 'smooth'}));
+        dotsEl.append(d);
+      }
+      sync();
+    }
+    const by = dir => view.scrollBy({left: dir * perPage() * step(), behavior: reduce ? 'auto' : 'smooth'});
+    prevB.addEventListener('click', () => by(-1)); nextB.addEventListener('click', () => by(1));
+    view.addEventListener('scroll', sync, {passive:true});
+    addEventListener('resize', measure);
+    carB._relayout = measure;
+    measure();
+  }
+
+  /* review switch: the Expertise eyebrow flips between layout A (gallery) and B (shelf); remembered per viewer */
+  const secEl = document.getElementById('sectors'), secSwitch = document.getElementById('secSwitch');
+  if (secSwitch){
+    const setLayout = l => { secEl.dataset.layout = l; try { localStorage.setItem('ferro-sectors', l); } catch (_) {} requestAnimationFrame(() => { (l === 'b' ? carB : car)?._relayout?.(); }); };
+    let saved = null; try { saved = localStorage.getItem('ferro-sectors'); } catch (_) {}
+    if (saved === 'b') setLayout('b');
+    secSwitch.addEventListener('click', () => setLayout(secEl.dataset.layout === 'b' ? 'a' : 'b'));
   }
 })();
 </script>
