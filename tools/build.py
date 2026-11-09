@@ -3,12 +3,14 @@
 Sources
   src/page.html       the home page, plus everything shared: head, styles, nav, footer, script
   src/why-ferro.html  the Why Ferro page's <main>
+  src/sector.html     template for the sector pages' <main> (placeholders for now), filled from SECTORS below
 
 Outputs
   index.html                 /             home
   why-ferro/index.html       /why-ferro/   Why Ferro
+  sectors/<slug>/index.html  /sectors/<slug>/   one per sector
   navy/..., navy/why-ferro/  redirects from the retired two-theme URLs
-  build/preview.html         the claude.ai preview: both pages in one file, switched with #home / #why-ferro
+  build/preview.html         the claude.ai preview: every page in one file, switched with #home / #why-ferro / #sector-<slug>
 
 Host pages use root-absolute asset paths so they work at any depth.
 Run from the repo root:  python3 tools/build.py
@@ -27,9 +29,43 @@ DESCRIPTIONS = {
     "why-ferro": "Ferro brings certainty to complex steel building projects: compliance know-how, built-in quality assurance, responsible planning and a proven process.",
 }
 
+# slug, name (as HTML), photo, alt, placeholder photo?
+SECTORS = [
+    ("energy-utilities", "Energy &amp; Utilities", "svc-core.jpg", "A steel building frame at sunset", True),
+    ("industrial", "Industrial", "svc-integrated.jpg", "A blue steel industrial building with a cantilevered canopy", True),
+    ("aviation-transport", "Aviation &amp; Transport", "sec-aviation.jpg", "A business jet parked inside a steel-framed hangar", False),
+    ("commercial", "Commercial", "wf-tech.jpg", "A blue and silver commercial building with a red entry canopy", True),
+    ("waste-water", "Waste &amp; Water", "prj-erco-chemical.jpg", "A four-bay service building at sunset", True),
+    ("public-spaces-recreation", "Public Spaces &amp; Recreation", "wf-rink.jpg", "A bright ice rink under a long-span steel roof", True),
+    ("civic-buildings-facilities", "Civic Buildings &amp; Facilities", "prj-north-galiano.jpg", "A two-storey fire hall with bay doors", True),
+    ("agricultural", "Agricultural", "standards-1200.jpg", "A steel building going up in a forest clearing", True),
+]
+
 page = (root / "src" / "page.html").read_text(encoding="utf-8")
 why_main = (root / "src" / "why-ferro.html").read_text(encoding="utf-8").strip()
 home_main = re.search(r'<main id="top" data-view="home">.*?</main>', page, re.S).group(0)
+sector_tpl = (root / "src" / "sector.html").read_text(encoding="utf-8").strip()
+NOTE = ('<aside class="wf-note" aria-label="Placeholder image"><p class="wf-note-h"><span class="mask" aria-hidden="true" style="--m:url(assets/camera.svg);width:20px;height:16px"></span>'
+        '<span class="mask wf-note-site" role="img" aria-label="Site." style="--m:url(assets/site.svg);width:37px;height:14px"></span><span class="wf-note-tag">Placeholder</span></p>'
+        '<p>FINAL IMAGE TO BE PROVIDED BY FERRO</p></aside>')
+
+MAINS = {"home": home_main, "why-ferro": why_main}
+for slug, name, img, alt, ph in SECTORS:
+    # the one-line description is the one the home page's sectors gallery already shows
+    desc = re.search(r'<h3><a class="sec-go" data-page="sector-' + slug + r'"[^>]*>.*?</a></h3></div><p>(.*?)</p>', page).group(1)
+    plain = re.sub(r"&amp;", "and", name)
+    key = f"sector-{slug}"
+    MAINS[key] = (sector_tpl.replace("{{slug}}", slug).replace("{{name}}", name).replace("{{desc}}", desc)
+                  .replace("{{img}}", f"assets/{img}").replace("{{alt}}", alt).replace("{{note}}", NOTE if ph else "")
+                  .replace("{{lower}}", plain.lower()))
+    URLS[key] = f"/sectors/{slug}/"
+    TITLES[key] = f"{re.sub('&amp;', '&', name)} — Ferro Steel Building Systems"
+    DESCRIPTIONS[key] = re.sub("&amp;", "&", desc)
+
+# one "show this page's main" rule per page (the home main is hidden whenever data-page is set)
+views = "\n".join(f'[data-page="{k}"] main[data-view="{k}"]{{display:block}}' for k in MAINS if k != "home")
+page = page.replace("/* @page-views: build.py writes one \"show this page's main\" rule per page here */", views)
+home_main = MAINS["home"]
 
 
 def compose(main_html: str) -> str:
@@ -38,16 +74,17 @@ def compose(main_html: str) -> str:
 
 # ---- claude.ai preview: both mains, relative assets ----
 (root / "build").mkdir(exist_ok=True)
-(root / "build" / "preview.html").write_text(page.replace(home_main, home_main + "\n\n" + why_main), encoding="utf-8")
+(root / "build" / "preview.html").write_text(page.replace(home_main, "\n\n".join(MAINS.values())), encoding="utf-8")
 print("wrote build/preview.html")
 
 
 def host_page(pg: str) -> str:
-    body = compose(home_main if pg == "home" else why_main)
+    body = compose(MAINS[pg])
     body = re.sub(r'<meta name="claude:viewport-fit-sides"[^>]*>\n?', "", body)
     body = re.sub(r"<title>.*?</title>", f"<title>{TITLES[pg]}</title>", body, count=1)
     # links between pages point at this skin's URLs (the script keeps them in sync after a skin flip)
     body = re.sub(r'data-page="([\w-]+)" href="[^"]*"', lambda m: f'data-page="{m.group(1)}" href="{URLS[m.group(1)]}"', body)
+    body = re.sub(r'data-to="([\w-]+)" data-page="([\w-]+)" href="[^"]*"', lambda m: f'data-to="{m.group(1)}" data-page="{m.group(2)}" href="{URLS[m.group(2)]}#{m.group(1)}"', body)
     body = body.replace('<a class="logo" href="#top"', f'<a class="logo" href="{URLS["home"]}"')
     body = re.sub(r'(?<![\w/.])assets/', '/assets/', body)
     attrs = f' data-page="{pg}"' if pg != "home" else ""

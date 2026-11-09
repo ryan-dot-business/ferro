@@ -1,0 +1,1346 @@
+<!doctype html>
+<html lang="en" data-page="sector-industrial">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Warehousing and manufacturing operations with tailored loading, access, and performance features.">
+<meta name="theme-color" content="#11264a">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://ferro.rd-bannon.workers.dev/sectors/industrial/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ferro Building Systems">
+<meta property="og:title" content="Industrial — Ferro Steel Building Systems">
+<meta property="og:description" content="Warehousing and manufacturing operations with tailored loading, access, and performance features.">
+<meta property="og:url" content="https://ferro.rd-bannon.workers.dev/sectors/industrial/">
+<meta property="og:image" content="https://ferro.rd-bannon.workers.dev/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Ferro F mark over a blue-toned steel building frame">
+<meta name="twitter:card" content="summary_large_image">
+<script>window.FERRO_PAGES = {"page": "sector-industrial", "urls": {"home": "/", "why-ferro": "/why-ferro/", "sector-energy-utilities": "/sectors/energy-utilities/", "sector-industrial": "/sectors/industrial/", "sector-aviation-transport": "/sectors/aviation-transport/", "sector-commercial": "/sectors/commercial/", "sector-waste-water": "/sectors/waste-water/", "sector-public-spaces-recreation": "/sectors/public-spaces-recreation/", "sector-civic-buildings-facilities": "/sectors/civic-buildings-facilities/", "sector-agricultural": "/sectors/agricultural/"}};</script>
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font:14px/1.4 system-ui,sans-serif}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Industrial — Ferro Steel Building Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Figtree:wght@500;600&family=Inter:wght@400;500&display=swap">
+<script>
+(function(){var r=document.documentElement;r.classList.add('intro');
+/* pages: real URLs when built for a host (window.FERRO_PAGES); #why-ferro on the claude.ai preview */
+if(!window.FERRO_PAGES&&/^#(why-ferro|sector-[\w-]+)$/.test(location.hash))r.setAttribute('data-page',location.hash.slice(1));
+/* arriving through a page transition: skip the load intro so the incoming snapshot is the finished page,
+   and if we came from the Company menu photo, let the hero banner take its place */
+addEventListener('pagereveal',function(e){if(!e.viewTransition)return;r.classList.add('play','vt-arrive');
+var m=null;try{m=sessionStorage.getItem('ferro-morph');sessionStorage.removeItem('ferro-morph');}catch(_){}
+var h=m&&document.querySelector('.wf-hero-img');if(h)h.style.viewTransitionName='wf-hero';
+e.viewTransition.finished.finally(function(){r.classList.remove('vt-arrive');if(h)h.style.viewTransitionName='';});});})();
+</script>
+<style>
+/* Layout: Figma "Ferro Home" — sticky white bar, two full-bleed image bands, four-column services band, sector carousel.
+   Single deliberate light theme (brand site). Fonts are stand-ins until Commuters Sans / Whitney web files arrive. */
+:root{
+  color-scheme: light;
+  --navy-900:#081b3d;   /* strategize, sector ink */
+  --navy-800:#11264a;   /* nav ink, specialize */
+  --navy-700:#19386e;   /* core */
+  --sky:#6e9ed8;        /* better-together band */
+  --mist:#e8eef9;       /* sector cards, round buttons */
+  --paper:#ffffff;
+  --tint:rgba(0,0,0,.03);
+  --tint-2:rgba(0,0,0,.06);
+  --hair:rgba(68,68,68,.1);
+  --muted:rgba(0,0,0,.5);
+
+  --display:"Archivo","Commuters Sans",system-ui,sans-serif;  /* stand-in for Commuters Sans */
+  --ui:"Figtree","Whitney A",system-ui,sans-serif;            /* stand-in for Whitney Semibold */
+  --text:"Inter",system-ui,sans-serif;
+
+  --ease:cubic-bezier(.22,1,.36,1);
+  --arrow:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M1 7h11M8 3l4 4-4 4' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --ease-io:cubic-bezier(.65,0,.35,1);
+  --gutter:24px;
+  --nav-x:36px;
+
+  /* header, menus and layout (the navy theme; the white one was retired) */
+  --nav-bg:#11264a; --nav-ink:#fff; --nav-pill:#243c64; --brand-icon:#e5a824;
+  --menu-bg:#11264a; --menu-ink:#fff; --menu-label:#e5a824; --menu-hair:rgba(255,255,255,.3);
+  --menu-tile:rgba(255,255,255,.06); --menu-tile-2:rgba(255,255,255,.11); --menu-icon:#e5a824; --caret:#e5a824;
+  --menu-pt:16px; --svc-pt:20px;
+  --chip:rgba(255,255,255,.1); --chip-2:rgba(255,255,255,.16); --chip-ink:rgba(255,255,255,.5); --cta-bg:#fff; --cta-ink:var(--navy-800);
+  --page-gutter:0px; --band-gap:0px; --inner:30px; --card-radius:0px;
+  --c0-eyebrow:#081b3d; --col-eyebrow:rgba(255,255,255,.6); --col-btn:#e5a824;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--navy-800);font-family:var(--display);font-stretch:118%;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--navy-700);outline-offset:2px;border-radius:5px}
+.on-dark :focus-visible,.on-dark:focus-visible{outline-color:#fff}
+
+/* ---------- placeholder media ---------- */
+.media{position:absolute;inset:0;overflow:hidden;background:var(--ph,#c9d5ea)}
+.media > .img{position:absolute;inset:0;width:100%;height:100%;max-width:none;display:block;object-fit:cover}
+/* band photos are saved taller than the band; the spare height is parallax travel */
+.band{--travel:72px}
+.band .media > .img{height:calc(100% + var(--travel));transform:translateY(calc(-1 * var(--travel)));will-change:transform}
+/* hero keeps the top of the photo (sky behind the copy); its spare height sits below and it drifts down as it slides under the nav */
+.hero .media > .img{object-position:50% 75%;transform:none}
+/* the photo's sky is a flat #8ec1f6, so the band can extend it seamlessly */
+.hero .media{background:#8ec1f6}
+.col.c0 .media > .img{object-position:50% 100%}
+
+/* ---------- nav ---------- */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--nav-bg)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--nav-bg);color:var(--nav-ink);
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:66px;
+  padding-left:max(var(--nav-x),env(safe-area-inset-left,0px));padding-right:max(var(--nav-x),env(safe-area-inset-right,0px));
+  transition:box-shadow .4s var(--ease)}
+.nav.scrolled{box-shadow:0 1px 0 var(--hair)}
+.logo{justify-self:start;display:block;width:150px;height:31px;margin-left:-2px}
+.logo img{display:block;width:146px;height:31px;max-width:none}
+.mask{display:block;background:currentColor;-webkit-mask:var(--m) no-repeat center/contain;mask:var(--m) no-repeat center/contain}
+.logo .mask{width:100%;height:100%;color:var(--brand-icon)}
+.links{position:relative;display:flex;gap:12px}
+.links .trigger{position:relative;z-index:1;padding:8px 15px;border-radius:5px;font-weight:700;font-size:14px;line-height:18px}
+.pill{position:absolute;left:0;top:0;height:34px;width:0;border-radius:5px;background:var(--nav-pill);opacity:0;
+  transition:transform .42s var(--ease),width .42s var(--ease),opacity .25s var(--ease)}
+.pill.on{opacity:1}
+.nav-end{justify-self:end;display:flex;align-items:center;gap:4px}
+.icon-btn{display:grid;place-items:center;width:34px;height:34px;border-radius:5px;transition:background .25s var(--ease)}
+.icon-btn:hover,.icon-btn[aria-expanded="true"]{background:var(--nav-pill)}
+.nav :focus-visible{outline-color:var(--nav-ink)}
+.burger{display:none}
+
+/* morphing dropdown: one box, panes cross-fade inside */
+/* panel hangs from the button's bottom edge (34px) and overlaps the bar, so it reads as one surface with the nav;
+   clip-path cuts the shadow off the top edge and doubles as the drop-down reveal */
+.menu{position:absolute;top:34px;left:50%;width:0;height:0;background:var(--menu-bg);overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,.25);
+  opacity:0;visibility:hidden;transform:translateX(calc(-50% + var(--mx,0px)));
+  clip-path:inset(0 -24px 100% -24px);
+  transition:opacity .2s var(--ease),clip-path .42s var(--ease),width .44s var(--ease),height .44s var(--ease),transform .44s var(--ease),visibility 0s linear .42s}
+.menu.open{opacity:1;visibility:visible;clip-path:inset(0 -24px -24px -24px);transition:opacity .12s var(--ease),clip-path .46s var(--ease),width .44s var(--ease),height .44s var(--ease),transform .44s var(--ease),visibility 0s}
+.pane{position:absolute;top:0;left:50%;width:max-content;opacity:0;pointer-events:none;
+  transform:translateX(calc(-50% + var(--dx,0px)));
+  transition:opacity .14s var(--ease),transform .32s var(--ease)}
+.pane.active{opacity:1;pointer-events:auto;--dx:0px;transition:opacity .3s var(--ease) .07s,transform .44s var(--ease)}
+.pane.snap{transition:none}
+
+/* contact dropdown: hangs from the mail button the same way the main menu hangs from its trigger */
+.contact-wrap{position:relative}
+.contact{position:absolute;top:34px;right:-30px;z-index:2;width:max-content;background:var(--menu-bg);box-shadow:0 4px 12px rgba(0,0,0,.25);
+  padding:12px 20px 20px;display:flex;flex-direction:column;
+  opacity:0;visibility:hidden;clip-path:inset(0 -24px 100% -24px);
+  transition:opacity .2s var(--ease),clip-path .42s var(--ease),visibility 0s linear .42s}
+.contact.open{opacity:1;visibility:visible;clip-path:inset(0 -24px -24px -24px);transition:opacity .12s var(--ease),clip-path .46s var(--ease),visibility 0s}
+.c-row{display:flex;align-items:center;gap:6px;padding:10px 12px;border-radius:5px;font-weight:400;font-size:14px;line-height:18px;letter-spacing:-.02em;color:var(--menu-ink);transition:background .25s var(--ease)}
+.c-row .ic{flex:none;color:var(--menu-icon)}
+/* email reads like the phone row at rest; on hover it becomes a chip, dims, and shows the copy icon */
+.c-email{text-align:left}
+.c-email:is(:hover,:focus-visible){background:var(--chip);color:var(--chip-ink)}
+.c-email .c-text{width:175px}
+.c-email .copy{flex:none;width:12px;height:12px;display:grid;place-items:center;opacity:0;transition:opacity .2s var(--ease)}
+.c-email:is(:hover,:focus-visible) .copy,.c-email.copied .copy{opacity:1}
+.c-email .copy svg{grid-area:1/1;transition:opacity .2s var(--ease),transform .3s var(--ease)}
+.c-email .done{opacity:0;transform:scale(.6)}
+.c-email.copied .done{opacity:1;transform:none}
+.c-email.copied .todo{opacity:0;transform:scale(.6)}
+a.c-row:hover{background:var(--chip)}
+.c-cta{display:flex;justify-content:center;padding-top:10px}
+.c-btn{display:inline-flex;align-items:center;padding:10px 12px;border-radius:5px;background:var(--cta-bg);color:var(--cta-ink);font-weight:800;font-size:14px;line-height:14px;letter-spacing:-.02em;transition:opacity .25s var(--ease)}
+.c-btn:hover{opacity:.88}
+
+/* Services: three flat tinted tiles; the whole tile is the link */
+.svc{display:flex;gap:10px;padding:var(--svc-pt) 24px 24px}
+.svc a{background:rgba(0,0,0,.1);transition:background .3s var(--ease)}
+.svc a:hover,.svc a:focus-visible{background:rgba(0,0,0,.2)}
+.svc-feature{display:flex;flex-direction:column;align-items:center;justify-content:space-between;width:179px;padding:47px 11px 35px;text-align:center}
+.svc-feature img{display:block;width:157px;height:73px;object-fit:cover;object-position:50% 70%;transition:transform .7s var(--ease)}
+.svc-feature:hover img{transform:scale(1.04)}
+.svc-col{display:flex;flex-direction:column;gap:10px;width:213px;height:205px}
+.svc-row{flex:1;display:flex;align-items:center;padding-right:12px;min-height:0}
+.svc-row .ico{width:80px;align-self:stretch;flex:none;display:grid;place-items:center;color:var(--menu-icon)}
+.svc-row .ico .mask{transition:transform .5s var(--ease)}
+.svc-row:hover .ico .mask{transform:scale(1.06)}
+.tile{border-radius:10px;background:var(--menu-tile);transition:background .3s var(--ease)}
+.tile.ico{display:grid;place-items:center;color:var(--menu-icon)}
+.svc-label{font-weight:700;font-size:12px;line-height:1.1;letter-spacing:-.02em;color:var(--menu-ink)}
+
+
+.prj{display:flex;align-items:stretch;width:906px;padding:var(--menu-pt) 0 24px 24px}
+.prj-left{flex:1;display:flex;gap:7px;align-self:stretch;min-width:0}
+.prj-photo{position:relative;width:348px;align-self:stretch;flex:none;overflow:hidden;background:#cdd8ea}
+.prj-photo .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity .5s var(--ease),transform 1.2s var(--ease)}
+.prj-photo .shot.active{opacity:1;transform:none}
+.caret-rail{position:relative;width:12px}
+.caret{color:var(--caret);position:absolute;left:0;top:0;width:12px;height:12px;transform:translateY(37px);transition:transform .38s var(--ease)}
+.caret svg{display:block}
+/* list rows are full-width hit areas (6px above and below); the hover arrow sits at the row's right edge */
+.list{display:flex;flex-direction:column;gap:4px;padding-top:8px;min-width:0}
+.list h4{margin:0;font-weight:600;font-size:12px;letter-spacing:-.02em;color:var(--menu-label)}
+.list ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.list a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 0;font-weight:700;font-size:14px;line-height:17px;letter-spacing:-.02em;color:var(--menu-ink)}
+.list a::after{content:"";flex:none;width:14px;height:14px;background:currentColor;
+  -webkit-mask:var(--arrow) no-repeat center/contain;mask:var(--arrow) no-repeat center/contain;
+  opacity:0;transform:translateX(-6px);transition:opacity .2s var(--ease),transform .35s var(--ease)}
+.list a:is(:hover,:focus-visible)::after{opacity:1;transform:none}
+.svc-label::after{content:"";display:inline-block;width:11px;height:11px;margin-left:6px;vertical-align:-1px;background:currentColor;-webkit-mask:var(--arrow) no-repeat center/contain;mask:var(--arrow) no-repeat center/contain;opacity:0;transform:translateX(-6px);transition:opacity .2s var(--ease),transform .35s var(--ease)}
+.svc a:is(:hover,:focus-visible) .svc-label::after{opacity:1;transform:none}
+/* keep the centred label centred: the arrow hangs past the line instead of taking space */
+.svc-feature .svc-label::after{margin-right:-17px}
+/* film lightbox: white veil, 16:9 frame as large as fits (max 1280x720), Apple-style glass controls inside the frame */
+html.film-open{overflow:hidden}
+.film{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;padding:32px;background:rgba(255,255,255,.95);
+  opacity:0;transition:opacity .35s var(--ease)}
+.film[hidden]{display:none}
+.film.on{opacity:1}
+.film-top{display:flex;justify-content:flex-end}
+.film-x{display:grid;place-items:center;width:35px;height:35px;border-radius:5px;background:var(--mist);color:var(--navy-900);transition:background .25s var(--ease)}
+.film-x:hover{background:#d7e1f3}
+.film-foot{height:35px;flex:none}
+.film-stage{flex:1;min-height:0;display:grid;place-items:center;container-type:size}
+.film-frame{position:relative;width:min(1280px,100cqw,100cqh * 16 / 9);aspect-ratio:16/9;background:#000;overflow:hidden;
+  transform:scale(.97);transition:transform .5s var(--ease)}
+.film.on .film-frame{transform:none}
+.film-frame video{display:block;width:100%;height:100%;object-fit:contain;cursor:pointer}
+.film-frame:fullscreen{width:100%;height:100%;transform:none}
+.film-frame.idle{cursor:none}
+.film-frame.idle video{cursor:none}
+.film-big{position:absolute;left:50%;top:50%;display:grid;place-items:center;width:72px;height:72px;border-radius:50%;padding-left:5px;color:#fff;
+  background:rgba(40,40,40,.45);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);
+  transform:translate(-50%,-50%);opacity:0;pointer-events:none;transition:opacity .25s var(--ease),transform .35s var(--ease)}
+.film-frame.paused .film-big{opacity:1;pointer-events:auto}
+.film-big:hover{transform:translate(-50%,-50%) scale(1.06)}
+.film-ui{position:absolute;left:16px;right:16px;bottom:16px;display:flex;align-items:center;gap:12px;height:44px;padding:0 10px;border-radius:12px;color:#fff;
+  font-family:var(--text);background:rgba(40,40,40,.5);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);
+  transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.film-frame.idle .film-ui{opacity:0;transform:translateY(6px);pointer-events:none}
+.fu-btn{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:6px;color:#fff;opacity:.9;transition:opacity .2s var(--ease),background .2s var(--ease)}
+.fu-btn:hover{opacity:1;background:rgba(255,255,255,.12)}
+.fu-btn svg{grid-area:1/1}
+#fuPlay .i-pause,.film-frame.paused #fuPlay .i-play{display:block}
+#fuPlay .i-play,.film-frame.paused #fuPlay .i-pause{display:none}
+#fuFull .i-exit,.film-frame:fullscreen #fuFull .i-full{display:none}
+.film-frame:fullscreen #fuFull .i-exit{display:block}
+#fuMute .wx{display:none}
+.fu-vol[data-level="0"] #fuMute :is(.w1,.w2){display:none}
+.fu-vol[data-level="0"] #fuMute .wx{display:block}
+.fu-vol[data-level="1"] #fuMute .w2{display:none}
+.fu-vol{position:relative;flex:none}
+/* volume pops straight up out of the speaker; the padding is a hover bridge so it doesn't close on the way up */
+.fu-vol-pop{position:absolute;left:50%;bottom:100%;padding-bottom:10px;transform:translate(-50%,6px);opacity:0;visibility:hidden;
+  transition:opacity .2s var(--ease),transform .3s var(--ease),visibility 0s linear .3s}
+.fu-vol:is(:hover,:focus-within) .fu-vol-pop,.fu-vol.drag .fu-vol-pop{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity .2s var(--ease),transform .3s var(--ease),visibility 0s}
+.fu-vol-track{position:relative;display:block;width:30px;height:104px;border-radius:10px;background:rgba(40,40,40,.5);
+  -webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);cursor:pointer;touch-action:none}
+.fu-vol-track::before,.fu-vol-fill{content:"";position:absolute;left:50%;bottom:12px;width:4px;margin-left:-2px;border-radius:2px}
+.fu-vol-track::before{top:12px;background:rgba(255,255,255,.25)}
+.fu-vol-fill{height:calc((100% - 24px) * var(--v,1));background:#fff}
+.fu-time{flex:none;min-width:38px;font-size:12px;font-variant-numeric:tabular-nums;letter-spacing:0;opacity:.85;text-align:center}
+.fu-scrub{position:relative;flex:1;height:30px;cursor:pointer;touch-action:none;--p:0;--b:0}
+.fu-scrub > span{position:absolute;left:0;top:50%;height:4px;margin-top:-2px;border-radius:2px;transition:height .2s var(--ease),margin .2s var(--ease)}
+.fu-scrub::before{content:"";position:absolute;left:0;right:0;top:50%;height:4px;margin-top:-2px;border-radius:2px;background:rgba(255,255,255,.22);transition:height .2s var(--ease),margin .2s var(--ease)}
+.fu-buf{width:calc(var(--b) * 100%);background:rgba(255,255,255,.22)}
+.fu-fill{width:calc(var(--p) * 100%);background:#fff}
+.fu-scrub .fu-knob{left:calc(var(--p) * 100%);width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#fff;transform:scale(0);transition:transform .2s var(--ease)}
+.fu-scrub:is(:hover,:focus-visible,.drag)::before,.fu-scrub:is(:hover,:focus-visible,.drag) > :is(.fu-buf,.fu-fill){height:6px;margin-top:-3px}
+.fu-scrub:is(:hover,:focus-visible,.drag) .fu-knob{transform:none}
+.film-ui :focus-visible{outline:2px solid #fff;outline-offset:2px}
+@media (max-width:700px){
+  .film{padding:16px}
+  .film-ui{left:8px;right:8px;bottom:8px;gap:6px;height:40px;padding:0 6px}
+  .fu-time{min-width:32px;font-size:11px}
+  .film-big{width:60px;height:60px}
+}
+@media (prefers-reduced-motion:reduce){.film,.film-frame,.film-ui{transition:none}}
+/* company menu: about links | rule | contact details */
+.co{display:flex;gap:40px;padding:var(--menu-pt) 25px 24px}
+.co-about{width:130px;flex:none}
+.co-about ul{gap:0}
+.co-rule{flex:none;width:2px;height:202px;margin-top:8px;background:rgba(255,255,255,.3)}
+.co-contact{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding-top:8px}
+.co-contact h4{margin:0;padding-inline:13px;font-weight:600;font-size:12px;letter-spacing:-.02em;color:var(--menu-label)}
+.co-row{display:flex;align-items:center;gap:10px;padding:7px 12px;margin-top:-4px;border-radius:5px;font-weight:700;font-size:14px;line-height:17px;letter-spacing:-.02em;color:var(--menu-ink);text-align:left;transition:background .25s var(--ease)}
+.co-contact h4 + .co-row{margin-top:0}
+.co-row.c-email:is(:hover,:focus-visible){color:var(--menu-ink)}
+.co-row.c-email .c-text{width:auto}
+.co-addr{padding-block:5px}
+.co-cta{padding:8px 12px 0}
+.featured{flex:1;padding-right:20px}
+.featured .all{margin-top:auto}
+.sectors-list{align-self:flex-start}
+.prj-photo{min-height:221px}
+.divider{width:2px;height:202px;flex:none;align-self:flex-end;background:var(--menu-hair)}
+.sectors-list{width:279px;flex:none;padding:8px 24px 0}
+
+/* ---------- page ---------- */
+main{display:flex;flex-direction:column;gap:var(--band-gap);padding-left:max(var(--page-gutter),env(safe-area-inset-left,0px));padding-right:max(var(--page-gutter),env(safe-area-inset-right,0px))}
+.band{position:relative;height:690px;overflow:hidden;display:flex;flex-direction:column;align-items:center;padding:90px 32px 0;color:#fff;isolation:isolate}
+.band .media{z-index:-1}
+.copy{display:flex;flex-direction:column;align-items:center;gap:21px;text-align:center}
+.copy-text{display:flex;flex-direction:column;align-items:center;gap:5px}
+.eyebrow{font-weight:700;font-size:14px;line-height:1.3;text-transform:uppercase;letter-spacing:.02em;margin:0}
+.h-xl{margin:0;font-weight:700;font-size:32px;line-height:1.1;letter-spacing:-.03em;text-wrap:balance}
+.h-xl sup{font-size:9px;vertical-align:top;position:relative;top:6px;margin-left:1px;letter-spacing:0}
+.h-xl sup a{opacity:.9}
+.sub{margin:0;font-weight:400;font-size:16px;line-height:1.25;letter-spacing:-.03em;text-wrap:balance}
+.ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:0 24px;height:36px;border-radius:5px;border:1px solid #fff;font-family:var(--ui);font-weight:600;font-size:14px;font-stretch:100%;
+  transition:background .3s var(--ease),color .3s var(--ease),transform .3s var(--ease)}
+.btn-solid{background:#fff;color:var(--navy-800)}
+.btn-solid:hover{background:rgba(255,255,255,.88)}
+.btn-ghost{color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+.btn-sm{height:30px}
+
+.hero .media{--ph:linear-gradient(180deg,#78a1ef 0%,#a9c1f4 42%,#d9dcf0 72%,#e8d6c0 100%)}
+.standards .media{--ph:radial-gradient(120% 80% at 18% 8%,#c39a5d 0%,rgba(195,154,93,0) 45%),linear-gradient(180deg,#6d5a3d 0%,#4d4a30 45%,#3b4127 100%)}
+.standards .media::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(103,78,57,.4) 13%,rgba(103,78,57,0) 58%)}
+.standards .media::after{z-index:2}
+
+.build{display:grid;grid-template-columns:repeat(4,1fr);height:536px;background:var(--navy-800);overflow:hidden}
+.col{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:60px 32px 32px;color:#fff;isolation:isolate;min-width:0}
+.col-head{display:flex;flex-direction:column;gap:5px}
+.h-lg{margin:0;font-weight:700;font-size:29px;line-height:1.1;letter-spacing:-.03em}
+.col.c0 .media{z-index:-1;--ph:linear-gradient(180deg,#6b9ddb 0%,#8fb5e6 60%,#b9cfe9 100%)}
+.col.c1{background:var(--navy-700)}
+.col.c2{background:var(--navy-800)}
+.col.c3{background:var(--navy-900)}
+.col .btn{align-self:flex-start;border-color:var(--col-btn)}
+.btn-arrow{width:37px;padding:0;justify-content:center}
+.btn-arrow svg{transition:transform .35s var(--ease)}
+.btn-arrow:hover svg{transform:translateX(2px)}
+.col .eyebrow{color:var(--col-eyebrow)}
+.col.c0 .eyebrow{color:var(--c0-eyebrow)}
+/* hover: the hovered column's photo slides over the column to its left; its description unfolds above the button */
+.col-foot{display:flex;flex-direction:column}
+.desc{display:grid;grid-template-rows:0fr;opacity:0;transform:translateY(10px);
+  transition:opacity .12s linear,grid-template-rows .4s var(--ease) ,transform .4s var(--ease)}
+.desc p{min-height:0;overflow:hidden;margin:0;font-size:14px;line-height:1.3;letter-spacing:-.02em;color:rgba(255,255,255,.8);text-wrap:pretty}
+.desc p::after{content:"";display:block;height:24px}
+/* the photo is parked just past the slot's right edge (inside its own tile) and slides left into the neighbouring slot, then back home */
+.ph{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+.ph img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;transform:translateX(101%);transition:transform .42s var(--slide)}
+.build{--slide:cubic-bezier(.77,0,.18,1)}
+.col-head,.col-foot{transition:opacity .2s var(--ease)}
+.m-ph{display:none}
+@media (min-width:1101px) and (hover:hover){
+  .col:is(.c1,.c2,.c3):is(:hover,:focus-within) .desc{grid-template-rows:1fr;opacity:1;transform:none;transition:grid-template-rows .55s var(--ease),opacity .45s var(--ease) .12s,transform .6s var(--ease) .08s}
+  .build:has(.c1:is(:hover,:focus-within)) .c0 .ph img,
+  .build:has(.c2:is(:hover,:focus-within)) .c1 .ph img,
+  .build:has(.c3:is(:hover,:focus-within)) .c2 .ph img{transform:none;transition:transform .5s var(--slide)}
+  /* the other tiles' copy steps back while one is focused */
+  .build:has(.col:is(.c1,.c2,.c3):is(:hover,:focus-within)) .col:not(:hover,:focus-within) :is(.col-head,.col-foot){opacity:.5}
+}
+/* without hover (touch, or the stacked tablet/phone layout): each service shows its own photo and copy */
+@media (max-width:1100px),(hover:none){
+  .ph{display:none}
+  .desc{grid-template-rows:1fr;opacity:1;transform:none}
+  .col:is(.c1,.c2,.c3){padding-top:0;justify-content:flex-start;gap:28px}
+  .m-ph{display:block;margin:0 -32px;height:220px;overflow:hidden}
+  .m-ph img{width:100%;height:100%;max-width:none;object-fit:cover}
+  .col:is(.c1,.c2,.c3) .col-head{margin-top:4px}
+  .col-foot{margin-top:auto}
+}
+
+.sectors{padding-block:90px 150px;padding-inline:calc(var(--inner) - var(--page-gutter));display:flex;flex-direction:column;gap:50px;min-width:0}
+.sectors-head{padding:0 24px;color:var(--navy-900);display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.sectors-head .h-xl{text-wrap:balance}
+.sectors .eyebrow{color:#e5a824}
+/* two sector layouts under review; the Expertise eyebrow switches between them */
+.sectors{gap:32px}
+.sec-switch{font:inherit;font-weight:700;font-size:14px;letter-spacing:.02em;text-transform:uppercase;color:#e5a824;cursor:pointer;border-radius:3px}
+.sec-switch:hover{text-decoration:underline;text-underline-offset:3px}
+#sectors:not([data-layout="b"]) .sec-b,#sectors[data-layout="b"] .sec-a{display:none}
+/* sectors carousel: centred slide at full size, neighbours scaled down and peeking; captions crossfade */
+.sec-a{--w:min(647px,100vw - 2 * var(--inner) - 64px);--h:calc(var(--w) * 402 / 647);--small:.9227;--gap:18px;display:flex;flex-direction:column;align-items:center;gap:16px;
+  margin-inline:calc(-1 * (var(--inner) - var(--page-gutter)))}
+.sec-a .sec-stage{position:relative;width:100%;height:var(--h);overflow:hidden;touch-action:pan-y;cursor:grab;outline-offset:4px}
+.sec-a .sec-stage:active{cursor:grabbing}
+.sec-a .sec-slide{position:absolute;left:50%;top:0;width:var(--w);height:var(--h);margin:0 0 0 calc(var(--w) / -2);overflow:hidden;background:#dedede;
+  transform:translateX(var(--x,0px)) scale(var(--s,1));transition:transform .7s cubic-bezier(.65,0,.2,1),opacity .5s var(--ease);will-change:transform;user-select:none}
+.sec-a .sec-slide img{width:100%;height:100%;object-fit:cover;display:block;max-width:none;pointer-events:none}
+.sec-a .sec-slide.is-ph::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.6)}
+.sec-a .sec-slide:not(.on){cursor:pointer}
+.sec-a .sec-slide.jump{transition:none}
+/* placeholder tag on sector photos: sits straight on the darkened image, no card */
+.sec-a .sec-note{z-index:1;background:none;box-shadow:none;color:#fff}
+.sec-a .sec-note .wf-note-tag{color:rgba(255,255,255,.5)}
+.sec-a .sec-note p:last-child{font-size:12px}
+.sec-a .sec-caps{display:grid;width:var(--w);max-width:100%}
+.sec-a .sec-cap{grid-area:1/1;display:flex;flex-direction:column;gap:4px;padding-inline:24px;font-family:var(--text);color:var(--navy-900);opacity:0;transform:translateY(6px);transition:opacity .25s var(--ease),transform .4s var(--ease);pointer-events:none}
+.sec-a .sec-cap.on{opacity:1;transform:none;transition:opacity .5s var(--ease) .2s,transform .7s var(--ease) .2s;pointer-events:auto}
+.sec-a .sec-cap-h{display:flex;align-items:center;gap:10px}
+.sec-a .sec-ico{flex:none;width:34px;height:30px}
+.sec-a .sec-cap p{padding-left:44px}
+.sec-go{color:inherit;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .35s var(--ease)}
+.sec-go:is(:hover,:focus-visible){background-size:100% 1px}
+.sec-a .sec-slide.on{cursor:pointer}
+.sec-b .sec-card{position:relative}
+.sec-b .sec-go::after{content:"";position:absolute;inset:0;z-index:2}
+.sec-b .sec-card:hover .sec-go{background-size:100% 1px}
+/* sector pages (placeholders) */
+.sx-ico{width:56px;height:50px;margin-bottom:10px}
+.sx-hero{height:520px}
+.sx-hero .wf-note{background:none;box-shadow:none;border-color:rgba(255,255,255,.12);color:#fff}
+.sx-hero .wf-note .wf-note-tag{color:rgba(255,255,255,.5)}
+.sx-hero::after{content:"";position:absolute;inset:0;z-index:1;background:rgba(0,0,0,.45)}
+.sx-soon{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:90px 0 150px}
+.sx-soon > *{max-width:640px}
+.sx-soon .btn{margin-top:12px}
+.sec-a .sec-cap h3{margin:0;font-weight:500;font-size:24px;line-height:1.2;letter-spacing:-.04em}
+.sec-a .sec-cap p{margin:0;font-size:16px;line-height:1.25;letter-spacing:-.04em;color:rgba(8,27,61,.6);text-wrap:pretty}
+.sec-a .sec-ctrl{display:flex;align-items:center;gap:15px}
+.sec-a .sec-btn{display:grid;place-items:center;width:35px;height:30px;border-radius:5px;background:var(--mist);color:var(--navy-900);transition:background .25s var(--ease)}
+.sec-a .sec-btn:hover{background:#d7e1f3}
+.sec-a .sec-dots{display:flex;align-items:center;gap:3px}
+.sec-a .sec-dot{width:6px;height:6px;background:rgba(0,0,0,.1);transition:width .45s var(--ease),background .3s var(--ease)}
+.sec-a .sec-dot:hover{background:rgba(0,0,0,.25)}
+.sec-a .sec-dot.on{width:20px;background:var(--navy-900)}
+/* sectors: three cards per page; arrows page through, dots show the page */
+.sec-b{display:flex;flex-direction:column;align-items:center;gap:16px}
+.sec-b .sec-row{display:flex;align-items:center;justify-content:center;gap:16px;width:100%}
+.sec-b .sec-view{width:min(960px,100%);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;outline-offset:4px}
+.sec-b .sec-view::-webkit-scrollbar{display:none}
+.sec-b .sec-track{display:flex;gap:30px;width:max-content}
+.sec-b .sec-card{flex:0 0 300px;scroll-snap-align:start;display:flex;flex-direction:column;gap:16px;padding-bottom:24px;background:var(--mist);overflow:hidden;font-family:var(--text);color:var(--navy-900)}
+.sec-b .sec-img{position:relative;aspect-ratio:647/402;overflow:hidden;background:#243c64}
+.sec-b .sec-img img{width:100%;height:100%;object-fit:cover;display:block;max-width:none;transition:transform .8s var(--ease)}
+.sec-b .sec-card:hover .sec-img img{transform:scale(1.04)}
+.sec-b .sec-img.is-ph::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.6)}
+.sec-b .sec-ph{position:absolute;left:50%;top:50%;z-index:1;transform:translate(-50%,-50%);width:min(304px,calc(100% - 32px));padding:10px;border:1px solid rgba(0,0,0,.1);border-radius:10px;
+  display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff;font-family:var(--text);font-size:12px;line-height:1.25;text-align:center}
+.sec-b .sec-ph-h{display:flex;align-items:center;gap:4px;font-weight:700;font-size:14px;text-transform:uppercase}
+.sec-b .sec-ph-tag{padding-top:2px;color:rgba(255,255,255,.5)}
+.sec-b .sec-txt{padding-inline:24px;line-height:1.4}
+.sec-b .sec-card-h{display:flex;align-items:center;gap:10px}
+.sec-b .sec-card-h h3{flex:1;min-width:0}
+.sec-b .sec-ico{flex:none;width:34px;height:30px}
+.sec-b .sec-txt h3{margin:0;font-weight:500;font-size:16px;letter-spacing:-.04em}
+.sec-b .sec-txt p{margin:0;font-size:16px;letter-spacing:-.04em;color:rgba(8,27,61,.6);text-wrap:balance}
+.sec-b .sec-round{flex:none;display:grid;place-items:center;width:55px;height:55px;border-radius:50%;background:var(--mist);color:var(--navy-900);transition:background .25s var(--ease),opacity .3s var(--ease),transform .3s var(--ease)}
+.sec-b .sec-round:hover{background:#d7e1f3}
+.sec-b .sec-round:active{transform:scale(.95)}
+.sec-b .sec-round[disabled]{opacity:0;pointer-events:none}
+.sec-b .sec-dots{display:flex;align-items:center;gap:3px;min-height:35px}
+.sec-b .sec-dot{width:6px;height:6px;background:rgba(0,0,0,.1);transition:width .45s var(--ease),background .3s var(--ease)}
+.sec-b .sec-dot:hover{background:rgba(0,0,0,.25)}
+.sec-b .sec-dot.on{width:20px;background:var(--navy-900)}
+
+footer{display:flex;flex-direction:column;align-items:center;gap:12px;background:#081b3d;border-bottom:11px solid #e5a824;padding:40px max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px))}
+.foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+footer a,footer span{padding:8px 15px;border-radius:5px;font-weight:700;font-size:14px;line-height:18px;color:rgba(255,255,255,.7);transition:background .25s var(--ease),color .25s var(--ease)}
+footer a:hover{background:rgba(255,255,255,.08);color:#fff}
+
+/* ---------- intro (load) ---------- */
+[data-in]{transition:opacity .9s var(--ease) calc(var(--d,0) * 1ms),transform 1.1s var(--ease) calc(var(--d,0) * 1ms),filter .9s var(--ease) calc(var(--d,0) * 1ms)}
+.intro:not(.play) [data-in]{opacity:0;transform:translateY(14px);filter:blur(4px)}
+.intro:not(.play) .nav [data-in]{transform:translateY(-6px)}
+.hero .media{transition:clip-path 1.6s var(--ease) .05s,transform 1.8s var(--ease) .05s}
+.intro:not(.play) .hero .media{clip-path:inset(2.5% 1.5%);transform:scale(1.05)}
+
+/* ---------- scroll (progressive: only where scroll timelines exist) ---------- */
+/* ---------- scroll (JS-driven so it works in every browser and inside the artifact frame) ---------- */
+/* reveal groups: [data-stagger] marks children .rv with a per-child delay */
+.armed .rv{opacity:0;transform:translateY(30px);
+  transition:opacity .9s var(--ease) var(--rd,0ms),transform 1.15s var(--ease) var(--rd,0ms)}
+.armed .in .rv,.armed .rv.in{opacity:1;transform:none}
+/* once revealed, drop the stagger delay so hover dimming responds immediately */
+.armed .settled .rv{transition:opacity .2s var(--ease),transform .2s var(--ease)}
+/* services band: columns wipe up from the bottom edge, left to right, then their copy rises */
+.armed .build{background:transparent}
+.armed .build .col{clip-path:inset(100% 0 0 0);transition:clip-path 1.1s var(--ease-io) calc(var(--c) * 90ms)}
+.armed .build.in .col{clip-path:inset(0)}
+/* once the wipe is done, drop the clip and restore the band colour so sub-pixel column seams can't show the page through */
+.armed .build.settled{background:var(--navy-900)}
+.armed .build.settled .col{clip-path:none}
+.armed .build .col.c0 .media > .img{transform:scale(1.12);transition:transform 1.8s var(--ease) .1s}
+.armed .build.in .col.c0 .media > .img{transform:none}
+.band .copy{will-change:transform,opacity}
+
+/* ---------- page transitions (View Transitions API; browsers without it just load the page) ---------- */
+@view-transition{navigation:auto}
+.nav{view-transition-name:site-nav}
+::view-transition-old(root){animation:vt-out .24s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:vt-in .48s cubic-bezier(.22,1,.36,1) .08s both}
+@keyframes vt-out{to{opacity:0;transform:translateY(-8px)}}
+@keyframes vt-in{from{opacity:0;transform:translateY(16px)}}
+::view-transition-group(site-nav){animation:none}
+::view-transition-group(wf-hero){animation-duration:.62s;animation-timing-function:cubic-bezier(.65,0,.2,1)}
+::view-transition-old(wf-hero),::view-transition-new(wf-hero){width:100%;height:100%;object-fit:cover;animation-duration:.62s}
+.vt-arrive [data-in],.vt-arrive .wf-hero-img > .img{transition:none!important}
+@media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
+
+/* ---------- views: the preview holds both pages and shows one ---------- */
+main[data-view]:not([data-view="home"]){display:none}
+[data-page] main[data-view="home"]{display:none}
+[data-page="why-ferro"] main[data-view="why-ferro"]{display:block}
+[data-page="sector-energy-utilities"] main[data-view="sector-energy-utilities"]{display:block}
+[data-page="sector-industrial"] main[data-view="sector-industrial"]{display:block}
+[data-page="sector-aviation-transport"] main[data-view="sector-aviation-transport"]{display:block}
+[data-page="sector-commercial"] main[data-view="sector-commercial"]{display:block}
+[data-page="sector-waste-water"] main[data-view="sector-waste-water"]{display:block}
+[data-page="sector-public-spaces-recreation"] main[data-view="sector-public-spaces-recreation"]{display:block}
+[data-page="sector-civic-buildings-facilities"] main[data-view="sector-civic-buildings-facilities"]{display:block}
+[data-page="sector-agricultural"] main[data-view="sector-agricultural"]{display:block}
+
+/* ---------- Why Ferro ---------- */
+/* two bands: navy (lead, banner, compliance + quality, planning) then light (process, technology), then the rink */
+.wf{padding-inline:0!important;background:#11264a;color:#fff}
+.wf-navy{--wf-panel:#081b3d;--wf-ink:#fff;--wf-soft:rgba(255,255,255,.7);
+  display:flex;flex-direction:column;align-items:center;padding-bottom:100px}
+.wf-light{--wf-panel:var(--mist);--wf-ink:var(--navy-900);--wf-soft:rgba(8,27,61,.7);
+  background:#fff;color:var(--wf-ink);display:flex;flex-direction:column;align-items:center;gap:50px;padding:100px 0}
+.wf-wrap{width:min(1200px,100% - 2 * max(var(--inner),env(safe-area-inset-left,0px)));margin-inline:auto}
+.wf-intro{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;padding:70px max(16px,env(safe-area-inset-right,0px)) 80px max(16px,env(safe-area-inset-left,0px))}
+.wf-eyebrow{color:#e5a824}
+.wf-intro .h-xl{margin-bottom:7px}
+.wf-lede{margin:0;max-width:614px;font-size:16px;line-height:1.4;letter-spacing:-.03em;color:rgba(255,255,255,.7);text-wrap:balance}
+.wf-media{position:relative;margin:0;overflow:hidden;background:var(--wf-panel);isolation:isolate}
+.wf-media > .img{position:absolute;left:0;top:0;width:100%;height:calc(100% + var(--travel));max-width:none;object-fit:cover;will-change:transform}
+.plx{--travel:48px}
+.wf-copy{display:flex;flex-direction:column;gap:12px}
+.wf-hero-img{height:562px}
+.wf-lead-row{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;margin-top:100px}
+.wf-lead-in{font-family:var(--display);font-stretch:118%}
+/* warranty comparison: each column fills to its share of five years */
+.wf-warranty{margin:0;height:336px;display:flex;align-items:center;gap:12px;padding:10px;background:#081b3d}
+.wf-w{position:relative;flex:1;align-self:stretch;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding-block:20px;background:#11264a;overflow:hidden;isolation:isolate}
+.wf-fill{position:absolute;inset:0;z-index:-1;background:#073685;transform-origin:50% 100%;transform:scaleY(var(--fill));transition:transform 1.2s cubic-bezier(.65,0,.2,1) .25s}
+.armed .wf-lead-row:not(.in) .wf-fill{transform:scaleY(0)}
+.wf-w-ferro .wf-fill{transition-delay:.1s}
+.wf-w-num{margin:0;display:flex;align-items:baseline;gap:4px;font-family:var(--text);font-size:20px;letter-spacing:-.03em;line-height:1}
+.wf-w-num b{font-family:var(--display);font-stretch:118%;font-weight:700;font-size:64px;letter-spacing:-.03em;line-height:.8}
+.wf-w-label{margin:0;font-family:var(--text);font-size:16px;line-height:1.1;letter-spacing:-.03em;color:rgba(255,255,255,.5)}
+.wf-vs{font-weight:700;font-size:16px;letter-spacing:-.03em}
+.wf-hero-img > .img{transition:clip-path 1.6s var(--ease) .05s}
+.wf-h{margin:0;font-weight:700;font-size:24px;line-height:1.1;letter-spacing:-.03em;color:var(--wf-ink);text-wrap:balance}
+.wf-light .wf-h{font-weight:600}
+.wf-p{margin:0;font-family:var(--text);font-size:16px;line-height:1.4;letter-spacing:-.01em;color:var(--wf-soft);text-wrap:pretty}
+.wf-p strong{font-weight:700;color:var(--wf-ink)}
+.wf-pair{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:100px}
+.wf-pair .wf-col{gap:30px}
+.wf-col{display:flex;flex-direction:column;gap:20px;min-width:0}
+.wf-col .wf-media{height:377px}
+.wf-panel{display:grid;grid-template-columns:1fr 1fr;gap:50px;background:var(--wf-panel);overflow:hidden;isolation:isolate}
+.wf-navy .wf-panel{margin-top:100px}
+.wf-panel-media{min-height:416px}
+.wf-panel-copy{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:110px 32px 110px 0;min-width:0}
+.wf-panel-flip{gap:80px}
+.wf-panel-flip .wf-panel-copy{padding:110px 0 110px 75px}
+.wf-panel-flip .wf-panel-media{min-height:456px}
+.wf-panel-flip .wf-panel-media::after{content:"";position:absolute;inset:0;background:rgba(17,38,74,.1);pointer-events:none}
+.wf-panel-flip .wf-p + .wf-p{margin-top:10px}
+.wf-process{display:flex;flex-direction:column;align-items:center;gap:80px;width:100%}
+.wf-process-head{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding-inline:var(--inner)}
+.wf-process-head .h-xl{color:var(--navy-900);margin-bottom:10px}
+.wf-sub{margin:0;font-size:16px;line-height:1.1;letter-spacing:-.03em;color:var(--wf-soft)}
+.wf-cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px}
+.wf-card{display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:279px;padding:24px;background:var(--wf-panel)}
+.wf-card h3{margin:0;font-family:var(--display);font-weight:600;font-size:24px;line-height:1.2;letter-spacing:-.04em;color:var(--wf-ink)}
+.wf-card p{margin:0;font-family:var(--text);font-size:14px;line-height:1.4;letter-spacing:-.02em;color:rgba(8,27,61,.6)}
+.wf-rink{height:678px}
+.wf-rink{--travel:72px}
+.wf-rink::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,38,74,0) 45%,#11264a);pointer-events:none}
+.wf-relations{--wf-panel:#081b3d;--wf-ink:#fff;--wf-soft:rgba(255,255,255,.7);display:flex;flex-direction:column;align-items:center;gap:100px;padding:60px 0 50px}
+.wf-relations-head{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding-inline:max(var(--inner),env(safe-area-inset-left,0px))}
+.wf-relations-head .h-xl{margin-bottom:10px}
+.wf-relations-head .wf-sub{line-height:1.1;color:rgba(255,255,255,.7)}
+.wf-rel{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:stretch}
+.wf-rel-copy{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:110px 32px 110px 0;min-width:0}
+.wf-rel-media{min-height:398px}
+.wf-rel-tall .wf-rel-media{min-height:446px}
+/* review notes from the design file, pinned to the photos they're about */
+.wf-note{position:absolute;left:50%;top:50%;z-index:2;transform:translate(-50%,-50%);width:min(304px,calc(100% - 32px));padding:10px;border-radius:10px;
+  background:#fffdc6;border:1px solid rgba(0,0,0,.1);box-shadow:0 4px 12px rgba(0,0,0,.55);color:#000;font-family:var(--text);display:flex;flex-direction:column;gap:4px}
+.wf-note p{margin:0;font-size:12px;line-height:1.25}
+.wf-note .wf-note-h{display:flex;align-items:center;gap:4px;font-family:var(--text);font-weight:700;font-size:14px;text-transform:uppercase}
+.wf-note-tag{padding-top:2px;color:rgba(0,0,0,.5)}
+.wf-note p:last-child{font-size:13px}
+.intro:not(.play) .wf-hero-img > .img{clip-path:inset(2.5% 1.5%)}
+
+/* hero grows with tall windows (70% of the viewport) but never drops below the designed 690px */
+.band.hero{height:max(690px,70svh)}
+/* contained sections: services and Elevated Standards sit in the 1200px column, 50px apart, under a full-bleed hero */
+main > .contained{width:min(1200px,100% - 2 * var(--inner));margin-inline:auto;margin-top:50px}
+main > .contained + .sectors{padding-top:90px}
+
+/* ---------- tablet ---------- */
+@media (max-width:1100px){
+  .wf-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .build{grid-template-columns:repeat(2,1fr);height:auto}
+  .col{min-height:320px}
+}
+/* ---------- mobile ---------- */
+@media (max-width:820px){
+  :root{--gutter:16px;--nav-x:16px;--inner:16px}
+  .band{--travel:44px}
+  .wf-intro{padding-top:48px}
+  .wf-hero-img{height:auto;aspect-ratio:4/3}
+  .wf-navy{padding-bottom:56px}
+  .wf-light{gap:56px;padding:56px 0}
+  .wf-pair,.wf-navy .wf-panel{margin-top:56px}
+  .wf-intro{padding-bottom:40px}
+  .wf-process{gap:32px}
+  .wf-pair,.wf-panel,.wf-panel-flip,.wf-lead-row,.wf-rel{grid-template-columns:1fr;gap:20px}
+  .wf-relations{gap:56px;padding-top:48px}
+  .wf-rel-copy{padding:0}
+  .wf-rel-media,.wf-rel-tall .wf-rel-media{min-height:0;aspect-ratio:4/3;order:-1}
+  .wf-relations-head .wf-sub br{display:none}
+  .wf-lead-row{gap:28px;margin-top:40px}
+  .wf-warranty{height:240px}
+  .wf-w-num b{font-size:52px}
+  .wf-pair{gap:40px}
+  .wf-col .wf-media{height:auto;aspect-ratio:3/2}
+  .wf-panel,.wf-panel-flip{gap:0}
+  .wf-panel-media,.wf-panel-flip .wf-panel-media{min-height:0;aspect-ratio:4/3}
+  .wf-panel-copy,.wf-panel-flip .wf-panel-copy{padding:28px 20px 32px}
+  .wf-panel-flip{gap:0}
+  .wf-panel-flip .wf-panel-media{order:-1}
+  .wf-cards{grid-template-columns:1fr}
+  .wf-card{min-height:0}
+  .wf-rink{height:auto;aspect-ratio:4/3}
+  .plx{--travel:32px}
+  /* on phones, drop the photo below the copy and let the flat sky fill above it */
+  .hero .media > .img{top:150px;height:calc(100% - 150px + var(--travel))}
+  .nav{grid-template-columns:1fr auto;height:60px}
+  .links,.menu{display:none}
+  .burger{display:grid}
+  .band{height:auto;min-height:540px;padding:56px 20px 0}
+  .band.hero{height:auto;min-height:max(540px,70svh)}
+  .h-xl{font-size:clamp(24px,7vw,32px)}
+  .sub{font-size:15px;max-width:30ch}
+  .build{grid-template-columns:1fr}
+  .col{min-height:230px;padding:36px 20px 24px}
+  .m-ph{margin:0 -20px}
+  .col.c0{min-height:360px}
+  .h-lg{font-size:26px}
+  .sectors-head{padding:0 4px}
+  .sectors{padding-block:56px 80px;gap:28px}
+  main > .contained{margin-top:16px}
+  main > .contained + .sectors{padding-top:56px}
+  .sec-a{--w:calc(100vw - 2 * var(--inner) - 40px);--gap:10px}
+  .sec-a .sec-cap{padding-inline:4px}
+  .sec-b .sec-round{display:none}
+  .sec-b .sec-view{width:auto;align-self:stretch;margin-inline:calc(-1 * var(--inner));scroll-padding-inline:var(--inner)}
+  .sec-b .sec-track{gap:16px;padding-inline:var(--inner)}
+  .sec-b .sec-card{flex-basis:min(78vw,300px)}
+  footer{padding-block:32px;gap:4px}
+}
+/* mobile sheet */
+.sheet{position:fixed;left:0;right:0;top:calc(60px + env(safe-area-inset-top,0px));bottom:0;z-index:45;background:var(--menu-bg);overflow-y:auto;
+  padding:8px max(16px,env(safe-area-inset-right,0px)) calc(32px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .55s var(--ease-io),visibility 0s linear .55s}
+.menu-open .sheet{clip-path:inset(0);visibility:visible;transition-delay:0s}
+.menu-open body{overflow:hidden}
+.sheet > *{opacity:0;transform:translateY(-8px);transition:opacity .3s var(--ease),transform .4s var(--ease)}
+.menu-open .sheet > *{opacity:1;transform:none;transition-delay:calc(140ms + var(--i) * 50ms)}
+.acc{border-bottom:1px solid var(--menu-hair)}
+.acc-btn{width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 4px;font-weight:700;font-size:20px;letter-spacing:-.02em;color:var(--menu-ink)}
+.acc-btn svg{transition:transform .4s var(--ease)}
+.acc-btn[aria-expanded="true"] svg{transform:rotate(45deg)}
+.acc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.acc-btn[aria-expanded="true"] + .acc-body{grid-template-rows:1fr}
+.acc-inner{overflow:hidden;min-height:0}
+.acc-inner > div{padding:0 4px 20px;display:flex;flex-direction:column;gap:12px}
+.m-row{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;color:var(--menu-ink)}
+.m-row .tile{width:56px;height:56px;flex:none}
+.m-row .tile.ico .mask{width:26px;height:24px}
+.m-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.m-list a{font-weight:700;font-size:15px;color:var(--menu-ink)}
+.m-h{margin:8px 0 0;font-weight:600;font-size:12px;color:var(--menu-label)}
+.sheet .plain{display:block;padding:18px 4px;font-weight:700;font-size:20px;color:var(--navy-900);border-bottom:1px solid var(--hair)}
+@media (min-width:821px){.sheet{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;transition-delay:0s!important;animation:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="logo" href="/" aria-label="Ferro home" data-in style="--d:0"><img src="/assets/logo-lockup.svg" width="146" height="31" alt=""></a>
+
+  <nav class="links" aria-label="Primary" id="links">
+    <span class="pill" id="pill" aria-hidden="true"></span>
+    <button class="trigger" data-menu="services" aria-expanded="false" aria-controls="menu" data-in style="--d:60">Services</button>
+    <button class="trigger" data-menu="projects" aria-expanded="false" aria-controls="menu" data-in style="--d:110">Projects</button>
+    <button class="trigger" data-menu="company" aria-expanded="false" aria-controls="menu" data-in style="--d:160">Company</button>
+
+    <div class="menu" id="menu" role="region" aria-label="Menu">
+      <div class="pane" data-pane="services">
+        <div class="svc">
+          <a class="svc-feature" href="#core">
+            <img src="/assets/nav-peb.png" width="157" height="73" alt="">
+            <span class="svc-label">Pre-Engineered<br>Steel Buildings</span>
+          </a>
+          <div class="svc-col">
+            <a class="svc-row" href="#strategize"><span class="ico"><span class="mask" style="--m:url(/assets/icon-precon.svg);width:31px;height:30px"></span></span><span class="svc-label">Pre-Construction<br>Services</span></a>
+            <a class="svc-row" href="#specialize"><span class="ico"><span class="mask" style="--m:url(/assets/icon-integrated.svg);width:35px;height:26px"></span></span><span class="svc-label">Integrated<br>Systems</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pane" data-pane="projects">
+        <div class="prj" data-feature>
+          <div class="prj-left">
+            <div class="prj-photo" data-photos>
+              <video class="shot active" id="prjVideo" muted loop playsinline preload="metadata" poster="/assets/project-feature.jpg" src="/assets/project-feature.mp4" aria-label="Drone flyover of a Ferro project roof"></video>
+              <img class="shot" src="/assets/prj-white-sturgeon.jpg" alt="White Sturgeon interior with an overhead crane and mezzanine" decoding="async">
+              <img class="shot" src="/assets/prj-erco-chemical.jpg" alt="Erco Chemical service building with four bay doors at sunset" decoding="async">
+              <img class="shot" src="/assets/prj-kal-tire.jpg" alt="Kal Tire cladding detail, wood-grain panel against blue steel siding" decoding="async">
+              <img class="shot" src="/assets/prj-north-galiano.jpg" alt="North Galiano Fire Hall, two-storey steel building with bay doors" decoding="async">
+            </div>
+            <div class="caret-rail"><span class="caret" data-caret><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6 10 1.4v9.2Z" fill="currentColor"/></svg></span></div>
+            <div class="list featured">
+              <h4>FEATURED</h4>
+              <ul id="featured" data-picks>
+                <li><a href="#projects">Cloverdale</a></li>
+                <li><a href="#projects">White Sturgeon</a></li>
+                <li><a href="#projects">Erco Chemical</a></li>
+                <li><a href="#projects">Kal Tire</a></li>
+                <li><a href="#projects">N Galiano Fire Hall</a></li>
+              </ul>
+              <a class="all" href="#projects">All Projects</a>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="list sectors-list">
+            <h4>SECTORS</h4>
+            <ul>
+              <li><a data-page="sector-energy-utilities" href="/sectors/energy-utilities/">Energy &amp; Utilities</a></li>
+              <li><a data-page="sector-waste-water" href="/sectors/waste-water/">Waste &amp; Water</a></li>
+              <li><a data-page="sector-aviation-transport" href="/sectors/aviation-transport/">Aviation &amp; Transport</a></li>
+              <li><a data-page="sector-public-spaces-recreation" href="/sectors/public-spaces-recreation/">Public &amp; Recreation</a></li>
+              <li><a data-page="sector-civic-buildings-facilities" href="/sectors/civic-buildings-facilities/">Civic Facilities</a></li>
+              <li><a data-page="sector-commercial" href="/sectors/commercial/">Commercial</a></li>
+              <li><a data-page="sector-agricultural" href="/sectors/agricultural/">Agricultural</a></li>
+              <li><a data-page="sector-industrial" href="/sectors/industrial/">Industrial</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="pane" data-pane="company" data-anchor>
+        <div class="co">
+          <div class="list co-about">
+            <h4>ABOUT US</h4>
+            <ul>
+              <li><a data-page="why-ferro" href="/why-ferro/">Why Ferro</a></li>
+              <li><a href="#company">Company</a></li>
+              <li><a href="#careers">Careers</a></li>
+              <li><a href="#insights">Insights</a></li>
+            </ul>
+          </div>
+          <span class="co-rule" aria-hidden="true"></span>
+          <div class="co-contact">
+            <h4>CONTACT</h4>
+            <button class="co-row c-email" type="button" data-copy="info@ferrobuildings.com" title="Copy email address"><span class="c-text">info@ferrobuildings.com</span><span class="copy" aria-hidden="true">
+            <svg class="todo" width="12" height="12" viewBox="0 0 12 12"><path d="M4 1.6c0-.3.3-.6.6-.6h5.8c.3 0 .6.3.6.6v5.8c0 .3-.3.6-.6.6H4.6c-.3 0-.6-.3-.6-.6Z" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 9.6v.8c0 .3-.3.6-.6.6H1.6c-.3 0-.6-.3-.6-.6V4.6c0-.3.3-.6.6-.6h.8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            <svg class="done" width="12" height="12" viewBox="0 0 12 12"><path d="m2 6.4 2.6 2.6L10 3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span></button>
+            <button class="co-row c-email" type="button" data-copy="604-530-3224" title="Copy phone number"><span class="c-text">604-530-3224</span><span class="copy" aria-hidden="true">
+            <svg class="todo" width="12" height="12" viewBox="0 0 12 12"><path d="M4 1.6c0-.3.3-.6.6-.6h5.8c.3 0 .6.3.6.6v5.8c0 .3-.3.6-.6.6H4.6c-.3 0-.6-.3-.6-.6Z" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 9.6v.8c0 .3-.3.6-.6.6H1.6c-.3 0-.6-.3-.6-.6V4.6c0-.3.3-.6.6-.6h.8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            <svg class="done" width="12" height="12" viewBox="0 0 12 12"><path d="m2 6.4 2.6 2.6L10 3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span></button>
+            <button class="co-row c-email co-addr" type="button" data-copy="19292 60 Ave #301, Surrey, BC V3S 3M2" title="Copy address"><span class="c-text">19292 60 Ave #301,<br>Surrey, BC V3S 3M2</span><span class="copy" aria-hidden="true">
+            <svg class="todo" width="12" height="12" viewBox="0 0 12 12"><path d="M4 1.6c0-.3.3-.6.6-.6h5.8c.3 0 .6.3.6.6v5.8c0 .3-.3.6-.6.6H4.6c-.3 0-.6-.3-.6-.6Z" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 9.6v.8c0 .3-.3.6-.6.6H1.6c-.3 0-.6-.3-.6-.6V4.6c0-.3.3-.6.6-.6h.8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            <svg class="done" width="12" height="12" viewBox="0 0 12 12"><path d="m2 6.4 2.6 2.6L10 3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span></button>
+            <div class="co-cta"><a class="c-btn" href="#contact">Contact sales</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-end" data-in style="--d:200">
+    <div class="contact-wrap" id="contactWrap">
+      <button class="icon-btn" id="contactBtn" aria-expanded="false" aria-controls="contactMenu" aria-label="Contact Ferro">
+        <span class="mask" style="--m:url(/assets/mail.svg);width:24px;height:17px;color:var(--brand-icon)"></span>
+      </button>
+      <div class="contact" id="contactMenu" role="region" aria-label="Contact">
+        <button class="c-row c-email" id="copyEmail" type="button" data-copy="info@ferrobuildings.com" title="Copy email address">
+          <span class="ic mask" style="--m:url(/assets/mail.svg);width:18px;height:13px"></span>
+          <span class="c-text">info@ferrobuildings.com</span>
+          <span class="copy" aria-hidden="true">
+            <svg class="todo" width="12" height="12" viewBox="0 0 12 12"><path d="M4 1.6c0-.3.3-.6.6-.6h5.8c.3 0 .6.3.6.6v5.8c0 .3-.3.6-.6.6H4.6c-.3 0-.6-.3-.6-.6Z" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 9.6v.8c0 .3-.3.6-.6.6H1.6c-.3 0-.6-.3-.6-.6V4.6c0-.3.3-.6.6-.6h.8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            <svg class="done" width="12" height="12" viewBox="0 0 12 12"><path d="m2 6.4 2.6 2.6L10 3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </button>
+        <a class="c-row" href="tel:+16045303224">
+          <svg class="ic" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3.3 1.1c.4-.4 1.1-.4 1.5 0l1.5 1.8c.3.4.3 1 0 1.4l-.8.9c.7 1.5 1.9 2.7 3.4 3.4l.9-.8c.4-.3 1-.3 1.4 0l1.8 1.5c.4.4.4 1.1 0 1.5l-.9.9c-.8.8-2 1-3 .6C6.2 11.2 2.8 7.8 1.6 4.9c-.4-1-.2-2.2.6-3Z" fill="currentColor"/></svg>
+          604-530-3224
+        </a>
+        <div class="c-cta"><a class="c-btn" href="#contact">Contact sales</a></div>
+      </div>
+    </div>
+    <button class="icon-btn burger" id="burger" aria-expanded="false" aria-controls="sheet" aria-label="Open menu">
+      <svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M1 2h16M1 10h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" aria-label="Menu">
+  <div class="acc" style="--i:0">
+    <button class="acc-btn" aria-expanded="true">Services <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+    <div class="acc-body"><div class="acc-inner"><div>
+      <a class="m-row" href="#core"><span class="tile ico"><span class="mask" style="--m:url(/assets/icon-peb.svg)"></span></span>Pre-Engineered Steel Buildings</a>
+      <a class="m-row" href="#strategize"><span class="tile ico"><span class="mask" style="--m:url(/assets/icon-precon.svg)"></span></span>Pre-Construction Services</a>
+      <a class="m-row" href="#specialize"><span class="tile ico"><span class="mask" style="--m:url(/assets/icon-integrated.svg)"></span></span>Integrated Systems</a>
+    </div></div></div>
+  </div>
+  <div class="acc" style="--i:1">
+    <button class="acc-btn" aria-expanded="false">Projects <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+    <div class="acc-body"><div class="acc-inner"><div>
+      <p class="m-h">FEATURED</p>
+      <ul class="m-list"><li><a href="#projects">Cloverdale</a></li><li><a href="#projects">White Sturgeon</a></li><li><a href="#projects">Erco Chemical</a></li><li><a href="#projects">Kal Tire</a></li><li><a href="#projects">N Galiano Fire Hall</a></li><li><a href="#projects">All Projects →</a></li></ul>
+      <p class="m-h">SECTORS</p>
+      <ul class="m-list"><li><a data-page="sector-energy-utilities" href="/sectors/energy-utilities/">Energy &amp; Utilities</a></li><li><a data-page="sector-waste-water" href="/sectors/waste-water/">Waste &amp; Water</a></li><li><a data-page="sector-aviation-transport" href="/sectors/aviation-transport/">Aviation &amp; Transport</a></li><li><a data-page="sector-public-spaces-recreation" href="/sectors/public-spaces-recreation/">Public &amp; Recreation</a></li><li><a data-page="sector-civic-buildings-facilities" href="/sectors/civic-buildings-facilities/">Civic Facilities</a></li><li><a data-page="sector-commercial" href="/sectors/commercial/">Commercial</a></li><li><a data-page="sector-agricultural" href="/sectors/agricultural/">Agricultural</a></li><li><a data-page="sector-industrial" href="/sectors/industrial/">Industrial</a></li></ul>
+    </div></div></div>
+  </div>
+  <div class="acc" style="--i:2">
+    <button class="acc-btn" aria-expanded="false">Company <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+    <div class="acc-body"><div class="acc-inner"><div>
+      <p class="m-h">ABOUT US</p>
+      <ul class="m-list"><li><a data-page="why-ferro" href="/why-ferro/">Why Ferro</a></li><li><a href="#company">Company</a></li><li><a href="#careers">Careers</a></li><li><a href="#insights">Insights</a></li></ul>
+    </div></div></div>
+  </div>
+</div>
+
+<main class="wf sector" data-view="sector-industrial" aria-labelledby="sx-industrial">
+  <header class="wf-intro">
+    <img class="sx-ico" src="/assets/sector-industrial.svg" width="56" height="50" alt="" data-in style="--d:240">
+    <p class="eyebrow wf-eyebrow" data-in style="--d:300">Expertise</p>
+    <h1 class="h-xl" id="sx-industrial" data-in style="--d:380">Industrial</h1>
+    <p class="wf-lede" data-in style="--d:460">Warehousing and manufacturing operations with tailored loading, access, and performance features.</p>
+  </header>
+
+  <div class="wf-navy">
+    <figure class="wf-wrap wf-media plx sx-hero" data-in style="--d:520"><img class="img" src="/assets/svc-integrated.jpg" width="1200" height="800" alt="A blue steel industrial building with a cantilevered canopy" decoding="async"><aside class="wf-note" aria-label="Placeholder image"><p class="wf-note-h"><span class="mask" aria-hidden="true" style="--m:url(/assets/camera.svg);width:20px;height:16px"></span><span class="mask wf-note-site" role="img" aria-label="Site." style="--m:url(/assets/site.svg);width:37px;height:14px"></span><span class="wf-note-tag">Placeholder</span></p><p>FINAL IMAGE TO BE PROVIDED BY FERRO</p></aside></figure>
+
+    <section class="wf-wrap sx-soon" aria-labelledby="sx-industrial-soon" data-stagger=".eyebrow,.wf-h,.wf-p,.btn" data-step="80">
+      <p class="eyebrow wf-eyebrow">Placeholder page</p>
+      <h2 class="wf-h" id="sx-industrial-soon">More on Industrial coming soon.</h2>
+      <p class="wf-p">This page will cover Ferro’s work in industrial: the building types we deliver, the requirements we design around, and featured projects.</p>
+      <a class="btn btn-ghost" data-to="sectors" data-page="home" href="/#sectors">Back to all sectors</a>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <nav class="foot-links" aria-label="Legal"><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#cookies">Cookies</a></nav>
+  <span class="foot-copy">© 2026 Ferro Building Systems Ltd.</span>
+</footer>
+
+<!-- film lightbox: opened by "Watch Film" -->
+<div class="film" id="film" role="dialog" aria-modal="true" aria-label="Ferro film" hidden>
+  <div class="film-top"><button class="film-x" id="filmClose" type="button" aria-label="Close film"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="m1.5 1.5 9 9m0-9-9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button></div>
+  <div class="film-stage" id="filmStage">
+    <div class="film-frame paused" id="filmFrame">
+      <video id="filmVideo" playsinline preload="none" poster="/assets/wf-banner.jpg" src="/assets/wf-banner.mp4"></video>
+      <button class="film-big" id="filmBig" type="button" aria-label="Play"><svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true"><path d="M3 2.2c0-.8.9-1.3 1.6-.9l15.6 9.9c.6.4.6 1.3 0 1.7L4.6 22.7c-.7.4-1.6-.1-1.6-.9Z" fill="currentColor"/></svg></button>
+      <div class="film-ui" id="filmUi">
+        <button class="fu-btn" id="fuPlay" type="button" aria-label="Play">
+          <svg class="i-play" width="16" height="18" viewBox="0 0 16 18" aria-hidden="true"><path d="M2 1.8c0-.7.8-1.2 1.4-.8l11.3 7.2c.5.4.5 1.2 0 1.6L3.4 17c-.6.4-1.4-.1-1.4-.8Z" fill="currentColor"/></svg>
+          <svg class="i-pause" width="16" height="18" viewBox="0 0 16 18" aria-hidden="true"><rect x="2" y="1.5" width="4" height="15" rx="1.2" fill="currentColor"/><rect x="10" y="1.5" width="4" height="15" rx="1.2" fill="currentColor"/></svg>
+        </button>
+        <div class="fu-vol" id="fuVolWrap">
+          <div class="fu-vol-pop">
+            <div class="fu-vol-track" id="fuVol" role="slider" tabindex="0" aria-label="Volume" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span class="fu-vol-fill"></span></div>
+          </div>
+          <button class="fu-btn" id="fuMute" type="button" aria-label="Mute">
+            <svg width="20" height="18" viewBox="0 0 20 18" aria-hidden="true"><path d="M2 6.2h3L9.3 2.6c.5-.4 1.2 0 1.2.6v11.6c0 .6-.7 1-1.2.6L5 11.8H2c-.6 0-1-.4-1-1V7.2c0-.6.4-1 1-1Z" fill="currentColor"/><path class="w1" d="M13.3 6.3a3.8 3.8 0 0 1 0 5.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="w2" d="M15.6 4a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="wx" d="m13.5 6.5 5 5m0-5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <span class="fu-time" id="fuNow">0:00</span>
+        <div class="fu-scrub" id="fuScrub" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" aria-valuetext="0:00"><span class="fu-buf"></span><span class="fu-fill"></span><span class="fu-knob"></span></div>
+        <span class="fu-time" id="fuLeft">-0:00</span>
+        <button class="fu-btn" id="fuFull" type="button" aria-label="Full screen">
+          <svg class="i-full" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 5.5v-4h4m5 0h4v4m0 5v4h-4m-5 0h-4v-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="i-exit" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 1.5v4h-4m13 0h-4v-4m0 13v-4h4m-13 0h4v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="film-foot" aria-hidden="true"></div>
+</div>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* intro */
+  const play = () => root.classList.add('play');
+  const go = () => requestAnimationFrame(() => requestAnimationFrame(play));
+  const heroImg = root.getAttribute('data-page') === 'why-ferro' ? document.querySelector('.wf-hero-img .img') : document.getElementById('heroImg');
+  const ready = Promise.all([document.fonts ? document.fonts.ready : 0, heroImg && heroImg.decode ? heroImg.decode().catch(() => {}) : 0]);
+  Promise.race([ready, new Promise(r => setTimeout(r, 1100))]).then(go);
+  setTimeout(play, 1800);
+
+
+  /* ---------- scroll life ---------- */
+  if (!reduce && 'IntersectionObserver' in window){
+    root.classList.add('armed');
+    const groups = [...document.querySelectorAll('[data-stagger]')];
+    groups.forEach(g => {
+      const step = +g.dataset.step || 90, base = +g.dataset.base || 0;
+      g.querySelectorAll(g.dataset.stagger).forEach((el, i) => { el.classList.add('rv'); el.style.setProperty('--rd', (base + i * step) + 'ms'); });
+    });
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); setTimeout(() => e.target.classList.add('settled'), 2200); } }),
+      {rootMargin:'0px 0px -12% 0px', threshold:0.08});
+    groups.forEach(g => io.observe(g));
+  }
+
+  /* parallax: photos drift through their spare height; band copy lags a touch */
+  const bands = [...document.querySelectorAll('.band')].map(b => ({
+    b, img: b.querySelector('.media > .img'), copy: b.querySelector('.copy'), hero: b.classList.contains('hero'), on: false
+  }));
+  const plx = [...document.querySelectorAll('.plx')].map(b => ({ b, img: b.querySelector('.img'), on: false }));
+  const clamp = v => Math.max(0, Math.min(1, v));
+  let ticking = false;
+  function frame(){
+    ticking = false;
+    const vh = innerHeight, navH = navEl.offsetHeight;
+    for (const o of plx){
+      if (!o.on) continue;
+      const r = o.b.getBoundingClientRect();
+      const travel = parseFloat(getComputedStyle(o.b).getPropertyValue('--travel')) || 0;
+      const p = clamp((vh - r.top) / (vh + r.height));
+      o.img.style.transform = `translate3d(0,${(-p * travel).toFixed(2)}px,0)`;
+    }
+    for (const o of bands){
+      if (!o.on) continue;
+      const r = o.b.getBoundingClientRect();
+      const travel = parseFloat(getComputedStyle(o.b).getPropertyValue('--travel')) || 0;
+      // hero: progress only once it starts leaving under the nav; others: across the whole pass
+      const p = o.hero ? clamp((navH - r.top) / r.height) : clamp((vh - r.top) / (vh + r.height));
+      const y = o.hero ? p * travel : -travel + p * travel;
+      o.img.style.transform = `translate3d(0,${y.toFixed(2)}px,0)`;
+      if (o.hero){
+        o.copy.style.transform = `translate3d(0,${(p * 70).toFixed(2)}px,0)`;
+        o.copy.style.opacity = (1 - p * 0.9).toFixed(3);
+      } else {
+        o.copy.style.transform = `translate3d(0,${((p - 0.5) * -36).toFixed(2)}px,0)`;
+      }
+    }
+  }
+  const req = () => { if (!ticking){ ticking = true; requestAnimationFrame(frame); } };
+  if (!reduce){
+    const all = bands.concat(plx);
+    const pio = new IntersectionObserver(es => { es.forEach(e => { all.find(o => o.b === e.target).on = e.isIntersecting; }); req(); });
+    all.forEach(o => pio.observe(o.b));
+    addEventListener('scroll', req, {passive:true});
+    addEventListener('resize', req);
+  }
+
+  /* nav shadow on scroll */
+  const navEl = document.getElementById('nav');
+  const onScroll = () => navEl.classList.toggle('scrolled', scrollY > 8);
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* desktop morphing menu */
+  const links = document.getElementById('links');
+  const pill = document.getElementById('pill');
+  const menu = document.getElementById('menu');
+  const triggers = [...links.querySelectorAll('.trigger')];
+  const panes = Object.fromEntries([...menu.querySelectorAll('.pane')].map(p => [p.dataset.pane, p]));
+  const order = ['services','projects','company'];
+  const prjVideo = document.getElementById('prjVideo');
+  let current = null, closeTimer, suppressFocus = false;
+
+  const instant = (el, fn) => { const t = el.style.transition; el.style.transition = 'none'; fn(); el.offsetWidth; el.style.transition = t; };
+
+  function placePill(t){
+    const set = () => { pill.style.width = t.offsetWidth + 'px'; pill.style.transform = `translateX(${t.offsetLeft}px)`; };
+    if (!pill.classList.contains('on')) instant(pill, set); else set();
+    pill.classList.add('on');
+  }
+  function sizeMenu(p, now){
+    /* panes marked data-anchor slide the box so their first column sits under their own trigger's label (kept on screen) */
+    let mx = 0;
+    if ('anchor' in p.dataset){
+      const t = triggers.find(x => x.dataset.menu === p.dataset.pane), w = p.offsetWidth, lw = links.clientWidth;
+      const inset = parseFloat(getComputedStyle(p.firstElementChild).paddingLeft) || 0;
+      mx = t.offsetLeft + (parseFloat(getComputedStyle(t).paddingLeft) || 0) - inset - (lw - w) / 2;
+      const right = links.getBoundingClientRect().left + (lw + w) / 2 + mx, room = document.documentElement.clientWidth - 16;
+      if (right > room) mx -= right - room;
+    }
+    const set = () => { menu.style.width = p.offsetWidth + 'px'; menu.style.height = p.offsetHeight + 'px'; menu.style.setProperty('--mx', mx + 'px'); };
+    now ? instant(menu, set) : set();
+  }
+  function open(t){
+    clearTimeout(closeTimer);
+    placePill(t);
+    const name = t.dataset.menu || null;
+    triggers.forEach(x => x.getAttribute('aria-expanded') !== null && x.setAttribute('aria-expanded', String(x === t && !!name)));
+    if (!name){ hideMenu(); return; }
+    if (name === current) return;
+    const p = panes[name];
+    const wasOpen = menu.classList.contains('open') && current;
+    const dir = wasOpen ? Math.sign(order.indexOf(name) - order.indexOf(current)) : 0;
+    if (wasOpen){
+      const out = panes[current];
+      out.style.setProperty('--dx', (-dir * 14) + 'px');
+      out.classList.remove('active');
+      p.classList.add('snap'); p.style.setProperty('--dx', (dir * 14) + 'px'); p.offsetWidth; p.classList.remove('snap');
+      sizeMenu(p, false);
+    } else {
+      Object.values(panes).forEach(x => { x.classList.add('snap'); x.classList.remove('active'); x.style.setProperty('--dx','0px'); x.offsetWidth; x.classList.remove('snap'); });
+      sizeMenu(p, true);
+      menu.classList.add('open');
+    }
+    p.classList.add('active'); p.style.removeProperty('--dx');
+    current = name;
+    prime(name);
+    if (name === 'projects' && !reduce && shots[0].classList.contains('active')) prjVideo.play().catch(() => {}); else prjVideo.pause();
+  }
+  function hideMenu(){
+    prjVideo.pause();
+    menu.classList.remove('open');
+    if (current) panes[current].classList.remove('active');
+    current = null;
+  }
+  function closeAll(){
+    hideMenu(); pill.classList.remove('on');
+    triggers.forEach(x => x.hasAttribute('aria-expanded') && x.setAttribute('aria-expanded','false'));
+  }
+  const scheduleClose = () => { clearTimeout(closeTimer); closeTimer = setTimeout(closeAll, 170); };
+
+  triggers.forEach(t => {
+    t.addEventListener('mouseenter', () => open(t));
+    t.addEventListener('focus', () => { if (suppressFocus){ suppressFocus = false; return; } open(t); });
+    t.addEventListener('click', () => { if (t.tagName === 'BUTTON') open(t); });
+  });
+  links.addEventListener('mouseleave', scheduleClose);
+  links.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+  links.addEventListener('focusout', e => { if (!links.contains(e.relatedTarget)) scheduleClose(); });
+  addEventListener('keydown', e => {
+    if (e.key === 'Escape' && current){ const t = triggers.find(x => x.dataset.menu === current); closeAll(); if (t && document.activeElement !== t){ suppressFocus = true; t.focus({preventScroll:true}); } }
+  });
+  addEventListener('resize', () => { if (current) sizeMenu(panes[current], true); });
+
+  /* contact dropdown */
+  const cWrap = document.getElementById('contactWrap'), cBtn = document.getElementById('contactBtn'), cMenu = document.getElementById('contactMenu');
+  let cTimer;
+  const cOpen = () => { clearTimeout(cTimer); closeAll(); cMenu.classList.add('open'); cBtn.setAttribute('aria-expanded','true'); };
+  const cClose = () => { cMenu.classList.remove('open'); cBtn.setAttribute('aria-expanded','false'); };
+  const cLater = () => { clearTimeout(cTimer); cTimer = setTimeout(cClose, 170); };
+  const hoverable = matchMedia('(hover: hover)');
+  cWrap.addEventListener('mouseenter', () => { if (hoverable.matches) cOpen(); });
+  cWrap.addEventListener('mouseleave', () => { if (hoverable.matches) cLater(); });
+  cBtn.addEventListener('click', () => cMenu.classList.contains('open') && !hoverable.matches ? cClose() : cOpen());
+  cWrap.addEventListener('focusin', () => cOpen());
+  cWrap.addEventListener('focusout', e => { if (!cWrap.contains(e.relatedTarget)) cLater(); });
+  document.addEventListener('pointerdown', e => { if (!cWrap.contains(e.target)) cClose(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && cMenu.classList.contains('open')){ cClose(); cBtn.focus({preventScroll:true}); } });
+  links.addEventListener('mouseenter', cClose);
+  /* film lightbox + player */
+  (() => {
+    const box = document.getElementById('film'), frame = document.getElementById('filmFrame'), v = document.getElementById('filmVideo');
+    const ui = document.getElementById('filmUi'), big = document.getElementById('filmBig'), playB = document.getElementById('fuPlay');
+    const volWrap = document.getElementById('fuVolWrap'), vol = document.getElementById('fuVol'), muteB = document.getElementById('fuMute');
+    const scrub = document.getElementById('fuScrub'), tNow = document.getElementById('fuNow'), tLeft = document.getElementById('fuLeft'), fullB = document.getElementById('fuFull');
+    const openers = document.querySelectorAll('a[href="#film"]');
+    if (!box || !openers.length) return;
+    let opener = null, idleT, lastVol = 1;
+    const fmt = t => { t = Math.max(0, Math.floor(t || 0)); return Math.floor(t / 60) + ':' + String(t % 60).padStart(2, '0'); };
+    const clamp = x => Math.min(1, Math.max(0, x));
+
+    function open(from){
+      opener = from; box.hidden = false; root.classList.add('film-open');
+      box.offsetWidth; box.classList.add('on');
+      document.getElementById('filmClose').focus({preventScroll:true});
+      v.currentTime = 0; v.play().catch(() => sync());
+      wake();
+    }
+    function close(){
+      if (box.hidden) return;
+      if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+      v.pause(); box.classList.remove('on'); root.classList.remove('film-open');
+      setTimeout(() => { if (!box.classList.contains('on')) box.hidden = true; }, reduce ? 0 : 350);
+      if (opener) opener.focus({preventScroll:true});
+    }
+    openers.forEach(a => a.addEventListener('click', e => { e.preventDefault(); open(a); }));
+    document.getElementById('filmClose').addEventListener('click', close);
+    box.addEventListener('click', e => { if (!frame.contains(e.target) && !e.target.closest('.film-x')) close(); });
+
+    /* play state, time, buffer */
+    const toggle = () => v.paused || v.ended ? v.play() : v.pause();
+    function sync(){
+      const paused = v.paused || v.ended;
+      frame.classList.toggle('paused', paused);
+      playB.setAttribute('aria-label', paused ? 'Play' : 'Pause');
+      if (paused) { frame.classList.remove('idle'); clearTimeout(idleT); } else wake();
+    }
+    function tick(){
+      const d = v.duration || 0, t = v.currentTime || 0;
+      scrub.style.setProperty('--p', d ? t / d : 0);
+      tNow.textContent = fmt(t); tLeft.textContent = '-' + fmt(d - t);
+      scrub.setAttribute('aria-valuemax', Math.floor(d)); scrub.setAttribute('aria-valuenow', Math.floor(t)); scrub.setAttribute('aria-valuetext', fmt(t) + ' of ' + fmt(d));
+      if (v.buffered.length && d) scrub.style.setProperty('--b', v.buffered.end(v.buffered.length - 1) / d);
+    }
+    ['play','pause','ended'].forEach(ev => v.addEventListener(ev, sync));
+    ['timeupdate','loadedmetadata','progress','seeked'].forEach(ev => v.addEventListener(ev, tick));
+    playB.addEventListener('click', toggle); big.addEventListener('click', toggle); v.addEventListener('click', toggle);
+    v.addEventListener('dblclick', () => full());
+
+    /* controls fade out while playing and the pointer is still */
+    function wake(){
+      frame.classList.remove('idle'); clearTimeout(idleT);
+      idleT = setTimeout(() => { if (!v.paused && !ui.querySelector(':focus-visible') && !ui.matches(':hover') && !scrub.classList.contains('drag') && !volWrap.classList.contains('drag')) frame.classList.add('idle'); }, 2500);
+    }
+    frame.addEventListener('pointermove', wake); frame.addEventListener('pointerdown', wake);
+    ui.addEventListener('focusin', wake);
+
+    /* scrubbing */
+    const seekTo = x => { const r = scrub.getBoundingClientRect(); if (v.duration) { v.currentTime = clamp((x - r.left) / r.width) * v.duration; tick(); } };
+    scrub.addEventListener('pointerdown', e => { scrub.setPointerCapture(e.pointerId); scrub.classList.add('drag'); seekTo(e.clientX); });
+    scrub.addEventListener('pointermove', e => { if (scrub.classList.contains('drag')) seekTo(e.clientX); });
+    const endScrub = () => scrub.classList.remove('drag');
+    scrub.addEventListener('pointerup', endScrub); scrub.addEventListener('pointercancel', endScrub);
+    scrub.addEventListener('keydown', e => {
+      const k = {ArrowLeft:-5, ArrowRight:5, ArrowDown:-5, ArrowUp:5}[e.key];
+      if (k){ e.preventDefault(); e.stopPropagation(); v.currentTime = Math.min(v.duration || 0, Math.max(0, v.currentTime + k)); }
+      if (e.key === 'Home'){ e.preventDefault(); v.currentTime = 0; } if (e.key === 'End'){ e.preventDefault(); v.currentTime = v.duration || 0; }
+    });
+
+    /* sound: speaker mutes/unmutes; a vertical level slider rises out of it on hover */
+    function showVol(){
+      const lvl = v.muted ? 0 : v.volume;
+      vol.style.setProperty('--v', lvl); vol.setAttribute('aria-valuenow', Math.round(lvl * 100));
+      volWrap.dataset.level = lvl === 0 ? 0 : lvl < .5 ? 1 : 2;
+      muteB.setAttribute('aria-label', lvl === 0 ? 'Unmute' : 'Mute');
+    }
+    const setVol = x => { x = clamp(x); v.volume = x; v.muted = x === 0; if (x > 0) lastVol = x; showVol(); };
+    muteB.addEventListener('click', () => { if (v.muted || v.volume === 0){ v.muted = false; if (v.volume === 0) v.volume = lastVol || 1; } else { lastVol = v.volume; v.muted = true; } showVol(); });
+    const volAt = y => { const r = vol.getBoundingClientRect(); setVol((r.bottom - 12 - y) / (r.height - 24)); };
+    vol.addEventListener('pointerdown', e => { vol.setPointerCapture(e.pointerId); volWrap.classList.add('drag'); volAt(e.clientY); });
+    vol.addEventListener('pointermove', e => { if (volWrap.classList.contains('drag')) volAt(e.clientY); });
+    const endVol = () => volWrap.classList.remove('drag');
+    vol.addEventListener('pointerup', endVol); vol.addEventListener('pointercancel', endVol);
+    vol.addEventListener('keydown', e => {
+      const k = {ArrowUp:.1, ArrowRight:.1, ArrowDown:-.1, ArrowLeft:-.1}[e.key];
+      if (k){ e.preventDefault(); e.stopPropagation(); setVol((v.muted ? 0 : v.volume) + k); }
+    });
+    v.addEventListener('volumechange', showVol);
+    showVol();
+
+    /* full screen: the frame itself, so our controls come along; iPhone falls back to the native player */
+    function full(){
+      if (document.fullscreenElement) return document.exitFullscreen().catch(() => {});
+      if (frame.requestFullscreen) frame.requestFullscreen().catch(() => {});
+      else if (frame.webkitRequestFullscreen) frame.webkitRequestFullscreen();
+      else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+    }
+    fullB.addEventListener('click', full);
+    document.addEventListener('fullscreenchange', () => fullB.setAttribute('aria-label', document.fullscreenElement ? 'Exit full screen' : 'Full screen'));
+
+    /* keys: Esc closes (or leaves full screen first), space/k play, m mute, f full screen, arrows seek; Tab stays inside */
+    box.addEventListener('keydown', e => {
+      if (e.key === 'Escape'){ if (!document.fullscreenElement){ e.preventDefault(); close(); } return; }
+      if (e.key === 'Tab'){
+        const f = [...box.querySelectorAll('button,[tabindex="0"]')].filter(x => x.offsetParent || x === document.activeElement);
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+        return;
+      }
+      if (e.target.closest('[role="slider"]')) return;
+      if (e.key === ' ' || e.key === 'k'){ if (e.target.tagName !== 'BUTTON' || e.key === 'k'){ e.preventDefault(); toggle(); } }
+      else if (e.key === 'm') muteB.click();
+      else if (e.key === 'f') full();
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight'){ e.preventDefault(); v.currentTime = Math.max(0, v.currentTime + (e.key === 'ArrowLeft' ? -5 : 5)); }
+      wake();
+    });
+  })();
+  /* copy-to-clipboard rows (contact dropdown, Company menu) */
+  document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', () => {
+    const t0 = btn.dataset.t || (btn.dataset.t = btn.title), done = () => { btn.classList.add('copied'); btn.title = 'Copied'; setTimeout(() => { btn.classList.remove('copied'); btn.title = t0; }, 1600); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(btn.querySelector('.c-text')); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); };
+    try { navigator.clipboard.writeText(btn.dataset.copy).then(done, fallback); } catch (_) { fallback(); }
+  }));
+
+  /* pages. Built for a host each page has a real URL (window.FERRO_PAGES); on the claude.ai preview they are #home and #why-ferro */
+  const PAGES = window.FERRO_PAGES || null;
+  const pageNow = () => root.getAttribute('data-page') || 'home';
+  const hrefFor = page => PAGES ? PAGES.urls[page] : '#' + page;
+  const syncLinks = () => {
+    document.querySelectorAll('a[data-page]').forEach(a => { a.href = hrefFor(a.dataset.page) + (PAGES && a.dataset.to ? '#' + a.dataset.to : ''); });
+    document.querySelector('.logo').href = hrefFor('home');
+  };
+  let pendingTo = null;   // preview only: 'Back to all sectors' lands on the sectors section
+  document.addEventListener('click', e => { const a = e.target.closest('a[data-to]'); if (a && !PAGES) pendingTo = a.dataset.to; });
+  let morphFrom = null;   // the Company menu photo, when Why Ferro was picked from there
+  function showPage(page){
+    if (page === pageNow()) return;
+    const hero = document.querySelector('.wf-hero-img');
+    const swap = () => {
+      closeAll(); cClose(); root.classList.remove('menu-open');
+      if (page === 'home') root.removeAttribute('data-page'); else root.setAttribute('data-page', page);
+      scrollTo(0, 0); if (pendingTo && page === 'home'){ document.getElementById(pendingTo)?.scrollIntoView(); } pendingTo = null; req(); syncBanner();
+      if (morphFrom && page === 'why-ferro' && hero){ morphFrom.style.viewTransitionName = ''; hero.style.viewTransitionName = 'wf-hero'; }
+    };
+    if (document.startViewTransition && !reduce){
+      if (morphFrom && page === 'why-ferro') morphFrom.style.viewTransitionName = 'wf-hero';
+      const t = document.startViewTransition(swap);
+      t.finished.finally(() => { if (hero) hero.style.viewTransitionName = ''; resetMorph(); morphFrom = null; });
+    } else { swap(); morphFrom = null; }
+  }
+  /* Why Ferro from the Company menu: its photo grows into the page's hero banner */
+  const coLink = document.querySelector('[data-pane="company"] a[data-page="why-ferro"]');
+  if (coLink) coLink.addEventListener('click', () => {
+    const photo = document.querySelector('[data-pane="company"] .shot.active');
+    if (!photo || reduce) return;
+    photo.parentElement.style.background = 'transparent';   // no grey hole left behind in the menu while the photo travels
+    if (PAGES){ photo.style.viewTransitionName = 'wf-hero'; try { sessionStorage.setItem('ferro-morph', '1'); } catch (_) {} }
+    else morphFrom = photo;
+  });
+  const resetMorph = () => document.querySelectorAll('[data-pane="company"] .shot').forEach(p => { p.style.viewTransitionName = ''; p.parentElement.style.background = ''; });
+  addEventListener('pageshow', resetMorph);
+  document.querySelector('.logo').addEventListener('click', e => {
+    if (pageNow() !== 'home') return;            // elsewhere the logo is a link home
+    e.preventDefault(); scrollTo({top: 0, behavior: reduce ? 'auto' : 'smooth'});
+  });
+  if (!PAGES) addEventListener('hashchange', () => {
+    const h = location.hash.slice(1);
+    if (h === 'home' || /^(why-ferro|sector-[\w-]+)$/.test(h)) showPage(h);
+  });
+  syncLinks();
+
+  /* Why Ferro banner film: plays while its page is showing and the banner is on screen */
+  const banner = document.getElementById('wfBanner');
+  let bannerVisible = true;
+  function syncBanner(){
+    if (!banner) return;
+    if (pageNow() === 'why-ferro' && bannerVisible && !reduce) banner.play().catch(() => {}); else banner.pause();
+  }
+  if (banner){
+    new IntersectionObserver(es => { bannerVisible = es[0].isIntersecting; syncBanner(); }).observe(banner);
+    syncBanner();
+  }
+
+  /* featured caret + photo swap (Projects and Company panes) */
+  const shots = [...document.querySelectorAll('[data-pane="projects"] .shot')];
+  document.querySelectorAll('[data-feature]').forEach(f => {
+    const caret = f.querySelector('[data-caret]'), rail = caret.parentElement;
+    const photos = [...f.querySelectorAll('[data-photos] .shot')];
+    const picks = [...f.querySelectorAll('[data-picks] a')];
+    const isPrj = f.closest('[data-pane]').dataset.pane === 'projects';
+    function pick(i){
+      const a = picks[i], r = a.getBoundingClientRect();
+      caret.style.transform = `translateY(${r.top - rail.getBoundingClientRect().top + r.height / 2 - 6}px)`;
+      photos.forEach((s, j) => s.classList.toggle('active', j === i % photos.length));
+      if (isPrj && current === 'projects' && !reduce) { i === 0 ? prjVideo.play().catch(() => {}) : prjVideo.pause(); }
+    }
+    f._pick = pick;
+    picks.forEach((a, i) => { a.addEventListener('mouseenter', () => pick(i)); a.addEventListener('focus', () => pick(i)); });
+  });
+  /* caret positions need layout, so set them the first time each pane is shown */
+  const primed = new Set();
+  const prime = name => { if (primed.has(name)) return; const f = panes[name].querySelector('[data-feature]'); if (f){ primed.add(name); f._pick(0); } };
+
+  /* mobile sheet */
+  const burger = document.getElementById('burger');
+  burger.addEventListener('click', () => {
+    const on = !root.classList.contains('menu-open');
+    root.classList.toggle('menu-open', on);
+    burger.setAttribute('aria-expanded', String(on));
+    burger.setAttribute('aria-label', on ? 'Close menu' : 'Open menu');
+  });
+  document.querySelectorAll('#sheet a').forEach(a => a.addEventListener('click', () => { root.classList.remove('menu-open'); burger.setAttribute('aria-expanded','false'); }));
+  document.querySelectorAll('.acc-btn').forEach(b => b.addEventListener('click', () => b.setAttribute('aria-expanded', String(b.getAttribute('aria-expanded') !== 'true'))));
+
+  /* sectors carousel: looping, centred, neighbours peek; drag, keys, arrows and dots */
+  const car = document.getElementById('secCar');
+  if (car){
+    const stage = document.getElementById('secStage');
+    const slides = [...car.querySelectorAll('.sec-slide')], caps = [...car.querySelectorAll('.sec-cap')], dots = [...car.querySelectorAll('.sec-dot')];
+    const n = slides.length; let active = 0, prevOff = slides.map((_, i) => i);
+    const offset = i => { let o = ((i - active) % n + n) % n; if (o > n / 2) o -= n; return o; };
+    function layout(drag = 0){
+      const cs = getComputedStyle(car), w = slides[0].offsetWidth, gap = parseFloat(cs.getPropertyValue('--gap')) || 18, small = parseFloat(cs.getPropertyValue('--small')) || .92;
+      const ws = w * small, near = (w + ws) / 2 + gap, step = ws + gap;
+      slides.forEach((el, i) => {
+        const o = offset(i), x = o === 0 ? 0 : Math.sign(o) * (near + (Math.abs(o) - 1) * step);
+        el.classList.toggle('jump', Math.abs(o - prevOff[i]) > 1);   // wrapping round the back: no visible sweep
+        el.style.setProperty('--x', (x + drag).toFixed(1) + 'px');
+        el.style.setProperty('--s', o === 0 ? 1 : small);
+        el.classList.toggle('on', o === 0);
+        el.setAttribute('aria-hidden', String(o !== 0));
+        prevOff[i] = o;
+      });
+      caps.forEach((c, i) => c.classList.toggle('on', i === active));
+      dots.forEach((d, i) => { d.classList.toggle('on', i === active); d.setAttribute('aria-current', String(i === active)); });
+    }
+    const go = i => { active = (i % n + n) % n; layout(); };
+    document.getElementById('secPrev').addEventListener('click', () => go(active - 1));
+    document.getElementById('secNext').addEventListener('click', () => go(active + 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+    stage.addEventListener('keydown', e => { if (e.key === 'ArrowLeft'){ e.preventDefault(); go(active - 1); } if (e.key === 'ArrowRight'){ e.preventDefault(); go(active + 1); } });
+    // drag / swipe
+    let sx = null, dx = 0, moved = false;
+    stage.addEventListener('pointerdown', e => { sx = e.clientX; dx = 0; moved = false; stage.setPointerCapture(e.pointerId); slides.forEach(s => s.style.transitionDuration = '0s'); });
+    stage.addEventListener('pointermove', e => { if (sx === null) return; dx = e.clientX - sx; if (Math.abs(dx) > 4) moved = true; layout(dx); });
+    const end = () => {
+      if (sx === null) return; sx = null; slides.forEach(s => s.style.transitionDuration = '');
+      const w = slides[0].offsetWidth;
+      if (Math.abs(dx) > w * .15) go(active + (dx < 0 ? 1 : -1)); else layout();
+    };
+    stage.addEventListener('pointerup', end); stage.addEventListener('pointercancel', end);
+    stage.addEventListener('click', e => { if (moved) return; const s = (document.elementFromPoint(e.clientX, e.clientY) || e.target).closest('.sec-slide');   /* pointer capture retargets the click to the stage */ if (!s) return; if (!s.classList.contains('on')) go(+s.dataset.i); else caps[active].querySelector('.sec-go')?.click(); });
+    addEventListener('resize', () => layout());
+    layout();
+    car._relayout = () => layout();
+  }
+  /* sectors B: an Apple-style shelf. Native horizontal scroll with snap (trackpad, touch, keys);
+     arrows scroll by a page, dots follow the scroll position */
+  const carB = document.getElementById('secCarB');
+  if (carB){
+    const view = document.getElementById('secBView'), cards = [...document.getElementById('secBTrack').children];
+    const prevB = document.getElementById('secBPrev'), nextB = document.getElementById('secBNext'), dotsEl = document.getElementById('secBDots');
+    let pages = 1;
+    const step = () => cards[0].offsetWidth + (parseFloat(getComputedStyle(cards[0].parentElement).columnGap) || 30);
+    const perPage = () => Math.max(1, Math.floor((view.clientWidth + step() - cards[0].offsetWidth + 1) / step()) || 1);
+    function sync(){
+      const max = view.scrollWidth - view.clientWidth;
+      prevB.disabled = view.scrollLeft <= 2; nextB.disabled = view.scrollLeft >= max - 2;
+      const p = max <= 2 ? 0 : Math.round((view.scrollLeft / max) * (pages - 1));
+      [...dotsEl.children].forEach((d, i) => { d.classList.toggle('on', i === p); d.setAttribute('aria-current', String(i === p)); });
+    }
+    function measure(){
+      pages = Math.max(1, Math.ceil(cards.length / perPage()));
+      dotsEl.innerHTML = '';
+      for (let i = 0; i < pages; i++){
+        const d = document.createElement('button'); d.className = 'sec-dot'; d.setAttribute('aria-label', `Sectors page ${i + 1} of ${pages}`);
+        d.addEventListener('click', () => view.scrollTo({left: Math.min(i * perPage() * step(), view.scrollWidth - view.clientWidth), behavior: reduce ? 'auto' : 'smooth'}));
+        dotsEl.append(d);
+      }
+      sync();
+    }
+    const by = dir => view.scrollBy({left: dir * perPage() * step(), behavior: reduce ? 'auto' : 'smooth'});
+    prevB.addEventListener('click', () => by(-1)); nextB.addEventListener('click', () => by(1));
+    view.addEventListener('scroll', sync, {passive:true});
+    addEventListener('resize', measure);
+    carB._relayout = measure;
+    measure();
+  }
+
+  /* review switch: the Expertise eyebrow flips between layout A (gallery) and B (shelf); remembered per viewer */
+  const secEl = document.getElementById('sectors'), secSwitch = document.getElementById('secSwitch');
+  if (secSwitch){
+    const setLayout = l => { secEl.dataset.layout = l; try { localStorage.setItem('ferro-sectors', l); } catch (_) {} requestAnimationFrame(() => { (l === 'b' ? carB : car)?._relayout?.(); }); };
+    let saved = null; try { saved = localStorage.getItem('ferro-sectors'); } catch (_) {}
+    if (saved === 'b') setLayout('b');
+    secSwitch.addEventListener('click', () => setLayout(secEl.dataset.layout === 'b' ? 'a' : 'b'));
+  }
+})();
+</script>
+</body>
+</html>

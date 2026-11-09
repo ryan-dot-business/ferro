@@ -1,0 +1,19 @@
+<main class="wf sector" data-view="sector-{{slug}}" aria-labelledby="sx-{{slug}}">
+  <header class="wf-intro">
+    <img class="sx-ico" src="assets/sector-{{slug}}.svg" width="56" height="50" alt="" data-in style="--d:240">
+    <p class="eyebrow wf-eyebrow" data-in style="--d:300">Expertise</p>
+    <h1 class="h-xl" id="sx-{{slug}}" data-in style="--d:380">{{name}}</h1>
+    <p class="wf-lede" data-in style="--d:460">{{desc}}</p>
+  </header>
+
+  <div class="wf-navy">
+    <figure class="wf-wrap wf-media plx sx-hero" data-in style="--d:520"><img class="img" src="{{img}}" width="1200" height="800" alt="{{alt}}" decoding="async">{{note}}</figure>
+
+    <section class="wf-wrap sx-soon" aria-labelledby="sx-{{slug}}-soon" data-stagger=".eyebrow,.wf-h,.wf-p,.btn" data-step="80">
+      <p class="eyebrow wf-eyebrow">Placeholder page</p>
+      <h2 class="wf-h" id="sx-{{slug}}-soon">More on {{name}} coming soon.</h2>
+      <p class="wf-p">This page will cover Ferro’s work in {{lower}}: the building types we deliver, the requirements we design around, and featured projects.</p>
+      <a class="btn btn-ghost" data-to="sectors" data-page="home" href="#home">Back to all sectors</a>
+    </section>
+  </div>
+</main>

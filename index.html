@@ -17,7 +17,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="The Ferro F mark over a blue-toned steel building frame">
 <meta name="twitter:card" content="summary_large_image">
-<script>window.FERRO_PAGES = {"page": "home", "urls": {"home": "/", "why-ferro": "/why-ferro/"}};</script>
+<script>window.FERRO_PAGES = {"page": "home", "urls": {"home": "/", "why-ferro": "/why-ferro/", "sector-energy-utilities": "/sectors/energy-utilities/", "sector-industrial": "/sectors/industrial/", "sector-aviation-transport": "/sectors/aviation-transport/", "sector-commercial": "/sectors/commercial/", "sector-waste-water": "/sectors/waste-water/", "sector-public-spaces-recreation": "/sectors/public-spaces-recreation/", "sector-civic-buildings-facilities": "/sectors/civic-buildings-facilities/", "sector-agricultural": "/sectors/agricultural/"}};</script>
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0;font:14px/1.4 system-ui,sans-serif}
@@ -31,7 +31,7 @@ img{max-width:100%}
 <script>
 (function(){var r=document.documentElement;r.classList.add('intro');
 /* pages: real URLs when built for a host (window.FERRO_PAGES); #why-ferro on the claude.ai preview */
-if(!window.FERRO_PAGES&&location.hash==='#why-ferro')r.setAttribute('data-page','why-ferro');
+if(!window.FERRO_PAGES&&/^#(why-ferro|sector-[\w-]+)$/.test(location.hash))r.setAttribute('data-page',location.hash.slice(1));
 /* arriving through a page transition: skip the load intro so the incoming snapshot is the finished page,
    and if we came from the Company menu photo, let the hero banner take its place */
 addEventListener('pagereveal',function(e){if(!e.viewTransition)return;r.classList.add('play','vt-arrive');
@@ -378,6 +378,21 @@ main{display:flex;flex-direction:column;gap:var(--band-gap);padding-left:max(var
 .sec-a .sec-cap-h{display:flex;align-items:center;gap:10px}
 .sec-a .sec-ico{flex:none;width:34px;height:30px}
 .sec-a .sec-cap p{padding-left:44px}
+.sec-go{color:inherit;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .35s var(--ease)}
+.sec-go:is(:hover,:focus-visible){background-size:100% 1px}
+.sec-a .sec-slide.on{cursor:pointer}
+.sec-b .sec-card{position:relative}
+.sec-b .sec-go::after{content:"";position:absolute;inset:0;z-index:2}
+.sec-b .sec-card:hover .sec-go{background-size:100% 1px}
+/* sector pages (placeholders) */
+.sx-ico{width:56px;height:50px;margin-bottom:10px}
+.sx-hero{height:520px}
+.sx-hero .wf-note{background:none;box-shadow:none;border-color:rgba(255,255,255,.12);color:#fff}
+.sx-hero .wf-note .wf-note-tag{color:rgba(255,255,255,.5)}
+.sx-hero::after{content:"";position:absolute;inset:0;z-index:1;background:rgba(0,0,0,.45)}
+.sx-soon{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:90px 0 150px}
+.sx-soon > *{max-width:640px}
+.sx-soon .btn{margin-top:12px}
 .sec-a .sec-cap h3{margin:0;font-weight:500;font-size:24px;line-height:1.2;letter-spacing:-.04em}
 .sec-a .sec-cap p{margin:0;font-size:16px;line-height:1.25;letter-spacing:-.04em;color:rgba(8,27,61,.6);text-wrap:pretty}
 .sec-a .sec-ctrl{display:flex;align-items:center;gap:15px}
@@ -462,9 +477,17 @@ footer a:hover{background:rgba(255,255,255,.08);color:#fff}
 @media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
 
 /* ---------- views: the preview holds both pages and shows one ---------- */
-main[data-view="why-ferro"]{display:none}
-[data-page="why-ferro"] main[data-view="home"]{display:none}
+main[data-view]:not([data-view="home"]){display:none}
+[data-page] main[data-view="home"]{display:none}
 [data-page="why-ferro"] main[data-view="why-ferro"]{display:block}
+[data-page="sector-energy-utilities"] main[data-view="sector-energy-utilities"]{display:block}
+[data-page="sector-industrial"] main[data-view="sector-industrial"]{display:block}
+[data-page="sector-aviation-transport"] main[data-view="sector-aviation-transport"]{display:block}
+[data-page="sector-commercial"] main[data-view="sector-commercial"]{display:block}
+[data-page="sector-waste-water"] main[data-view="sector-waste-water"]{display:block}
+[data-page="sector-public-spaces-recreation"] main[data-view="sector-public-spaces-recreation"]{display:block}
+[data-page="sector-civic-buildings-facilities"] main[data-view="sector-civic-buildings-facilities"]{display:block}
+[data-page="sector-agricultural"] main[data-view="sector-agricultural"]{display:block}
 
 /* ---------- Why Ferro ---------- */
 /* two bands: navy (lead, banner, compliance + quality, planning) then light (process, technology), then the rink */
@@ -691,14 +714,14 @@ main > .contained + .sectors{padding-top:90px}
           <div class="list sectors-list">
             <h4>SECTORS</h4>
             <ul>
-              <li><a href="#sectors">Energy &amp; Utilities</a></li>
-              <li><a href="#sectors">Waste &amp; Water</a></li>
-              <li><a href="#sectors">Aviation &amp; Transport</a></li>
-              <li><a href="#sectors">Public &amp; Recreation</a></li>
-              <li><a href="#sectors">Civic Facilities</a></li>
-              <li><a href="#sectors">Commercial</a></li>
-              <li><a href="#sectors">Agricultural</a></li>
-              <li><a href="#sectors">Industrial</a></li>
+              <li><a data-page="sector-energy-utilities" href="/sectors/energy-utilities/">Energy &amp; Utilities</a></li>
+              <li><a data-page="sector-waste-water" href="/sectors/waste-water/">Waste &amp; Water</a></li>
+              <li><a data-page="sector-aviation-transport" href="/sectors/aviation-transport/">Aviation &amp; Transport</a></li>
+              <li><a data-page="sector-public-spaces-recreation" href="/sectors/public-spaces-recreation/">Public &amp; Recreation</a></li>
+              <li><a data-page="sector-civic-buildings-facilities" href="/sectors/civic-buildings-facilities/">Civic Facilities</a></li>
+              <li><a data-page="sector-commercial" href="/sectors/commercial/">Commercial</a></li>
+              <li><a data-page="sector-agricultural" href="/sectors/agricultural/">Agricultural</a></li>
+              <li><a data-page="sector-industrial" href="/sectors/industrial/">Industrial</a></li>
             </ul>
           </div>
         </div>
@@ -778,7 +801,7 @@ main > .contained + .sectors{padding-top:90px}
       <p class="m-h">FEATURED</p>
       <ul class="m-list"><li><a href="#projects">Cloverdale</a></li><li><a href="#projects">White Sturgeon</a></li><li><a href="#projects">Erco Chemical</a></li><li><a href="#projects">Kal Tire</a></li><li><a href="#projects">N Galiano Fire Hall</a></li><li><a href="#projects">All Projects →</a></li></ul>
       <p class="m-h">SECTORS</p>
-      <ul class="m-list"><li><a href="#sectors">Energy &amp; Utilities</a></li><li><a href="#sectors">Waste &amp; Water</a></li><li><a href="#sectors">Aviation &amp; Transport</a></li><li><a href="#sectors">Public &amp; Recreation</a></li><li><a href="#sectors">Civic Facilities</a></li><li><a href="#sectors">Commercial</a></li><li><a href="#sectors">Agricultural</a></li><li><a href="#sectors">Industrial</a></li></ul>
+      <ul class="m-list"><li><a data-page="sector-energy-utilities" href="/sectors/energy-utilities/">Energy &amp; Utilities</a></li><li><a data-page="sector-waste-water" href="/sectors/waste-water/">Waste &amp; Water</a></li><li><a data-page="sector-aviation-transport" href="/sectors/aviation-transport/">Aviation &amp; Transport</a></li><li><a data-page="sector-public-spaces-recreation" href="/sectors/public-spaces-recreation/">Public &amp; Recreation</a></li><li><a data-page="sector-civic-buildings-facilities" href="/sectors/civic-buildings-facilities/">Civic Facilities</a></li><li><a data-page="sector-commercial" href="/sectors/commercial/">Commercial</a></li><li><a data-page="sector-agricultural" href="/sectors/agricultural/">Agricultural</a></li><li><a data-page="sector-industrial" href="/sectors/industrial/">Industrial</a></li></ul>
     </div></div></div>
   </div>
   <div class="acc" style="--i:2">
@@ -870,14 +893,14 @@ main > .contained + .sectors{padding-top:90px}
         <figure class="sec-slide is-ph" data-i="7" aria-roledescription="slide" aria-label="8 of 8: Agricultural"><img src="/assets/standards-1200.jpg" alt="A steel building going up in a forest clearing" loading="lazy" decoding="async" draggable="false"><aside class="wf-note sec-note" aria-label="Placeholder image"><p class="wf-note-h"><span class="mask" aria-hidden="true" style="--m:url(/assets/camera.svg);width:20px;height:16px"></span><span class="mask wf-note-site" role="img" aria-label="Site." style="--m:url(/assets/site.svg);width:37px;height:14px"></span><span class="wf-note-tag">Placeholder</span></p><p>FINAL IMAGE TO BE PROVIDED BY FERRO</p></aside></figure>
       </div>
       <div class="sec-caps" aria-live="polite">
-        <div class="sec-cap" data-i="0"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-energy-utilities.svg" width="34" height="30" alt=""><h3>Energy &amp; Utilities</h3></div><p>Service buildings, transmission support, substations, and other infrastructure that support critical energy systems.</p></div>
-        <div class="sec-cap" data-i="1"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-industrial.svg" width="34" height="30" alt=""><h3>Industrial</h3></div><p>Warehousing and manufacturing operations with tailored loading, access, and performance features.</p></div>
-        <div class="sec-cap" data-i="2"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-aviation-transport.svg" width="34" height="30" alt=""><h3>Aviation &amp; Transport</h3></div><p>Hangars, support buildings, and aviation facilities that require large spans and specialized doors.</p></div>
-        <div class="sec-cap" data-i="3"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-commercial.svg" width="34" height="30" alt=""><h3>Commercial</h3></div><p>Functional space, adaptable designs, efficient delivery, and cost-effective quality.</p></div>
-        <div class="sec-cap" data-i="4"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-waste-water.svg" width="34" height="30" alt=""><h3>Waste &amp; Water</h3></div><p>Where compliance, corrosion considerations, operational consistency, and safety matter most.</p></div>
-        <div class="sec-cap" data-i="5"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-public-spaces-recreation.svg" width="34" height="30" alt=""><h3>Public Spaces &amp; Recreation</h3></div><p>Rinks, recreation facilities, and community gathering spaces with open layouts and durability for everyday use.</p></div>
-        <div class="sec-cap" data-i="6"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-civic-buildings-facilities.svg" width="34" height="30" alt=""><h3>Civic Buildings &amp; Facilities</h3></div><p>Municipal buildings and public service facilities where reliable performance, cost control, and long-term value are essential.</p></div>
-        <div class="sec-cap" data-i="7"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-agricultural.svg" width="34" height="30" alt=""><h3>Agricultural</h3></div><p>Durable structures for production, processing, storage, equipment maintenance, and other agricultural applications.</p></div>
+        <div class="sec-cap" data-i="0"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-energy-utilities.svg" width="34" height="30" alt=""><h3><a class="sec-go" data-page="sector-energy-utilities" href="/sectors/energy-utilities/">Energy &amp; Utilities</a></h3></div><p>Service buildings, transmission support, substations, and other infrastructure that support critical energy systems.</p></div>
+        <div class="sec-cap" data-i="1"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-industrial.svg" width="34" height="30" alt=""><h3><a class="sec-go" data-page="sector-industrial" href="/sectors/industrial/">Industrial</a></h3></div><p>Warehousing and manufacturing operations with tailored loading, access, and performance features.</p></div>
+        <div class="sec-cap" data-i="2"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-aviation-transport.svg" width="34" height="30" alt=""><h3><a class="sec-go" data-page="sector-aviation-transport" href="/sectors/aviation-transport/">Aviation &amp; Transport</a></h3></div><p>Hangars, support buildings, and aviation facilities that require large spans and specialized doors.</p></div>
+        <div class="sec-cap" data-i="3"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-commercial.svg" width="34" height="30" alt=""><h3><a class="sec-go" data-page="sector-commercial" href="/sectors/commercial/">Commercial</a></h3></div><p>Functional space, adaptable designs, efficient delivery, and cost-effective quality.</p></div>
+        <div class="sec-cap" data-i="4"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-waste-water.svg" width="34" height="30" alt=""><h3><a class="sec-go" data-page="sector-waste-water" href="/sectors/waste-water/">Waste &amp; Water</a></h3></div><p>Where compliance, corrosion considerations, operational consistency, and safety matter most.</p></div>
+        <div class="sec-cap" data-i="5"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-public-spaces-recreation.svg" width="34" height="30" alt=""><h3><a class="sec-go" data-page="sector-public-spaces-recreation" href="/sectors/public-spaces-recreation/">Public Spaces &amp; Recreation</a></h3></div><p>Rinks, recreation facilities, and community gathering spaces with open layouts and durability for everyday use.</p></div>
+        <div class="sec-cap" data-i="6"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-civic-buildings-facilities.svg" width="34" height="30" alt=""><h3><a class="sec-go" data-page="sector-civic-buildings-facilities" href="/sectors/civic-buildings-facilities/">Civic Buildings &amp; Facilities</a></h3></div><p>Municipal buildings and public service facilities where reliable performance, cost control, and long-term value are essential.</p></div>
+        <div class="sec-cap" data-i="7"><div class="sec-cap-h"><img class="sec-ico" src="/assets/sector-agricultural.svg" width="34" height="30" alt=""><h3><a class="sec-go" data-page="sector-agricultural" href="/sectors/agricultural/">Agricultural</a></h3></div><p>Durable structures for production, processing, storage, equipment maintenance, and other agricultural applications.</p></div>
       </div>
       <div class="sec-ctrl">
         <button class="sec-btn" id="secPrev" aria-label="Previous sector"><svg width="8" height="13" viewBox="0 0 8 13" aria-hidden="true"><path d="M6.5 1.5 1.5 6.5l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -890,13 +913,13 @@ main > .contained + .sectors{padding-top:90px}
         <button class="sec-round" id="secBPrev" aria-label="Previous sectors"><svg width="11" height="19" viewBox="0 0 11 19" aria-hidden="true"><path d="M9 1.5 1.5 9.5l7.5 8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="sec-view" id="secBView" tabindex="0" aria-label="Sectors">
           <div class="sec-track" id="secBTrack">
-        <article class="sec-card" aria-label="Energy &amp; Utilities"><div class="sec-img is-ph"><img src="/assets/svc-core.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, final image to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(/assets/camera.svg);width:20px;height:16px"></span><span class="sec-ph-tag">Placeholder</span></span><span>FINAL IMAGE TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><div class="sec-card-h"><h3>Energy &amp; Utilities</h3><img class="sec-ico" src="/assets/sector-energy-utilities.svg" width="34" height="30" alt=""></div><p>Service buildings, transmission support, substations, and other infrastructure that support critical energy systems.</p></div></article>
-        <article class="sec-card" aria-label="Aviation &amp; Transport"><div class="sec-img"><img src="/assets/sec-aviation.jpg" alt="" loading="lazy" decoding="async"></div><div class="sec-txt"><div class="sec-card-h"><h3>Aviation &amp; Transport</h3><img class="sec-ico" src="/assets/sector-aviation-transport.svg" width="34" height="30" alt=""></div><p>Hangars, support buildings, and aviation facilities that require large spans and specialized doors.</p></div></article>
-        <article class="sec-card" aria-label="Industrial"><div class="sec-img is-ph"><img src="/assets/svc-core.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, final image to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(/assets/camera.svg);width:20px;height:16px"></span><span class="sec-ph-tag">Placeholder</span></span><span>FINAL IMAGE TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><div class="sec-card-h"><h3>Industrial</h3><img class="sec-ico" src="/assets/sector-industrial.svg" width="34" height="30" alt=""></div><p>Warehousing and manufacturing operations with tailored loading, access, and performance features.</p></div></article>
-        <article class="sec-card" aria-label="Agricultural"><div class="sec-img is-ph"><img src="/assets/svc-core.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, final image to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(/assets/camera.svg);width:20px;height:16px"></span><span class="sec-ph-tag">Placeholder</span></span><span>FINAL IMAGE TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><div class="sec-card-h"><h3>Agricultural</h3><img class="sec-ico" src="/assets/sector-agricultural.svg" width="34" height="30" alt=""></div><p>Durable structures for production, processing, storage, equipment maintenance, and other agricultural applications.</p></div></article>
-        <article class="sec-card" aria-label="Civic Buildings &amp; Facilities"><div class="sec-img is-ph"><img src="/assets/svc-integrated.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, final image to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(/assets/camera.svg);width:20px;height:16px"></span><span class="sec-ph-tag">Placeholder</span></span><span>FINAL IMAGE TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><div class="sec-card-h"><h3>Civic Buildings &amp; Facilities</h3><img class="sec-ico" src="/assets/sector-civic-buildings-facilities.svg" width="34" height="30" alt=""></div><p>Municipal buildings and public service facilities where reliable performance, cost control, and long-term value are essential.</p></div></article>
-        <article class="sec-card" aria-label="Public Spaces &amp; Recreation"><div class="sec-img is-ph"><img src="/assets/svc-integrated.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, final image to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(/assets/camera.svg);width:20px;height:16px"></span><span class="sec-ph-tag">Placeholder</span></span><span>FINAL IMAGE TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><div class="sec-card-h"><h3>Public Spaces &amp; Recreation</h3><img class="sec-ico" src="/assets/sector-public-spaces-recreation.svg" width="34" height="30" alt=""></div><p>Rinks, recreation facilities, and community gathering spaces with open layouts and durability for everyday use.</p></div></article>
-        <article class="sec-card" aria-label="Commercial"><div class="sec-img is-ph"><img src="/assets/svc-core.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, final image to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(/assets/camera.svg);width:20px;height:16px"></span><span class="sec-ph-tag">Placeholder</span></span><span>FINAL IMAGE TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><div class="sec-card-h"><h3>Commercial</h3><img class="sec-ico" src="/assets/sector-commercial.svg" width="34" height="30" alt=""></div><p>Functional space, adaptable designs, efficient delivery, and cost-effective quality.</p></div></article>
+        <article class="sec-card" aria-label="Energy &amp; Utilities"><div class="sec-img is-ph"><img src="/assets/svc-core.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, final image to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(/assets/camera.svg);width:20px;height:16px"></span><span class="sec-ph-tag">Placeholder</span></span><span>FINAL IMAGE TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><div class="sec-card-h"><h3><a class="sec-go" data-page="sector-energy-utilities" href="/sectors/energy-utilities/">Energy &amp; Utilities</a></h3><img class="sec-ico" src="/assets/sector-energy-utilities.svg" width="34" height="30" alt=""></div><p>Service buildings, transmission support, substations, and other infrastructure that support critical energy systems.</p></div></article>
+        <article class="sec-card" aria-label="Aviation &amp; Transport"><div class="sec-img"><img src="/assets/sec-aviation.jpg" alt="" loading="lazy" decoding="async"></div><div class="sec-txt"><div class="sec-card-h"><h3><a class="sec-go" data-page="sector-aviation-transport" href="/sectors/aviation-transport/">Aviation &amp; Transport</a></h3><img class="sec-ico" src="/assets/sector-aviation-transport.svg" width="34" height="30" alt=""></div><p>Hangars, support buildings, and aviation facilities that require large spans and specialized doors.</p></div></article>
+        <article class="sec-card" aria-label="Industrial"><div class="sec-img is-ph"><img src="/assets/svc-core.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, final image to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(/assets/camera.svg);width:20px;height:16px"></span><span class="sec-ph-tag">Placeholder</span></span><span>FINAL IMAGE TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><div class="sec-card-h"><h3><a class="sec-go" data-page="sector-industrial" href="/sectors/industrial/">Industrial</a></h3><img class="sec-ico" src="/assets/sector-industrial.svg" width="34" height="30" alt=""></div><p>Warehousing and manufacturing operations with tailored loading, access, and performance features.</p></div></article>
+        <article class="sec-card" aria-label="Agricultural"><div class="sec-img is-ph"><img src="/assets/svc-core.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, final image to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(/assets/camera.svg);width:20px;height:16px"></span><span class="sec-ph-tag">Placeholder</span></span><span>FINAL IMAGE TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><div class="sec-card-h"><h3><a class="sec-go" data-page="sector-agricultural" href="/sectors/agricultural/">Agricultural</a></h3><img class="sec-ico" src="/assets/sector-agricultural.svg" width="34" height="30" alt=""></div><p>Durable structures for production, processing, storage, equipment maintenance, and other agricultural applications.</p></div></article>
+        <article class="sec-card" aria-label="Civic Buildings &amp; Facilities"><div class="sec-img is-ph"><img src="/assets/svc-integrated.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, final image to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(/assets/camera.svg);width:20px;height:16px"></span><span class="sec-ph-tag">Placeholder</span></span><span>FINAL IMAGE TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><div class="sec-card-h"><h3><a class="sec-go" data-page="sector-civic-buildings-facilities" href="/sectors/civic-buildings-facilities/">Civic Buildings &amp; Facilities</a></h3><img class="sec-ico" src="/assets/sector-civic-buildings-facilities.svg" width="34" height="30" alt=""></div><p>Municipal buildings and public service facilities where reliable performance, cost control, and long-term value are essential.</p></div></article>
+        <article class="sec-card" aria-label="Public Spaces &amp; Recreation"><div class="sec-img is-ph"><img src="/assets/svc-integrated.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, final image to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(/assets/camera.svg);width:20px;height:16px"></span><span class="sec-ph-tag">Placeholder</span></span><span>FINAL IMAGE TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><div class="sec-card-h"><h3><a class="sec-go" data-page="sector-public-spaces-recreation" href="/sectors/public-spaces-recreation/">Public Spaces &amp; Recreation</a></h3><img class="sec-ico" src="/assets/sector-public-spaces-recreation.svg" width="34" height="30" alt=""></div><p>Rinks, recreation facilities, and community gathering spaces with open layouts and durability for everyday use.</p></div></article>
+        <article class="sec-card" aria-label="Commercial"><div class="sec-img is-ph"><img src="/assets/svc-core.jpg" alt="" loading="lazy" decoding="async"><span class="sec-ph" aria-label="Placeholder image, final image to be provided by Ferro"><span class="sec-ph-h"><span class="mask" aria-hidden="true" style="--m:url(/assets/camera.svg);width:20px;height:16px"></span><span class="sec-ph-tag">Placeholder</span></span><span>FINAL IMAGE TO BE PROVIDED BY FERRO</span></span></div><div class="sec-txt"><div class="sec-card-h"><h3><a class="sec-go" data-page="sector-commercial" href="/sectors/commercial/">Commercial</a></h3><img class="sec-ico" src="/assets/sector-commercial.svg" width="34" height="30" alt=""></div><p>Functional space, adaptable designs, efficient delivery, and cost-effective quality.</p></div></article>
           </div>
         </div>
         <button class="sec-round" id="secBNext" aria-label="More sectors"><svg width="11" height="19" viewBox="0 0 11 19" aria-hidden="true"><path d="m2 1.5 7.5 8L2 17.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -1246,9 +1269,11 @@ main > .contained + .sectors{padding-top:90px}
   const pageNow = () => root.getAttribute('data-page') || 'home';
   const hrefFor = page => PAGES ? PAGES.urls[page] : '#' + page;
   const syncLinks = () => {
-    document.querySelectorAll('a[data-page]').forEach(a => { a.href = hrefFor(a.dataset.page); });
+    document.querySelectorAll('a[data-page]').forEach(a => { a.href = hrefFor(a.dataset.page) + (PAGES && a.dataset.to ? '#' + a.dataset.to : ''); });
     document.querySelector('.logo').href = hrefFor('home');
   };
+  let pendingTo = null;   // preview only: 'Back to all sectors' lands on the sectors section
+  document.addEventListener('click', e => { const a = e.target.closest('a[data-to]'); if (a && !PAGES) pendingTo = a.dataset.to; });
   let morphFrom = null;   // the Company menu photo, when Why Ferro was picked from there
   function showPage(page){
     if (page === pageNow()) return;
@@ -1256,7 +1281,7 @@ main > .contained + .sectors{padding-top:90px}
     const swap = () => {
       closeAll(); cClose(); root.classList.remove('menu-open');
       if (page === 'home') root.removeAttribute('data-page'); else root.setAttribute('data-page', page);
-      scrollTo(0, 0); req(); syncBanner();
+      scrollTo(0, 0); if (pendingTo && page === 'home'){ document.getElementById(pendingTo)?.scrollIntoView(); } pendingTo = null; req(); syncBanner();
       if (morphFrom && page === 'why-ferro' && hero){ morphFrom.style.viewTransitionName = ''; hero.style.viewTransitionName = 'wf-hero'; }
     };
     if (document.startViewTransition && !reduce){
@@ -1282,7 +1307,7 @@ main > .contained + .sectors{padding-top:90px}
   });
   if (!PAGES) addEventListener('hashchange', () => {
     const h = location.hash.slice(1);
-    if (h === 'home' || h === 'why-ferro') showPage(h);
+    if (h === 'home' || /^(why-ferro|sector-[\w-]+)$/.test(h)) showPage(h);
   });
   syncLinks();
 
@@ -1366,7 +1391,7 @@ main > .contained + .sectors{padding-top:90px}
       if (Math.abs(dx) > w * .15) go(active + (dx < 0 ? 1 : -1)); else layout();
     };
     stage.addEventListener('pointerup', end); stage.addEventListener('pointercancel', end);
-    stage.addEventListener('click', e => { if (moved) return; const s = e.target.closest('.sec-slide'); if (s && !s.classList.contains('on')) go(+s.dataset.i); });
+    stage.addEventListener('click', e => { if (moved) return; const s = (document.elementFromPoint(e.clientX, e.clientY) || e.target).closest('.sec-slide');   /* pointer capture retargets the click to the stage */ if (!s) return; if (!s.classList.contains('on')) go(+s.dataset.i); else caps[active].querySelector('.sec-go')?.click(); });
     addEventListener('resize', () => layout());
     layout();
     car._relayout = () => layout();
