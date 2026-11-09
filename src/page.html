@@ -180,10 +180,6 @@ a.c-row:hover{background:var(--chip)}
 .co-row.c-email:is(:hover,:focus-visible){color:var(--menu-ink)}
 .co-row.c-email .c-text{width:auto}
 .co-addr{padding-block:5px}
-.co-go:is(:hover,:focus-visible){background:var(--chip)}
-.co-go::after{content:"";flex:none;width:12px;height:12px;background:currentColor;-webkit-mask:var(--arrow) no-repeat center/contain;mask:var(--arrow) no-repeat center/contain;
-  opacity:0;transform:translateX(-6px);transition:opacity .2s var(--ease),transform .35s var(--ease)}
-.co-go:is(:hover,:focus-visible)::after{opacity:1;transform:none}
 .co-cta{padding:8px 12px 0}
 .featured{flex:1;padding-right:20px}
 .featured .all{margin-top:auto}
@@ -634,8 +630,14 @@ main > .contained + .sectors{padding-top:50px}
             <svg class="todo" width="12" height="12" viewBox="0 0 12 12"><path d="M4 1.6c0-.3.3-.6.6-.6h5.8c.3 0 .6.3.6.6v5.8c0 .3-.3.6-.6.6H4.6c-.3 0-.6-.3-.6-.6Z" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 9.6v.8c0 .3-.3.6-.6.6H1.6c-.3 0-.6-.3-.6-.6V4.6c0-.3.3-.6.6-.6h.8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
             <svg class="done" width="12" height="12" viewBox="0 0 12 12"><path d="m2 6.4 2.6 2.6L10 3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span></button>
-            <a class="co-row co-go" href="tel:+16045303224">604-530-3224</a>
-            <a class="co-row co-go co-addr" href="https://www.google.com/maps/search/?api=1&amp;query=19292+60+Ave+%23301+Surrey+BC+V3S+3M2" target="_blank" rel="noopener">19292 60 Ave #301,<br>Surrey, BC V3S 3M2</a>
+            <button class="co-row c-email" type="button" data-copy="604-530-3224" title="Copy phone number"><span class="c-text">604-530-3224</span><span class="copy" aria-hidden="true">
+            <svg class="todo" width="12" height="12" viewBox="0 0 12 12"><path d="M4 1.6c0-.3.3-.6.6-.6h5.8c.3 0 .6.3.6.6v5.8c0 .3-.3.6-.6.6H4.6c-.3 0-.6-.3-.6-.6Z" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 9.6v.8c0 .3-.3.6-.6.6H1.6c-.3 0-.6-.3-.6-.6V4.6c0-.3.3-.6.6-.6h.8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            <svg class="done" width="12" height="12" viewBox="0 0 12 12"><path d="m2 6.4 2.6 2.6L10 3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span></button>
+            <button class="co-row c-email co-addr" type="button" data-copy="19292 60 Ave #301, Surrey, BC V3S 3M2" title="Copy address"><span class="c-text">19292 60 Ave #301,<br>Surrey, BC V3S 3M2</span><span class="copy" aria-hidden="true">
+            <svg class="todo" width="12" height="12" viewBox="0 0 12 12"><path d="M4 1.6c0-.3.3-.6.6-.6h5.8c.3 0 .6.3.6.6v5.8c0 .3-.3.6-.6.6H4.6c-.3 0-.6-.3-.6-.6Z" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 9.6v.8c0 .3-.3.6-.6.6H1.6c-.3 0-.6-.3-.6-.6V4.6c0-.3.3-.6.6-.6h.8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            <svg class="done" width="12" height="12" viewBox="0 0 12 12"><path d="m2 6.4 2.6 2.6L10 3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span></button>
             <div class="co-cta"><a class="c-btn" href="#contact">Contact sales</a></div>
           </div>
         </div>
@@ -991,7 +993,7 @@ main > .contained + .sectors{padding-top:50px}
   links.addEventListener('mouseenter', cClose);
   /* copy-to-clipboard rows (contact dropdown, Company menu) */
   document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', () => {
-    const done = () => { btn.classList.add('copied'); btn.title = 'Copied'; setTimeout(() => { btn.classList.remove('copied'); btn.title = 'Copy email address'; }, 1600); };
+    const t0 = btn.dataset.t || (btn.dataset.t = btn.title), done = () => { btn.classList.add('copied'); btn.title = 'Copied'; setTimeout(() => { btn.classList.remove('copied'); btn.title = t0; }, 1600); };
     const fallback = () => { const r = document.createRange(); r.selectNodeContents(btn.querySelector('.c-text')); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); };
     try { navigator.clipboard.writeText(btn.dataset.copy).then(done, fallback); } catch (_) { fallback(); }
   }));
