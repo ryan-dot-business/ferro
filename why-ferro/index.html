@@ -1061,7 +1061,7 @@ main > .contained + .sectors{padding-top:50px}
   if (car){
     const stage = document.getElementById('secStage');
     const slides = [...car.querySelectorAll('.sec-slide')], caps = [...car.querySelectorAll('.sec-cap')], dots = [...car.querySelectorAll('.sec-dot')];
-    const n = slides.length; let active = 0, prevOff = slides.map((_, i) => i);
+    const n = slides.length; let active = Math.max(0, slides.findIndex(s => s.hasAttribute('data-start'))), prevOff = slides.map((_, i) => i);
     const offset = i => { let o = ((i - active) % n + n) % n; if (o > n / 2) o -= n; return o; };
     function layout(drag = 0){
       const cs = getComputedStyle(car), w = slides[0].offsetWidth, gap = parseFloat(cs.getPropertyValue('--gap')) || 18, small = parseFloat(cs.getPropertyValue('--small')) || .92;
