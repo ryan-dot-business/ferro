@@ -132,8 +132,8 @@ a.c-row:hover{background:var(--chip)}
 
 /* Services: three flat tinted tiles; the whole tile is the link */
 .svc{display:flex;gap:10px;padding:var(--svc-pt) 24px 24px}
-.svc a{background:var(--menu-tile);transition:background .3s var(--ease)}
-.svc a:hover,.svc a:focus-visible{background:var(--menu-tile-2)}
+.svc a{background:rgba(0,0,0,.1);transition:background .3s var(--ease)}
+.svc a:hover,.svc a:focus-visible{background:rgba(0,0,0,.2)}
 .svc-feature{display:flex;flex-direction:column;align-items:center;justify-content:space-between;width:179px;padding:47px 11px 35px;text-align:center}
 .svc-feature img{display:block;width:157px;height:73px;object-fit:cover;object-position:50% 70%;transition:transform .7s var(--ease)}
 .svc-feature:hover img{transform:scale(1.04)}
@@ -548,8 +548,8 @@ main > .contained + .sectors{padding-top:50px}
             <span class="svc-label">Pre-Engineered<br>Steel Buildings</span>
           </a>
           <div class="svc-col">
-            <a class="svc-row" href="#specialize"><span class="ico"><span class="mask" style="--m:url(assets/icon-integrated.svg);width:35px;height:26px"></span></span><span class="svc-label">Integrated<br>Systems</span></a>
             <a class="svc-row" href="#strategize"><span class="ico"><span class="mask" style="--m:url(assets/icon-precon.svg);width:31px;height:30px"></span></span><span class="svc-label">Pre-Construction<br>Services</span></a>
+            <a class="svc-row" href="#specialize"><span class="ico"><span class="mask" style="--m:url(assets/icon-integrated.svg);width:35px;height:26px"></span></span><span class="svc-label">Integrated<br>Systems</span></a>
           </div>
         </div>
       </div>
@@ -648,8 +648,8 @@ main > .contained + .sectors{padding-top:50px}
     <button class="acc-btn" aria-expanded="true">Services <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
     <div class="acc-body"><div class="acc-inner"><div>
       <a class="m-row" href="#core"><span class="tile ico"><span class="mask" style="--m:url(assets/icon-peb.svg)"></span></span>Pre-Engineered Steel Buildings</a>
-      <a class="m-row" href="#specialize"><span class="tile ico"><span class="mask" style="--m:url(assets/icon-integrated.svg)"></span></span>Integrated Systems</a>
       <a class="m-row" href="#strategize"><span class="tile ico"><span class="mask" style="--m:url(assets/icon-precon.svg)"></span></span>Pre-Construction Services</a>
+      <a class="m-row" href="#specialize"><span class="tile ico"><span class="mask" style="--m:url(assets/icon-integrated.svg)"></span></span>Integrated Systems</a>
     </div></div></div>
   </div>
   <div class="acc" style="--i:1">
