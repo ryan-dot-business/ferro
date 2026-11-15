@@ -1,19 +1,45 @@
-<main class="wf sector" data-view="sector-{{slug}}" aria-labelledby="sx-{{slug}}">
+<main class="wf pg" data-view="sector-{{slug}}" aria-labelledby="sx-{{slug}}">
   <header class="wf-intro">
     <img class="sx-ico" src="assets/sector-{{slug}}.svg" width="56" height="50" alt="" data-in style="--d:240">
-    <p class="eyebrow wf-eyebrow" data-in style="--d:300">Expertise</p>
+    <p class="eyebrow wf-eyebrow" data-in style="--d:300">Sectors</p>
     <h1 class="h-xl" id="sx-{{slug}}" data-in style="--d:380">{{name}}</h1>
     <p class="wf-lede" data-in style="--d:460">{{desc}}</p>
   </header>
 
-  <div class="wf-navy">
-    <figure class="wf-wrap wf-media plx sx-hero" data-in style="--d:520"><img class="img" src="{{img}}" width="1200" height="800" alt="{{alt}}" decoding="async">{{note}}</figure>
-
-    <section class="wf-wrap sx-soon" aria-labelledby="sx-{{slug}}-soon" data-stagger=".eyebrow,.wf-h,.wf-p,.btn" data-step="80">
-      <p class="eyebrow wf-eyebrow">Placeholder page</p>
-      <h2 class="wf-h" id="sx-{{slug}}-soon">More on {{name}} coming soon.</h2>
-      <p class="wf-p">This page will cover Ferro’s work in {{lower}}: the building types we deliver, the requirements we design around, and featured projects.</p>
-      <a class="btn btn-ghost" data-to="sectors" data-page="home" href="#home">Back to all sectors</a>
-    </section>
+  <div class="wf-navy pg-top">
+    <figure class="wf-wrap wf-media plx pg-banner sx-hero" data-in style="--d:520"><img class="img" src="{{img}}" width="1200" height="800" alt="{{alt}}" decoding="async">{{note}}</figure>
   </div>
+
+  <section class="x-sec" aria-label="Challenges and solutions">
+    {{flag}}
+    <div class="wf-wrap x-split" data-stagger=".x-split > div" data-step="120">
+      <div>
+        <p class="x-tag">The challenge</p>
+        <h2 class="wf-h">Complex Challenges</h2>
+        <p class="wf-p">{{challenges}}</p>
+      </div>
+      <div>
+        <p class="x-tag">Our approach</p>
+        <h2 class="wf-h">Strong Solutions</h2>
+        <p class="wf-p">{{solutions}}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="x-sec mist" aria-labelledby="sx-{{slug}}-svc">
+    <div class="x-head" data-stagger=".eyebrow,.h-xl,.wf-p" data-step="70">
+      <p class="eyebrow">How we help</p>
+      <h2 class="h-xl" id="sx-{{slug}}-svc">{{svc_head}}</h2>
+      <p class="wf-p">{{svc_body}}</p>
+    </div>
+    <ul class="wf-wrap x-cards" style="--cols:4" data-stagger=".x-card" data-step="90">
+      {{services}}
+    </ul>
+  </section>
+
+  <section class="x-sec" aria-label="Projects">
+    <!--@shelf sector="{{slug}}" -->
+  </section>
+
+  <!--@cta h="Ready to Get Started?" p="The sooner we understand your project, the more value we can bring to it. That’s true across every sector, so get in touch with our team today to discuss the details." btn="Start The Conversation" img="{{ctaimg}}" -->
 </main>
