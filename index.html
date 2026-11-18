@@ -303,7 +303,7 @@ main{display:flex;flex-direction:column;gap:var(--band-gap);padding-left:max(var
 .standards .media::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(103,78,57,.4) 13%,rgba(103,78,57,0) 58%)}
 .standards .media::after{z-index:2}
 
-.build{display:grid;grid-template-columns:repeat(4,1fr);height:536px;background:var(--navy-800);overflow:hidden}
+.build{display:grid;grid-template-columns:repeat(4,1fr);height:clamp(536px,62svh,760px);background:var(--navy-800);overflow:hidden}
 .col{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:60px 32px 32px;color:#fff;isolation:isolate;min-width:0}
 .col-head{display:flex;flex-direction:column;gap:5px}
 .h-lg{margin:0;font-weight:700;font-size:29px;line-height:1.1;letter-spacing:-.03em}
