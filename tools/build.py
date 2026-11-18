@@ -30,7 +30,7 @@ src = root / "src"
 SITE = "https://ferro.rd-bannon.workers.dev"
 SUFFIX = " — Ferro Steel Building Systems"
 URLS = {"home": "/", "why-ferro": "/why-ferro/"}
-OLD = {"/navy/": "/", "/navy/why-ferro/": "/why-ferro/"}   # retired theme URLs that may still carry review comments
+OLD = {"/navy/": "/", "/navy/why-ferro/": "/why-ferro/", "/sectors/agricultural/": "/sectors/defence/"}   # retired theme URLs that may still carry review comments
 TITLES = {"home": "Ferro — Steel Building Systems", "why-ferro": "Why Ferro" + SUFFIX}
 DESCRIPTIONS = {
     "home": "Ferro Building Systems designs and builds custom pre-engineered steel buildings, backed by a five-year workmanship warranty.",
@@ -45,7 +45,7 @@ SECTORS = [
     ("public-spaces-recreation", "Public Spaces &amp; Recreation", "proj-21-384-0.jpg", "Queen Margaret’s Sports Dome with its timber entry canopy", False, "project-feature.jpg"),
     ("civic-buildings-facilities", "Civic Buildings &amp; Facilities", "proj-21-378-0.jpg", "Vernon Search and Rescue Centre", False, "wf-compliance.jpg"),
     ("commercial", "Commercial", "proj-21-466-0.jpg", "Greenrock Industrial Commercial Centre in Nanaimo", False, "prj-kal-tire.jpg"),
-    ("agricultural", "Agricultural", "broll-1.jpg", "Steel framework against a clear blue sky", True, "svc-core.jpg"),
+    ("defence", "Defence", "broll-1.jpg", "Steel framework against a clear blue sky", True, "proj-20-316-2.jpg"),
     ("industrial", "Industrial", "proj-18-382-0.jpg", "The Axton fabrication facility in Delta", False, "int-crane-wide.jpg"),
 ]
 SECTOR_NAMES = {s[0]: s[1] for s in SECTORS}
@@ -159,8 +159,8 @@ for slug, name, img, alt, ph, ctaimg in SECTORS:
     desc = re.search(r'<h3><a class="sec-go" data-page="sector-' + slug + r'"[^>]*>.*?</a></h3></div><p>(.*?)</p>', page).group(1)
     services = "\n      ".join(f'<li class="x-card"><span class="x-num">{i + 1:02d}</span><h3>{html.escape(t)}</h3><p>{html.escape(b)}</p></li>'
                                for i, (t, b) in enumerate(c["services"]))
-    flag = ('<p class="x-flag-row"><span class="x-flag">Draft · no copy for this sector yet, showing Government &amp; Institutional copy</span></p>'
-            if slug == "public-spaces-recreation" else "")
+    flag = {"public-spaces-recreation": '<p class="x-flag-row"><span class="x-flag">Draft · no copy for this sector yet, showing Government &amp; Institutional copy</span></p>',
+            "defence": '<p class="x-flag-row"><span class="x-flag">Placeholder copy · Ferro to confirm</span></p>'}.get(slug, "")
     key = f"sector-{slug}"
     fill = {"slug": slug, "name": name, "desc": desc, "img": f"assets/{img}", "alt": alt, "note": NOTE if ph else "",
             "challenges": html.escape(c["challenges"]), "solutions": html.escape(c["solutions"]),

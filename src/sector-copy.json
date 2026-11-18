@@ -106,33 +106,6 @@
    ]
   ]
  },
- "agricultural": {
-  "challenges": "Agricultural buildings need to work as hard as the people who use them. Whether they support storage, production, processing, equipment access, crop handling, or aquaculture, they’re expected to be durable, easy to work in, and efficient without adding complexity to the build or daily operations. They also need to account for moisture, insulation, ventilation, natural light, large access points, seasonal demands, future expansion plans, and many other elements that can influence design, supply, and project timelines.",
-  "solutions": "We consider every variable that can influence agricultural buildings, selecting pre-engineered systems that support efficient function and lasting durability. From more straightforward storage buildings to specialized production and conservation structures, we align the frame, envelope, openings, insulation, and everything else with the operation's requirements. We’re here to bring practical guidance to the details that matter, adding clarity without complicating the project. The result is a structure that supports productivity, protects people and assets, and performs reliably day after day.",
-  "svc_head": [
-   "How We Support",
-   "Agricultural Builds"
-  ],
-  "svc_body": "In this sector, buildings need to balance cost, function, durability, and long-term use. To meet these goals, we bring metal building expertise and deep sector knowledge to help owners, contractors, and project teams get more from the structure from the very start.",
-  "services": [
-   [
-    "Flexible Spaces",
-    "Pre-engineered metal buildings are perfectly suited to agricultural spaces that need room for storage, equipment, processing, production, or a combination of these uses. By defining the right layout, clearances, and structural requirements up front, the building supports stronger operations down the line."
-   ],
-   [
-    "Access & Openings",
-    "Large overhead doors, windows, louvres, and framed openings can all affect a building’s performance. We coordinate each of these components as needed to ensure access, natural light, ventilation, and workflows are considered as part of the full building system before any physical building begins."
-   ],
-   [
-    "Envelope & Insulation",
-    "Agricultural environments can place specific demands on the building envelope that need to be accounted for. We support informed decisions around roof systems, wall panels, insulation, vapour barriers, and other crucial components to ensure the structure performs even in challenging conditions."
-   ],
-   [
-    "Adaptable Systems",
-    "Agricultural needs can change over time, and the building should be able to support that growth where possible. That’s a practical advantage for steel and aluminum buildings, as they offer durability, open space, and efficient construction to adapt across a wide range of agricultural applications."
-   ]
-  ]
- },
  "commercial": {
   "challenges": "Commercial projects need to balance function, budget, appearance, schedule, and long-term usability. Some buildings just need a large open space for operations. But others? They need offices, storefront glazing, mezzanines, overhead doors, customer-facing finishes, or room to expand as the business grows. That mix makes early planning paramount. A commercial steel building should not only fit the site and budget, but support how the business operates, how employees and customers move through the space, and how the structure may need to change over time.",
   "solutions": "To build for business, we provide pre-engineered building systems that are practical, flexible, and scalable as needs and situations change. We work closely with project teams to align the structure, envelope, openings, finishes, and accessories with the intended use of the space. Whether the project is a new facility, an expansion, a shop, a warehouse, a mixed-use business space, or a customer-facing building, our role is to turn commercial requirements into consistently reliable structures that support the operations within them.",
@@ -184,6 +157,33 @@
    [
     "Durable by Design",
     "Sites and surrounding environments can place additional demands on the building envelope, materials, finishes, and coatings. We work together with project teams to consider durability, exposure, insulation, corrosion resistance, and long-term maintenance needs to ensure the structure stands strong for years to come."
+   ]
+  ]
+ },
+ "defence": {
+  "challenges": "Defence facilities carry layers of requirements beyond typical commercial work: security and access controls, specific structural and post-disaster performance criteria, procurement rules, and documentation that has to satisfy several reviewers before work can proceed. Schedules are often fixed, sites can be remote or active, and there’s little room for interpretation errors.",
+  "solutions": "We bring disciplined documentation, clear communication, and deep metal building expertise to defence projects. Working with prime contractors and consultants early, we clarify specifications, security and site protocols, and approval paths, then coordinate design, manufacturing, and installation so the structure meets requirements the first time it’s reviewed.",
+  "svc_head": [
+   "Facilities Built Around",
+   "Defence Requirements"
+  ],
+  "svc_body": "From vehicle and equipment maintenance to storage and training, we deliver pre-engineered metal buildings that support the operational demands of defence and security organizations.",
+  "services": [
+   [
+    "Hangars & Maintenance",
+    "Large clear spans, oversized doors, and crane-ready frames for aircraft, vehicles, and equipment that need room to move and be serviced."
+   ],
+   [
+    "Secure Storage",
+    "Warehousing and storage buildings planned around access control, durable envelopes, and the specific requirements of what’s stored inside."
+   ],
+   [
+    "Training & Support",
+    "Training spaces, offices, and support buildings that combine pre-engineered efficiency with the layouts and finishes each base needs."
+   ],
+   [
+    "Specification-Driven Delivery",
+    "Submittals, inspection records, and close-out documentation organized to satisfy defence reviewers and keep approvals moving."
    ]
   ]
  }
