@@ -906,9 +906,8 @@ main[data-view]:not([data-view="home"]){display:none}
 
 /* hero grows with tall windows (70% of the viewport) but never drops below the designed 690px */
 .band.hero{height:max(690px,70svh)}
-/* contained sections: services and Elevated Standards sit in the 1200px column, 50px apart, under a full-bleed hero */
-main > .contained{width:min(1200px,100% - 2 * var(--inner));margin-inline:auto;margin-top:50px}
-main > .contained + .sectors{padding-top:90px}
+/* hero, services and Elevated Standards run full width, stacked edge to edge */
+main > .standards + .sectors{padding-top:90px}
 
 /* ---------- tablet ---------- */
 @media (max-width:1100px){
@@ -962,8 +961,7 @@ main > .contained + .sectors{padding-top:90px}
   .h-lg{font-size:26px}
   .sectors-head{padding:0 4px}
   .sectors{padding-block:56px 80px;gap:28px}
-  main > .contained{margin-top:16px}
-  main > .contained + .sectors{padding-top:56px}
+  main > .standards + .sectors{padding-top:56px}
   .sec-a{--w:calc(100vw - 2 * var(--inner) - 40px);--gap:10px}
   .sec-a .sec-cap{padding-inline:4px}
   .sec-b .sec-round{display:none}
@@ -1169,7 +1167,7 @@ main > .contained + .sectors{padding-top:90px}
     </div>
   </section>
 
-  <section class="build on-dark contained" id="build" aria-label="Services" data-stagger=".col-head,.col-foot" data-step="70" data-base="380">
+  <section class="build on-dark" id="build" aria-label="Services" data-stagger=".col-head,.col-foot" data-step="70" data-base="380">
     <div style="--c:0" class="col c0">
       <div class="media"><img class="img" src="/assets/better-together.jpg" alt="Ironworker on a lift fastening a steel beam" loading="lazy" decoding="async"></div>
       <div class="col-head"><p class="eyebrow">Services</p><h2 class="h-lg">Build your<br>confidence<br>with steel.</h2></div>
@@ -1203,7 +1201,7 @@ main > .contained + .sectors{padding-top:90px}
     </div>
   </section>
 
-  <section class="band standards on-dark contained" aria-labelledby="h-std">
+  <section class="band standards on-dark" aria-labelledby="h-std">
     <div class="media"><img class="img" src="/assets/standards-2000.jpg" srcset="/assets/standards-1200.jpg 1200w, /assets/standards-2000.jpg 2000w" sizes="100vw" alt="Aerial view of a Ferro steel building under construction in a forest clearing" loading="lazy" decoding="async"></div>
     <div class="copy" data-stagger=".eyebrow,.h-xl,.sub,.ctas">
       <div class="copy-text">
